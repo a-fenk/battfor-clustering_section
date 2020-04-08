@@ -1,7 +1,10 @@
+import multiprocessing
 import re
 import sys
 import time
 from datetime import datetime, timedelta
+
+import pandas as pd
 
 import requests
 from bs4 import BeautifulSoup
@@ -12,18 +15,20 @@ from all_constants import TOKEN_YM, SITE_MAP, API_XMLRIVER
 from helping_functions import tag_to_string, change_mask, masked, stemmed, json_work, get_request_to_ya, \
     check_except_url
 
+
 ''' Основная логика'''
 
 
-def init(l):
-    global lock
-    lock = l
+# def init(l):
+#     global lock
+
+lock = multiprocessing.Lock()
 
 
 class AllSection:
     def __init__(self, sitemap=None):
         self.sitemap = sitemap
-        self.list_url = []
+        self.list_url = pd.Series()
         self.all_section = json_work("other_files/all_section2.json", 'r')
         self.count_river = 0
         self.trying_freq = 0
@@ -87,6 +92,12 @@ class AllSection:
             print(f"Ошибка: {resp_json}")
             return None
 
+    def get_sources(self):
+        url = []
+        for item in self.all_section:
+            url.append(item["source"])
+        return pd.Series(url)
+
     # Получение частоты из вордстат
     def get_frequency(self, phrase):
         id_ = self.create_wordstat_analytics(phrase)
@@ -117,7 +128,7 @@ class AllSection:
             section = re.search(r'https://redsale.by/sections\S*', url)
             if section is None and check_except_url(url):
                 list_url.append(url)
-        return list_url
+        return pd.Series(list_url)
 
     def check_freq(self):
         if len(self.all_section) >= 100:
@@ -160,6 +171,8 @@ class AllSection:
 
         if status == "WAIT":
             time.sleep(2)
+            print(multiprocessing.current_process())
+            print (multiprocessing.current_process())
             print(f"Ждём SERP по {text}")
             return self.get_xml_river(id_, text)
 
@@ -190,8 +203,8 @@ class AllSection:
                 if f'{item["maska"]["without_minsk"]} цена' == item1["Phrase"] or \
                         item["maska"]["with_minsk"] == item1["Phrase"]:
                     item["frequency"]["basic"] += item1["Shows"]
-                elif f'"{item["without_minsk"]} цена"' == item1["Phrase"] or \
-                        f'"{item["with_minsk"]}"' == item1["Phrase"]:
+                elif f'"{item["maska"]["without_minsk"]} цена"' == item1["Phrase"] or \
+                        f'"{item["maska"]["with_minsk"]}"' == item1["Phrase"]:
                     item["frequency"]["accurate"] += item1["Shows"]
 
         json_work("all_section2.json", "w", self.all_section)
@@ -206,8 +219,8 @@ class AllSection:
 
             list_ = [f'{item["maska"]["without_minsk"]} цена',
                      item["maska"]["with_minsk"],
-                     f'"{item["with_minsk"]}"',
-                     f'"{item["without_minsk"]} цена"'
+                     f'"{item["maska"]["with_minsk"]}"',
+                     f'"{item["maska"]["without_minsk"]} цена"'
                      ]
 
             tmp_list.extend(list_)
@@ -237,6 +250,7 @@ class AllSection:
         template_for_sections["frequency"] = frequency
 
         # print(template_for_sections)
+
         return template_for_sections
 
     # Получение количества вхождений
@@ -291,17 +305,44 @@ class AllSection:
         finally:
             lock.release()
 
-            print('Записан в файл')
+        print('Записан в файл')
 
     # Проверка актуальности sitemap
+
+    # def check_sitemap(self):
+    #     for idx, item in enumerate(self.all_section):
+    #     sources_in_json = self.get_sources()
+    #     if self.list_url in sources_in_json:
+    #         pass
+    #     elif
+    #     for idx, item in enumerate(self.all_section):
+    #         if item["source"] in self.list_url:
+    #             print(f"url {item['source']} уже находится в json")
+    #         else:
+    #             print(f"url {item['source']} был удален из json")
+    #             self.all_section.pop(idx)  # Удаление url не существующего в sitemap
+    #        json_work("other_files/all_section2.json", "w", self.all_section)  # Обновление allsection
+
     def check_sitemap(self):
+        sources_json = self.get_sources()
+        last_index = self.list_url.tail(1).index.item()     # индекс последнего эл-та массива эл-ов sitemap
+        self.list_url = self.list_url.append(sources_json, ignore_index=True)
+        self.list_url = self.list_url.drop_duplicates(keep=False)
         for idx, item in enumerate(self.all_section):
-            if item["source"] in self.list_url:
-                self.list_url.remove(item["source"])
+            if (self.list_url.isin([item['source']])).any():
+                print(f"url {item['source']} был удален из json")
+                # self.all_section.pop(idx)     # удаление выключено для наглядности работоспособности
+        json_work("other_files/all_section2.json", "w", self.all_section)
+        print (f'Последний важный индекс: {last_index}')
+        for i in range(0, last_index):
+            try:
+                self.list_url[i]
+            except KeyError:
+                print (f'В элементе с индексом {i} ничего нет')
             else:
-                print(f"url {item['source']} был добавлен sitemap")
-                self.all_section.pop(idx)  # Удаление url не существующего в sitemap
-                json_work("other_files/all_section2.json", "w", self.all_section)  # Обновление allsection
+                self.get_h1_from_url(self.list_url[i])
+                print(f'Элемент с индексом {i} добавлен в json')
+
 
     # обновление serp sitemap
     def update_serp(self):
@@ -315,24 +356,29 @@ class AllSection:
 
             frequency["basic"] = basic_freq
             frequency["accurate"] = accurate_freq
-            item["SERP"] = self.xml_river(item["maska"]["with_minsk"])
             item["frequency"] = frequency
 
         json_work("other_files/all_section2.json", "w", self.all_section)
 
     # Порядок запуска функций
     def run(self, update=False):
-        if update:  # Если в командной строке есть update то обновляем serp
-            self.update_serp()
+        self.list_url = self.get_sitemap(self.sitemap)
+        if update:  # Если в командной строке есть update то обновляем all_section
+            self.check_sitemap()
+            # self.update_serp() # Полное обновление информации
+            l = Lock()
+            p = Pool(initializer=init, initargs=(lock,), processes=10)
+            p.map(self.get_h1_from_url, self.list_url)
+            p.join()
+            p.close()
 
         else:
-            self.list_url = self.get_sitemap(self.sitemap)
-            self.check_sitemap()
-            l = Lock()
-            p = Pool(initializer=init, initargs=(l,), processes=5)
+            p = Pool(initializer=init, initargs=(lock,), processes=10)
             p.map(self.get_h1_from_url, self.list_url)
-            p.close()
             p.join()
+            p.close()
+
+
             # self.get_h1_from_url("https://redsale.by/remont-tehniki/mikseryi/tag/vihr")
 
 
@@ -344,5 +390,7 @@ if __name__ == "__main__":
     all_section = AllSection(SITE_MAP)
     if update == "update":
         all_section.run(update=True)
+
+
     else:
         all_section.run()

@@ -47,8 +47,8 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 153,
-      "accurate": 4
+      "basic": 1224,
+      "accurate": 32
     }
   },
   {
@@ -99,8 +99,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 32,
-      "accurate": 3
+      "basic": 256,
+      "accurate": 24
     }
   },
   {
@@ -148,7 +148,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 24,
+      "basic": 192,
       "accurate": 0
     }
   },
@@ -200,8 +200,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 5,
-      "accurate": 5
+      "basic": 40,
+      "accurate": 40
     }
   },
   {
@@ -252,8 +252,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 37,
-      "accurate": 3
+      "basic": 296,
+      "accurate": 24
     }
   },
   {
@@ -304,8 +304,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 99,
-      "accurate": 13
+      "basic": 792,
+      "accurate": 104
     }
   },
   {
@@ -356,7 +356,7 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 114,
+      "basic": 912,
       "accurate": 0
     }
   },
@@ -561,8 +561,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 10,
-      "accurate": 1
+      "basic": 80,
+      "accurate": 8
     }
   },
   {
@@ -613,7 +613,7 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 3,
+      "basic": 24,
       "accurate": 0
     }
   },
@@ -665,8 +665,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 3,
-      "accurate": 3
+      "basic": 24,
+      "accurate": 24
     }
   },
   {
@@ -766,7 +766,7 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 7,
+      "basic": 56,
       "accurate": 0
     }
   },
@@ -870,7 +870,7 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 13,
+      "basic": 104,
       "accurate": 0
     }
   },
@@ -922,8 +922,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 4,
-      "accurate": 1
+      "basic": 32,
+      "accurate": 8
     }
   },
   {
@@ -974,8 +974,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 13,
-      "accurate": 4
+      "basic": 104,
+      "accurate": 32
     }
   },
   {
@@ -1026,8 +1026,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 3,
-      "accurate": 1
+      "basic": 24,
+      "accurate": 8
     }
   },
   {
@@ -1078,7 +1078,7 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 8,
+      "basic": 64,
       "accurate": 0
     }
   },
@@ -1127,7 +1127,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 14,
+      "basic": 112,
       "accurate": 0
     }
   },
@@ -1228,8 +1228,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 130,
-      "accurate": 5
+      "basic": 1040,
+      "accurate": 40
     }
   },
   {
@@ -1280,8 +1280,8 @@
     },
     "heading_entry": 9,
     "frequency": {
-      "basic": 31,
-      "accurate": 3
+      "basic": 248,
+      "accurate": 24
     }
   },
   {
@@ -1332,8 +1332,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 113,
-      "accurate": 59
+      "basic": 904,
+      "accurate": 472
     }
   },
   {
@@ -1384,8 +1384,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 293,
-      "accurate": 10
+      "basic": 2344,
+      "accurate": 80
     }
   },
   {
@@ -1436,7 +1436,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 10,
+      "basic": 80,
       "accurate": 0
     }
   },
@@ -1488,7 +1488,7 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 9,
+      "basic": 72,
       "accurate": 0
     }
   },
@@ -1540,8 +1540,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 85,
-      "accurate": 1
+      "basic": 680,
+      "accurate": 8
     }
   },
   {
@@ -1592,8 +1592,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 2,
-      "accurate": 1
+      "basic": 16,
+      "accurate": 8
     }
   },
   {
@@ -1644,7 +1644,7 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 427,
+      "basic": 3416,
       "accurate": 0
     }
   },
@@ -1748,7 +1748,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 141,
+      "basic": 1128,
       "accurate": 0
     }
   },
@@ -1800,8 +1800,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 7,
-      "accurate": 2
+      "basic": 56,
+      "accurate": 16
     }
   },
   {
@@ -1852,8 +1852,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 7,
-      "accurate": 1
+      "basic": 56,
+      "accurate": 8
     }
   },
   {
@@ -1904,8 +1904,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 157,
-      "accurate": 15
+      "basic": 1256,
+      "accurate": 120
     }
   },
   {
@@ -1953,7 +1953,7 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 1,
+      "basic": 8,
       "accurate": 0
     }
   },
@@ -2005,8 +2005,8 @@
     },
     "heading_entry": 9,
     "frequency": {
-      "basic": 457,
-      "accurate": 16
+      "basic": 3656,
+      "accurate": 128
     }
   },
   {
@@ -2057,7 +2057,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 5,
+      "basic": 40,
       "accurate": 0
     }
   },
@@ -2109,7 +2109,7 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 4,
+      "basic": 32,
       "accurate": 0
     }
   },
@@ -2161,7 +2161,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 10,
+      "basic": 80,
       "accurate": 0
     }
   },
@@ -2213,8 +2213,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 17,
-      "accurate": 11
+      "basic": 136,
+      "accurate": 88
     }
   },
   {
@@ -2265,8 +2265,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 193,
-      "accurate": 4
+      "basic": 1544,
+      "accurate": 32
     }
   },
   {
@@ -2369,7 +2369,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 17,
+      "basic": 136,
       "accurate": 0
     }
   },
@@ -2421,8 +2421,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 6,
-      "accurate": 1
+      "basic": 48,
+      "accurate": 8
     }
   },
   {
@@ -2473,8 +2473,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 88,
-      "accurate": 19
+      "basic": 704,
+      "accurate": 152
     }
   },
   {
@@ -2525,8 +2525,8 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 13,
-      "accurate": 1
+      "basic": 104,
+      "accurate": 8
     }
   },
   {
@@ -2577,8 +2577,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 188,
-      "accurate": 7
+      "basic": 1504,
+      "accurate": 56
     }
   },
   {
@@ -2629,8 +2629,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 1947,
-      "accurate": 80
+      "basic": 15576,
+      "accurate": 640
     }
   },
   {
@@ -2681,7 +2681,7 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 1,
+      "basic": 8,
       "accurate": 0
     }
   },
@@ -2733,7 +2733,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 1,
+      "basic": 8,
       "accurate": 0
     }
   },
@@ -2785,8 +2785,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 24,
-      "accurate": 1
+      "basic": 192,
+      "accurate": 8
     }
   },
   {
@@ -2886,7 +2886,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 5,
+      "basic": 40,
       "accurate": 0
     }
   },
@@ -2990,7 +2990,7 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 2,
+      "basic": 16,
       "accurate": 0
     }
   },
@@ -3094,8 +3094,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 2,
-      "accurate": 1
+      "basic": 16,
+      "accurate": 8
     }
   },
   {
@@ -3146,7 +3146,7 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 1,
+      "basic": 8,
       "accurate": 0
     }
   },
@@ -3198,8 +3198,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 5,
-      "accurate": 1
+      "basic": 40,
+      "accurate": 8
     }
   },
   {
@@ -3302,8 +3302,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 561,
-      "accurate": 41
+      "basic": 4488,
+      "accurate": 328
     }
   },
   {
@@ -3354,8 +3354,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 6,
-      "accurate": 3
+      "basic": 48,
+      "accurate": 24
     }
   },
   {
@@ -3406,7 +3406,7 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 42,
+      "basic": 336,
       "accurate": 0
     }
   },
@@ -3458,8 +3458,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 6,
-      "accurate": 3
+      "basic": 48,
+      "accurate": 24
     }
   },
   {
@@ -3510,8 +3510,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 241,
-      "accurate": 18
+      "basic": 1928,
+      "accurate": 144
     }
   },
   {
@@ -3562,8 +3562,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 18,
-      "accurate": 5
+      "basic": 144,
+      "accurate": 40
     }
   },
   {
@@ -3614,8 +3614,8 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 3,
-      "accurate": 1
+      "basic": 24,
+      "accurate": 8
     }
   },
   {
@@ -3666,8 +3666,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 6,
-      "accurate": 2
+      "basic": 48,
+      "accurate": 16
     }
   },
   {
@@ -3718,8 +3718,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 9,
-      "accurate": 2
+      "basic": 72,
+      "accurate": 16
     }
   },
   {
@@ -3770,7 +3770,7 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 24,
+      "basic": 192,
       "accurate": 0
     }
   },
@@ -3816,7 +3816,7 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 1,
+      "basic": 8,
       "accurate": 0
     }
   },
@@ -3868,8 +3868,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 13,
-      "accurate": 1
+      "basic": 104,
+      "accurate": 8
     }
   },
   {
@@ -3972,8 +3972,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 17,
-      "accurate": 5
+      "basic": 136,
+      "accurate": 40
     }
   },
   {
@@ -4024,8 +4024,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 62,
-      "accurate": 12
+      "basic": 496,
+      "accurate": 96
     }
   },
   {
@@ -4076,7 +4076,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 2,
+      "basic": 16,
       "accurate": 0
     }
   },
@@ -4177,7 +4177,7 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 10,
+      "basic": 80,
       "accurate": 0
     }
   },
@@ -4281,8 +4281,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 186,
-      "accurate": 1
+      "basic": 1488,
+      "accurate": 8
     }
   },
   {
@@ -4333,7 +4333,7 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 5,
+      "basic": 40,
       "accurate": 0
     }
   },
@@ -4434,7 +4434,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 3,
+      "basic": 24,
       "accurate": 0
     }
   },
@@ -4486,8 +4486,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 65,
-      "accurate": 26
+      "basic": 520,
+      "accurate": 208
     }
   },
   {
@@ -4535,7 +4535,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 4,
+      "basic": 32,
       "accurate": 0
     }
   },
@@ -4893,8 +4893,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 39,
-      "accurate": 4
+      "basic": 312,
+      "accurate": 32
     }
   },
   {
@@ -4945,8 +4945,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 18,
-      "accurate": 2
+      "basic": 144,
+      "accurate": 16
     }
   },
   {
@@ -4997,8 +4997,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 315,
-      "accurate": 37
+      "basic": 2520,
+      "accurate": 296
     }
   },
   {
@@ -5049,7 +5049,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 4,
+      "basic": 32,
       "accurate": 0
     }
   },
@@ -5101,7 +5101,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 3,
+      "basic": 24,
       "accurate": 0
     }
   },
@@ -5153,7 +5153,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 1,
+      "basic": 8,
       "accurate": 0
     }
   },
@@ -5513,367 +5513,6 @@
     "frequency": {
       "basic": 51,
       "accurate": 0
-    }
-  },
-  {
-    "h1": "Сверление отверстий в зеркале в Минске",
-    "maska": {
-      "with_minsk": "сверление отверстий в зеркале минск",
-      "without_minsk": "сверление отверстий в зеркале "
-    },
-    "stemming": "сверлен отверст в зеркал",
-    "source": "https://redsale.by/remont/stekolnyie-rabotyi/sverlenie-v-stekle/tag/zerkalo",
-    "SERP": {
-      "url": [
-        "https://steklofest.by/sverlenie",
-        "http://fabulit.by/uslugi/sverlenie-otverstij/",
-        "https://samelgosteklo.by/uslugi/sverlenie-otverstij-v-stekle/",
-        "https://awb.by/index.php?option=com_contentamp;view=articleamp;id=65amp;Itemid=141",
-        "https://samelgoplus.by/hole.html",
-        "https://steklodom.by/uslugi/sverlenie-otverstij-na-stekle/",
-        "https://interglass.by/services/sverlenie-otverstij",
-        "http://worldglassco.by/sverlenie-otversty",
-        "https://stekloplus.by/uslugi/uslugi-obrabotki-stekla/sverlenie-stekla/",
-        "http://msteklo.by/mekhanicheskaya-obrabotka-stekla/sverlenie-otverstij"
-      ],
-      "title": [
-        "Сверление отверстий в стекле и зеркале, Минск | Разные ...",
-        "Сверление отверстий в стекле и зеркалах - Фабулит",
-        "Сверление отверстий в стекле в Минске Самелго Плюс ...",
-        "Сверление стекла - Продажа стекла, зеркала в Минске ...",
-        "Сверление отверстий стекла и зеркал ... - Стекло в Минске",
-        "Сверление отверстий в стекле и зеркалах в Минске",
-        "Сверление отверстий стекла в Минске, цены",
-        "Сверление стекла, сверление зеркала, сверление отверстий в ...",
-        "Сверление отверстий в стекле в Минске. Резка стекла.",
-        "Сверление отверстий - Продажа стекла, зеркал, скинали ..."
-      ],
-      "description": [
-        "Сверление стекол и зеркал разной толщины в компании «СтеклоФэст», Минск. Просверлить отверстия разного ...",
-        "Сверление отверстий в стекле и… Необходимость проделать отверстие в полотне стекла или зеркала возникает ...",
-        "Закажите услугу по сверлению отверстий в стекле. ➜ 93% клиентов нас ☑ рекомендуют. ✓ Цены Вас удивят.",
-        "Сверление отверстий в стекле - очень ответственная, технологическая операция, т.к. стекло хрупкий, ...",
-        "Сверление отверстий в стекле и зеркале выполняется с помощью сверла диаметром от 4 до 100 мм.",
-        "Сверление отверстий на стекле с помощью профессионального оборудования. Заказывайте услугу по телефону ...",
-        "Сверление отверстий в стекле — совершенно необходимая процедура при многих монтажно-стекольных ...",
-        "Сверление стекла. Сверление зеркала. Сверление сквозных отверстий в стекле. Услуги в Минске.",
-        "Услуга сверление отверстий в стекле нужного диаметра в Минске. Сверления отверстий в стекле под крепеж, ...",
-        "Сверление отверстий в стекле и сверление отверстий в зеркале - одно из направлений нашей деятельности."
-      ]
-    },
-    "heading_entry": 6,
-    "frequency": {
-      "basic": 0,
-      "accurate": 0
-    }
-  },
-  {
-    "h1": "Фацет зеркал в Минске",
-    "maska": {
-      "with_minsk": "фацет зеркал минск",
-      "without_minsk": "фацет зеркал "
-    },
-    "stemming": "фацет зерка",
-    "source": "https://redsale.by/remont/stekolnyie-rabotyi/obrabotka-stekla/tag/fatset-zerkal",
-    "SERP": {
-      "url": [
-        "https://steklofest.by/facet",
-        "http://mirrors.by/catalog/zerkalo-s-fatsetom-aktsiya",
-        "https://steklo.nebo.by/gallery/zerkala/facet.php",
-        "http://msteklo.by/mekhanicheskaya-obrabotka-stekla/fatset",
-        "https://samelgoplus.by/fazet.html",
-        "https://steklodom.by/uslugi/fatset-zerkala/",
-        "http://fabulit.by/uslugi/izdeliya-s-fatsetom/",
-        "http://worldglassco.by/",
-        "https://www.zerkala-minsk.by/article/zerkala-s-faczetom.html"
-      ],
-      "title": [
-        "Фацет на стекле и зеркале | Заказать фацет в Минске",
-        "Зеркало с фацетом | Купить Зеркало с фацетом на заказ в ...",
-        "Зеркало с фацетом на заказ в Минске - фото и цены",
-        "Фацет - Продажа стекла, зеркал, скинали, аквариумов в Минске ...",
-        "Фацет на зеркалах и стекле. Зеркальное ... - Стекло в Минске",
-        "Фацета на стекле | Стоимость обработки зеркала фацетом",
-        "Зеркала с фацетом. Изготовление зеркал с фацетом под заказ в ...",
-        "Стекло с фацетом Минск, зеркало с фацетом Минск ...",
-        "Зеркала с фацетом в Минске – способ разнообразить интерьер ..."
-      ],
-      "description": [
-        "Фацет. Фацет стекла и зеркал. Оставьте свои данные и мы свяжемся с Вами в ближайшее время. Отправить.",
-        "... разнообразные варианты зеркал с фацетом. Купить Зеркало с фацетом на заказ в Минске по выгодной цене.",
-        "Изготовим для вас зеркало с фацетом или зеркальные панно. Любые размеры. Смотрите фото в каталоге и ...",
-        "Компания СтеклоХаус предлагает услуги по изготовлению фацета на стеклах и зеркалах. Прямолинейный и ...",
-        "Зеркальное панно, оригинальные зеркала с фацетом, панно из зеркал на заказ. Компании производят готовые ...",
-        "Фацет любого по очертаниям зеркала, стекла представляет собой обработку ... Чтобы заказать фацет в Минске:.",
-        "Фацет – это способ декоративной обработки зеркала или стекла, представляющий из себя скошенную полосу, ...",
-        "Фацет на стекле, изделия с фацетом Минск, зеркальный фацет, фацет под заказ Минск, фацет широкий от 5 до 45 мм, зеркала с фацетом под заказ.",
-        "Среди многочисленных способов обработки зеркал фацет заслуженно считается одним из самых необычных и ..."
-      ]
-    },
-    "heading_entry": 9,
-    "frequency": {
-      "basic": 53,
-      "accurate": 1
-    }
-  },
-  {
-    "h1": "Шлифовка стекла в Минске",
-    "maska": {
-      "with_minsk": "шлифовка стекла минск",
-      "without_minsk": "шлифовка стекла "
-    },
-    "stemming": "шлифовк стекл",
-    "source": "https://redsale.by/remont/stekolnyie-rabotyi/obrabotka-stekla/shlifovka-stekla",
-    "SERP": {
-      "url": [
-        "https://interglass.by/services/obrabotka-stekla",
-        "http://steklo.maxi.by/production-services/6590019/shlifovka-stekla.html",
-        "http://www.carxp.by/polirovka-stekla/",
-        "http://msteklo.by/mekhanicheskaya-obrabotka-stekla/polirovka-i-shlifovka-kromki-stekla",
-        "https://samelgoplus.by/grinding.html",
-        "http://xn----itbkgcdijf0aid.xn--90ais/шлифовка-и-полировка-кромки-стекла-в-м/",
-        "https://stekloplus.by/uslugi/uslugi-obrabotki-stekla/obrabotka-kromki-stekla/",
-        "https://steklohit.by/uslugi/obrabotka-kromki",
-        "https://steklofest.by/obrabotka",
-        "https://steklofest.by/"
-      ],
-      "title": [
-        "Обработка, полировка и шлифовка стекла в Минске, цены",
-        "Шлифовка стекла - \"ПРЕСМАН\" ООО Минск - Maxi.by",
-        "Шлифовка и полировка стекла - carxp.by",
-        "Обработка кромки стекла и зеркал в Минске. Шлифовка и ...",
-        "Обработка стекла. Полировка кромки стекла ... - Стекло в Минске",
-        "Шлифовка и полировка кромки стекла в Минске | Купить стекло ...",
-        "Обработка кромки стекла в Минске, шлифовка, полировка.",
-        "Шлифовка и полировка кромки стекла в Минске — Стеклохит",
-        "Обработка кромки стекла и зеркал | Заказать шлифовку в Минске",
-        "Все виды обработки стекла и зеркал под заказ - компания ..."
-      ],
-      "description": [
-        "Обработка,полировка и шлифовка стекла в Минске по низкой цене! Собственный производственный цех.",
-        "Шлифовка стекла - Компания Пресман предлагает купить стекло любых параметров, стеклянную мебель, а так ...",
-        "Восстанавливаем прозрачность стекла по технологии шлифовки и полировки с применением ... Минск, ул. Чечота ...",
-        "Полировка и шлифовка кромки стекла и зеркал в Минске. После резки стекла края его остаются во первых острыми ...",
-        "Услуги по обработке кромки стекла и зеркал. Шлифовка и полировка кромки, доступные цены на обработку ...",
-        "У нас обработка стекла на оборудовании по доступным ценам в срок 3-5 дней.Обработка стекла и зеркал.",
-        "Услуга обработки кромки стекла в Минске. Еврошлифовка, европолировка, фацет. Вырезать стекло в Минске со ...",
-        "Мы предоставляем услугу по обработке кромки стекла и зеркал: европолировке и еврошлифовке. Стоимость от 1 ...",
-        "... кромки зеркал и стекла. Шлифовка кромки стекла и зеркал на заказ в компании «СтеклоФэст» в Минске.",
-        "Все виды обработки стекла в Минске и по всей Беларуси."
-      ]
-    },
-    "heading_entry": 8,
-    "frequency": {
-      "basic": 22,
-      "accurate": 2
-    }
-  },
-  {
-    "h1": "Моллирование стекла в Минске",
-    "maska": {
-      "with_minsk": "моллирование стекла минск",
-      "without_minsk": "моллирование стекла "
-    },
-    "stemming": "моллирован стекл",
-    "source": "https://redsale.by/remont/stekolnyie-rabotyi/obrabotka-stekla/mollirovanie-stekla",
-    "SERP": {
-      "url": [
-        "https://steklofest.by/mollirovanie",
-        "https://izstekla.by/gnutjo-stekla/",
-        "https://izstekla.by/category/uslugi/gnutoye-steklo/",
-        "https://gnutik.steklomir.by/",
-        "http://msteklo.by/termicheskaya-obrabotka-stekla/gnute-stekla-mollirovanie",
-        "https://promopt.by/obrabotka-stekla/mollirovanie-stekla/",
-        "https://stekloplus.by/uslugi/uslugi-obrabotki-stekla/gnute-stekla/",
-        "http://glassdesign.by/gotovye-produkty/zakalennoe-gnutoe-steklo.html",
-        "https://glasslady.by/service.php?id=2",
-        "https://vithouse.by/glass/curved-glass"
-      ],
-      "title": [
-        "Моллирование (гнутье) стекла | Заказать гнутое стекло в Минске",
-        "Моллирование стекла в Минске | Купить гнутое стекло",
-        "Моллирование стекла, гнутое стекло на заказ в Минске",
-        "ГНУТИК Стекломир | гнутие стекла – моллирование",
-        "Моллирование (гнутье) стекла. Согнуть стекло в Минске.",
-        "Моллирование стекла и гнутое стекло от компании ...",
-        "Изготовление гнутого стекла на заказ, гнутье стекла.",
-        "Закаленное гнутое стекло - GlassDesign.by",
-        "Моллирование стекла. Заказать в минске. Компания 'Стеклянная ...",
-        "Гнутое, моллированное стекло - ООО ВитХаус™ - VitHouse"
-      ],
-      "description": [
-        "Производство гнутого стекла. Моллирование стекла на заказ в Минске. Гнутье стекла с разными параметрами в ...",
-        "Выполняем моллирование прозрачного стекла, а так же тонированного ( окрашенного в массе) и матированного ( ...",
-        "Хотите купить гнутое стекло в Минске? ➢ Заказывайте изделия из стекла, зеркала и зеркальную плитку в ...",
-        "гнуть стекло, стекло гнутое, стекло изогнутое под заказ, стекло изогнутое для стенки, стекло изогнутое на заказ, стекло ... Гнутик Стекломир, Минск, Беларусь. Моллирование – гнутие стекла.",
-        "Моллирование (гнутье) стекла в Минске стекла от 4 до 15мм, различные радиусы. Изготовление изделий из ...",
-        "Моллирование стекла - процесс, посредством которого стеклу придается определенная форма. Гнутое стекло ...",
-        "Гнутье стекла в Минске на заказ. Моллирование стекла по низким ценам. Изготовление гнутого стекла на заказ ...",
-        "Достоинства гнутого (моллированного) каленого материала: Полное сохранение светопрозрачности исходного ...",
-        "Перестаньте искать, где заказать моллирование стекла в Минске, ведь вы уже нашли! «Стеклянная леди» ...",
-        "гнутое стекло для производства гнутых стеклопакетов в окнах сложной геометрии ... листового стекла по заданному шаблону называется моллированием. ... Минск проезд Веснина 12-12 220026. vithouse@bk.ru · skype: vithouse.by"
-      ]
-    },
-    "heading_entry": 8,
-    "frequency": {
-      "basic": 0,
-      "accurate": 0
-    }
-  },
-  {
-    "h1": "Обработка кромки стекла в Минске",
-    "maska": {
-      "with_minsk": "обработка кромки стекла минск",
-      "without_minsk": "обработка кромки стекла "
-    },
-    "stemming": "обработк кромк стекл",
-    "source": "https://redsale.by/remont/stekolnyie-rabotyi/obrabotka-stekla/obrabotka-kromki-stekla",
-    "SERP": {
-      "url": [
-        "https://steklofest.by/obrabotka",
-        "https://steklodom.by/uslugi/obrabotka-kromki-stekla/",
-        "http://xn----itbkgcdijf0aid.xn--90ais/шлифовка-и-полировка-кромки-стекла-в-м/",
-        "https://interglass.by/services/obrabotka-stekla",
-        "https://stekloplus.by/uslugi/uslugi-obrabotki-stekla/obrabotka-kromki-stekla/",
-        "https://samelgoplus.by/grinding.html",
-        "http://msteklo.by/mekhanicheskaya-obrabotka-stekla/polirovka-i-shlifovka-kromki-stekla",
-        "https://samelgosteklo.by/uslugi/obrabotka-kromki-stekla/",
-        "http://worldglassco.by/obrabotka-stekla",
-        "https://steklohit.by/uslugi/obrabotka-kromki"
-      ],
-      "title": [
-        "Обработка кромки стекла и зеркал | Заказать шлифовку в Минске",
-        "Обработка кромки стекла в Минске | Обработка кромки зеркала",
-        "Шлифовка и полировка кромки стекла в Минске | Купить стекло ...",
-        "Обработка, полировка и шлифовка стекла в Минске, цены",
-        "Обработка кромки стекла в Минске, шлифовка, полировка.",
-        "Обработка стекла. Полировка кромки стекла ... - Стекло в Минске",
-        "Обработка кромки стекла и зеркал в Минске. Шлифовка и ...",
-        "Обработка кромки стекла в Минск Самелго Плюс обработка ...",
-        "Обработка стекла Минск, обработка стекла под заказ, стекло с ...",
-        "Шлифовка и полировка кромки стекла в Минске — Стеклохит"
-      ],
-      "description": [
-        "Причины для обработки кромки зеркал и стекла. Шлифовка кромки стекла и зеркал на заказ в компании ...",
-        "Чтобы придать стеклу более гармоничный внешний вид, закажите услугу по обработке кромки!",
-        "Обработка кромки позволяет убрать сколы на стекле,притупить края и сделать стекло безопаснее, прочнее.",
-        "Предметом воздействия становятся обработка кромки стекла, оставленные после его раскройки. Все они имеют ...",
-        "Услуга обработки кромки стекла в Минске. Еврошлифовка, европолировка, фацет. Вырезать стекло в Минске со ...",
-        "Услуги по обработке кромки стекла и зеркал. Шлифовка и полировка кромки, доступные цены на обработку ...",
-        "Услуги по обработке кромки стекла и зеркал. Шлифовка и полировка кромки, доступные цены на обработку ...",
-        "Услуга по обработке кромки стекла в Минске. ➜ 93% клиентов нас ☑ рекомендуют. ✓ Цены Вас удивят. Звоните ...",
-        "Обработка кромки стекла это важная операция после резки стекла которая выполняется на изделиях из стекла или ...",
-        "Мы предоставляем услугу по обработке кромки стекла и зеркал: европолировке и еврошлифовке. Стоимость от 1 ..."
-      ]
-    },
-    "heading_entry": 6,
-    "frequency": {
-      "basic": 0,
-      "accurate": 0
-    }
-  },
-  {
-    "h1": "Фацет стекла в Минске",
-    "maska": {
-      "with_minsk": "фацет стекла минск",
-      "without_minsk": "фацет стекла "
-    },
-    "stemming": "фацет стекл",
-    "source": "https://redsale.by/remont/stekolnyie-rabotyi/obrabotka-stekla/fatset-stekla",
-    "SERP": {
-      "url": [
-        "https://steklofest.by/facet",
-        "http://worldglassco.by/",
-        "https://steklodom.by/uslugi/fatset-zerkala/",
-        "https://stekloplus.by/uslugi/uslugi-obrabotki-stekla/fatset-na-stekle/",
-        "http://msteklo.by/mekhanicheskaya-obrabotka-stekla/fatset",
-        "https://deal.by/Fatset-stekla-tsena.html",
-        "https://samelgoplus.by/fazet.html",
-        "http://steklo.maxi.by/production-services/6592290/steklo-s-facetom.html",
-        "https://glasslady.by/service.php?id=11",
-        "http://fabulit.by/uslugi/izdeliya-s-fatsetom/"
-      ],
-      "title": [
-        "Фацет на стекле и зеркале | Заказать фацет в Минске",
-        "Стекло с фацетом Минск, зеркало с фацетом Минск ...",
-        "Фацета на стекле | Стоимость обработки зеркала фацетом",
-        "Изготовить фацет на стекле на заказ в Минске, цены.",
-        "Фацет - Продажа стекла, зеркал, скинали, аквариумов в Минске ...",
-        "Фацет стекла цена в Беларуси. Сравнить цены, купить ...",
-        "Фацет на зеркалах и стекле. Зеркальное ... - Стекло в Минске",
-        "Стекло с фацетом - \"ПРЕСМАН\" ООО Минск - Maxi.by",
-        "Фацет на стекле и зеркале. Заказать в минске. Компания ...",
-        "Зеркала с фацетом. Изготовление зеркал с фацетом под заказ в ..."
-      ],
-      "description": [
-        "Заказать зеркало с фацетом или стекло с фацетом в компании «СтеклоФэст », Минск. Типы фацетов, ...",
-        "Фацет на стекле, изделия с фацетом Минск, зеркальный фацет, фацет под заказ Минск, фацет широкий от 5 до ...",
-        "Нанесение фацета на стекло с помощью профессионального оборудования. ... Чтобы заказать фацет в Минске:.",
-        "Изготовление на заказ фацета на стекле в Минске. Прямолинейный и криволинейный фацет. Заказать фацет на ...",
-        "Ширина фацета зависит от толщины стекла, чем толще стекло, тем шире можно сделать на нем фацет. Помимо ...",
-        "7. Обработка, нарезка стекла. Минская область. Услуга. Цену уточняйте. Написать. Зеркало с фацетом вид 2.",
-        "Фацет - это обработка кромки по лицевой стороне стекла и зеркала путём среза его под углом от 0 до 45 градусов.",
-        "Стекло с фацетом - Компания Пресман предлагает купить стекло любых параметров, стеклянную мебель, а так ...",
-        "Так из стекла или зеркал с фацетом может быть собрано оригинальное панно или даже картина. Фацет может ...",
-        "Фацет – это способ декоративной обработки зеркала или стекла, представляющий из себя скошенную полосу, ..."
-      ]
-    },
-    "heading_entry": 9,
-    "frequency": {
-      "basic": 10,
-      "accurate": 0
-    }
-  },
-  {
-    "h1": "Закалка стекла в Минске",
-    "maska": {
-      "with_minsk": "закалка стекла минск",
-      "without_minsk": "закалка стекла "
-    },
-    "stemming": "закалк стекл",
-    "source": "https://redsale.by/remont/stekolnyie-rabotyi/obrabotka-stekla/zakalka",
-    "SERP": {
-      "url": [
-        "https://steklofest.by/zakalka",
-        "https://interglass.by/services/zakalka-stekla",
-        "http://msteklo.by/termicheskaya-obrabotka-stekla/zakalivanie-stekla",
-        "https://steklodom.by/uslugi/zakalka-stekla/",
-        "https://stekloplus.by/uslugi/uslugi-obrabotki-stekla/zakalka-stekla/",
-        "https://samelgoplus.by/zakalka.html",
-        "http://steklo.maxi.by/production-services/6593711/zakalka-stekla.html",
-        "http://www.enisei.com/article-33.html",
-        "https://steklohit.by/uslugi/zakalka-stekla",
-        "http://fabulit.by/uslugi/zakalka-stekla/"
-      ],
-      "title": [
-        "Закалка стекла в Минске и по всей Беларуси - компания ...",
-        "Закалка стекла в Минске, цены",
-        "Закалка стекла. Безопасное стекло.",
-        "Закалка стекла в Минске | «Стекольный дом»",
-        "Закалить стекло в Минске, закалка стекла на заказ.",
-        "Закалка стекла в Минске. Современная печь. Закалка стекла ...",
-        "Закалка стекла - \"ПРЕСМАН\" ООО Минск - Maxi.by",
-        "Закалка стекла - ЧУП \"Енисей\"",
-        "Закалка стекла в Минске — Заказать закаленное стекло в ...",
-        "Закалка стекла в Минске - Фабулит"
-      ],
-      "description": [
-        "Закалённое стекло — обычно листовое стекло, получаемое нагревом до температуры закалки (650—680°C) с ...",
-        "Закалка стекла в Минске на заказ в Минске по низкой цене! Собственный производственный цех. Высокоточное ...",
-        "Компания СтеклоХаус изготавливает закаленное стекло (безопасное стекло ) в Минске толщиной от 4 до 19мм.",
-        "Закаленное стекло прочнее обычного в 5-6 раз. Закалка стекла происходит в 2 этапа. Сначала материал ...",
-        "... стекло в Минске по низким ценам. Закалка стекла для полов, лестниц, душевых кабин, витрин, навесов, дверей.",
-        "Компании изготавливают закаленное стекло (безопасное стекло) в Минске толщиной от 4 до 19мм. Помимо ...",
-        "Закалка стекла - Компания Пресман предлагает купить стекло любых параметров, стеклянную мебель, а так же ...",
-        "Закалка стекла. Zakalka. В последние годы значительно повысился спрос на стекло закаленное строительного ...",
-        "Качественная закалка стекла в Минске по цене от 16 руб. Создание безопасного стекла на выгодных условиях.",
-        "Процедура закалки стекла. Перед процедурой закаливания стеклянное изделие обрезается до нужных размеров и ..."
-      ]
-    },
-    "heading_entry": 10,
-    "frequency": {
-      "basic": 5,
-      "accurate": 3
     }
   }
 ]
