@@ -24,7 +24,7 @@ class AllSection:
     def __init__(self, sitemap=None):
         self.sitemap = sitemap
         self.list_url = []
-        self.all_section = json_work("other_files/all_section.json", 'r')
+        self.all_section = json_work("other_files/all_section2.json", 'r')
         self.count_river = 0
         self.trying_freq = 0
 
@@ -76,7 +76,7 @@ class AllSection:
             "token": TOKEN_YM,
             "locale": "ru",
         }
-        # print(phrase)
+        print(phrase)
         resp_json = get_request_to_ya(data)
 
         try:
@@ -194,7 +194,7 @@ class AllSection:
                         f'"{item["with_minsk"]}"' == item1["Phrase"]:
                     item["frequency"]["accurate"] += item1["Shows"]
 
-        json_work("all_section.json", "w", self.all_section)
+        json_work("all_section2.json", "w", self.all_section)
 
     def create_request_frequency(self):
         tmp_list = []
@@ -283,11 +283,11 @@ class AllSection:
         data_from_template = [self.generate_template(template)]
         lock.acquire()
         try:
-            data_in_json = json_work("other_files/all_section.json", "r")
+            data_in_json = json_work("other_files/all_section2.json", "r")
 
             if self.check_in_allsection(data_from_template, data_in_json):
                 general_data = data_in_json + data_from_template
-                json_work("other_files/all_section.json", "w", general_data)
+                json_work("other_files/all_section2.json", "w", general_data)
         finally:
             lock.release()
 
@@ -301,24 +301,30 @@ class AllSection:
             else:
                 print(f"url {item['source']} был добавлен sitemap")
                 self.all_section.pop(idx)  # Удаление url не существующего в sitemap
-                json_work("other_files/all_section.json", "w", self.all_section)  # Обновление allsection
+                json_work("other_files/all_section2.json", "w", self.all_section)  # Обновление allsection
 
     # обновление serp sitemap
     def update_serp(self):
         for item in self.all_section:
             frequency = {}
 
-            frequency["basic"] = self.get_frequency(item["with_minsk"])
-            frequency["accurate"] = self.get_frequency(f'"{item["with_minsk"]}"')
+            basic_freq = self.get_frequency([item["maska"]["with_minsk"]])[0]["Shows"]
+            basic_freq += self.get_frequency([f'{item["maska"]["without_minsk"]} цена'])[0]["Shows"]
+            accurate_freq = self.get_frequency([f'"{item["maska"]["with_minsk"]} "'])[0]["Shows"]
+            accurate_freq += self.get_frequency([f'"{item["maska"]["without_minsk"]} цена"'])[0]["Shows"]
+
+            frequency["basic"] = basic_freq
+            frequency["accurate"] = accurate_freq
             item["SERP"] = self.xml_river(item["maska"]["with_minsk"])
             item["frequency"] = frequency
 
-        json_work("other_files/all_section.json", "w", self.all_section)
+        json_work("other_files/all_section2.json", "w", self.all_section)
 
     # Порядок запуска функций
     def run(self, update=False):
         if update:  # Если в командной строке есть update то обновляем serp
             self.update_serp()
+
         else:
             self.list_url = self.get_sitemap(self.sitemap)
             self.check_sitemap()
