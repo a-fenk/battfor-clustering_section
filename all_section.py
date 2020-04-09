@@ -207,7 +207,7 @@ class AllSection:
                         f'"{item["maska"]["with_minsk"]}"' == item1["Phrase"]:
                     item["frequency"]["accurate"] += item1["Shows"]
 
-        json_work("all_section2.json", "w", self.all_section)
+        json_work("other_files/all_section2.json", "w", self.all_section)
 
     def create_request_frequency(self):
         tmp_list = []
@@ -326,7 +326,7 @@ class AllSection:
     def check_sitemap(self):
         sources_json = self.get_sources()
         last_index = self.list_url.tail(1).index.item()     # индекс последнего эл-та массива эл-ов sitemap
-        self.list_url = self.list_url.append(sources_json, ignore_index=True)
+        self.list_url = self.list_url.append(sources_json, ignore_index=True)   # склеиваем 2 с
         self.list_url = self.list_url.drop_duplicates(keep=False)
         for idx, item in enumerate(self.all_section):
             if (self.list_url.isin([item['source']])).any():
