@@ -171,7 +171,6 @@ class AllSection:
 
         if status == "WAIT":
             time.sleep(2)
-            print(multiprocessing.current_process())
             print (multiprocessing.current_process())
             print(f"Ждём SERP по {text}")
             return self.get_xml_river(id_, text)
@@ -331,14 +330,14 @@ class AllSection:
         for idx, item in enumerate(self.all_section):
             if (self.list_url.isin([item['source']])).any():
                 print(f"url {item['source']} был удален из json")
-                # self.all_section.pop(idx)     # удаление выключено для наглядности работоспособности
+                self.all_section.pop(idx)     # удаление элементов, отсутствующих в sitemap
         json_work("other_files/all_section2.json", "w", self.all_section)
         print (f'Последний важный индекс: {last_index}')
         for i in range(0, last_index):
             try:
                 self.list_url[i]
             except KeyError:
-                print (f'В элементе с индексом {i} ничего нет')
+                print (f'В элементе с индексом {i} нет значения')
             else:
                 self.get_h1_from_url(self.list_url[i])
                 print(f'Элемент с индексом {i} добавлен в json')
