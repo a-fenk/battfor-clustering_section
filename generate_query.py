@@ -249,6 +249,7 @@ class Queries:
                 main = json_work("other_files/main.json", "r")
                 work = json_work("other_files/work_file.json", "r")
                 gen_data = main + work
+                gen_data = sorted(gen_data, key=lambda x: x["frequency"]["accurate"], reverse=True)
                 json_work("other_files/main.json", "w", gen_data)
 
         print("Завершено")
