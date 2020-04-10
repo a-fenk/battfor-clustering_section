@@ -6,18 +6,18 @@ from openpyxl import Workbook, load_workbook
 
 from helping_functions import json_work, split_list
 
-data = json_work("other_files/main (3).json", "r")
+data = json_work("other_files/main.json", "r")
 
 
 
 
 class Clasterization:
-    def __init__(self, work_file, url, sheet_name="sheet", name_doc="file_"):
+    def __init__(self, work_file, sheet_name="sheet", name_doc="file_"):
         self.work_file = work_file
         self.list_query = []
         self.name_sheet = sheet_name
         self.name_doc = name_doc
-        self.url = url
+        # self.url = url
 
     # Получаем список урлов из work
     def get_dict_from_work(self):
@@ -25,7 +25,7 @@ class Clasterization:
             self.list_query.append(item["maska"]["with_minsk"])
 
     def set_claster(self, list_in):
-        tmp_list = []
+        tmp_list = []   # входящие в кластер
         for query in list_in:
             query_urls = self.get_data(query)["SERP"]["url"]
             for query1 in list_in:
@@ -150,7 +150,7 @@ class Clasterization:
         sheet["F2"] = "H1"
         sheet["F2"].style = "Good"
         sheet.merge_cells("A1:F1")
-        sheet["A1"] = self.url
+        #sheet["A1"] = self.url
         header = sheet["A1"]
         header.style = "Note"
         idx = 3
@@ -199,5 +199,5 @@ class Clasterization:
 
 
 if __name__ == "__main__":
-    claster = Clasterization(data, "this_url____")
+    claster = Clasterization(data)
     claster.run()

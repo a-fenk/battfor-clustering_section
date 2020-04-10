@@ -24,9 +24,9 @@ url_ = ["https://redsale.by/remont/poshiv-odezhdy/poshiv-bryuk",
         "https://redsale.by/remont/poshiv-odezhdy/poshiv-bryuk"]
 
 
-def init(l):
-    global lock
-    lock = l
+# def init(l):
+#     global lock
+#     lock = l
 
 
 class Queries:
@@ -43,20 +43,18 @@ class Queries:
         url_ = url
         url = f"https://api-metrika.yandex.net/stat/v1/data/comparison?" \
               f"end-date=2020-03-31&" \
-              f"ids={id_metrika}&"\
+              f"ids={id_metrika}&" \
               f"metrics=ym:pv:pageviews&" \
               f"start-date=2020-03-01&" \
               f"dimension=pagePath=='{url_}'"
 
-
         response = requests.get(url=url, headers={"Authorization": f"OAuth {TOKEN_YM}"})
-        print(response.text)
 
     # Получение ключевых фраз из GSC
     def get_keys_from_gls(self, url):
         request = {
             "startDate": "2020-03-01",
-            "endDate": "2019-03-31",
+            "endDate": "2020-03-15",
             "dimensions": ["query"],
 
             "dimensionFilterGroups": [
@@ -126,8 +124,10 @@ class Queries:
             tmp_queries["maska"] = masked(key)
             without_minsk = tmp_queries["maska"]["without_minsk"]
             tmp_queries["stemming"] = stemmed(without_minsk)
-            list_tmp.append(tmp_queries)
-
+            if self.checkin_stemming(list_tmp, tmp_queries):
+                if self.checkin_stemming(self.all_section, tmp_queries):
+                    if self.checkin_stemming(self.main_file, tmp_queries):
+                        list_tmp.append(tmp_queries)
         # print(list_tmp)
         self.work_file = list_tmp
 
@@ -148,28 +148,37 @@ class Queries:
 
     # Окончательная генерация темплейта
     def template_generated(self, item):
-        l = Lock()
+        print(item)
+        # l = Lock()
         frequency = {}
         maska = item["maska"]
         serp = get_serp(maska["with_minsk"])
         stemming = item["stemming"]
-
-        frequency["basic"] = get_frequency(maska["with_minsk"])
-        frequency["accurate"] = get_frequency(f'"{maska["with_minsk"]}"')
+        try:
+            basic_freq = get_frequency([maska["with_minsk"]])[0]["Shows"]
+            basic_freq += get_frequency([f'{maska["without_minsk"]} цена'])[0]["Shows"]
+            accurate_freq = get_frequency([f'"{maska["with_minsk"]}"'])[0]["Shows"]
+            accurate_freq += get_frequency([f'"{maska["without_minsk"]} цена"'])[0]["Shows"]
+        except TypeError:
+            (basic_freq, accurate_freq) = 0, 0
+        frequency["basic"] = basic_freq
+        frequency["accurate"] = accurate_freq
         item["SERP"] = serp
         item["heading_entry"] = get_heading(serp, stemming)
         item["frequency"] = frequency
-        lock.acquire()
+        # lock.acquire()
         try:
             work = json_work("other_files/work_file.json", "r")
             work.append(item)
             json_work("other_files/work_file.json", "w", work)
         finally:
-            lock.release()
+            pass
+            # lock.release()
 
     def checkin_main(self, main_file, keys):
         for item in main_file:
             if item["query"] in keys:
+                # print(f'запрос {item["query"]} был удален из ключей')
                 keys.remove(item["query"])
 
     # получение ключей из текстового файла
@@ -182,65 +191,74 @@ class Queries:
 
         return list_keys
 
-    def clean_double_2(self, list_from, list_rm):
-
-        for idx1, item1 in enumerate(list_from):
-            for idx2, item2 in enumerate(list_rm):
-                count_match = len(set(item1["stemming"].split()) & set(item2["stemming"].split()))
-                len_stemm = max(len(item1["stemming"].split()), len(item2["stemming"].split()))
-                # print(F"Кол {count_match} длинна {len_stemm} стемм1 {item1['stemming']} стемм2 {item2['stemming']}")
-                if count_match == len_stemm or item1["stemming"] == item2["stemming"]:
-                    list_rm.pop(idx2)
-
-        if not self.checkin_double(list_rm):
-            return self.clean_double_2(self.work_file, self.work_file)
-
-    def checkin_double(self, list_):
-        list_1 = [i["stemming"] for i in list_]
-        for item in list_1:
-            if list_1.count(item) > 1:
+    # проверка наличия stemming вне зависимости от последовательности слов
+    def checkin_stemming(self, stemmings, item):
+        for item_ in stemmings:
+            if set(item["stemming"].split(' ')) == set(item_["stemming"].split(' ')):
+                #print(f'{item["stemming"]} = {item_["stemming"]}')
                 return False
-
         return True
+
+    # def clean_double_2(self, list_from, list_rm):
+    #
+    #     for idx1, item1 in enumerate(list_from):
+    #         for idx2, item2 in enumerate(list_rm):
+    #             count_match = len(set(item1["stemming"].split()) & set(item2["stemming"].split()))
+    #             len_stemm = max(len(item1["stemming"].split()), len(item2["stemming"].split()))
+    #             # print(F"Кол {count_match} длинна {len_stemm} стемм1 {item1['stemming']} стемм2 {item2['stemming']}")
+    #             if count_match == len_stemm or item1["stemming"] == item2["stemming"]:
+    #                 list_rm.pop(idx2)
+    #
+    #     if not self.checkin_double(list_rm):
+    #         return self.clean_double_2(self.work_file, self.work_file)
+    #
+    # def checkin_double(self, list_):
+    #     list_1 = [i["stemming"] for i in list_]
+    #     for item in list_1:
+    #          if list_1.count(item) > 1:
+    #              return False
+    #
+    #     return True
 
     # Запуск скрипта
     def run(self, url):
-        # empty = []
-        # json_work("other_files/work_file.json", "w", empty)
-        # print(url)
+        empty = []
+        json_work("other_files/work_file.json", "w", empty)
+        print(url)
         self.get_from_ym(url)
-        # keys = self.get_keys_from_gls(url)  # получение ключей gsc
-        # # keys += self.get_key_from_txt(keys)  # получение ключей из файла
-        # keys = self.clean_double(keys)  # удаление дублей
-        #
-        # if len(keys) > 0:
-        #     self.checkin_main(self.main_file, keys)  # Удаление ключей присутствующих в main_file
-        #     self.generate_pretmp(keys)  # генерация претемплейтов по ключам
-        #     self.clean_double_2(self.work_file, self.work_file)
-        #     self.clean_double_2(self.main_file, self.work_file)  # поиск и удаление совпадений между main и work
-        #     self.clean_double_2(self.all_section,
-        #                         self.work_file)  # поиск и удаление совпадений между work и all_section
-        #
-        #     # json_work("other_files/work_file.json", "w", self.work_file)
-        #     if len(self.work_file) > 0:
-        #         l = Lock()
-        #         p = Pool(initializer=init, initargs=(l,), processes=5)
-        #         p.map(self.template_generated, self.work_file)  # генерация конечного темплейта
-        #         p.close()
-        #         p.join()
-        #
-        #         main = json_work("other_files/main.json", "r")
-        #         work = json_work("other_files/work_file.json", "r")
-        #         gen_data = main + work
-        #         json_work("other_files/main.json", "w", gen_data)
-        #
-        #         ''' Кластеризуем work '''
-        #         if len(work) < 0:
-        #             return False
-        #         else:
-        #             clasterization = Clasterization(work, url=url)
-        #             clasterization.run()
-        #             return True
+
+        keys = self.get_keys_from_gls(url)  # получение ключей gsc
+        keys += self.get_key_from_txt(keys)  # получение ключей из файла
+        keys = self.clean_double(keys)  # удаление дублей
+
+        if len(keys) > 0:
+            self.checkin_main(self.main_file, keys)  # Удаление ключей присутствующих в main_file
+            self.generate_pretmp(keys)  # генерация претемплейтов по ключам c уникальным stemming
+            for item in self.work_file:
+                print(item["maska"]["without_minsk"])
+
+            if len(self.work_file) > 0:
+                # l = Lock()
+                # p = Pool(initializer=init, initargs=(l,), processes=5)
+                # p.map(self.template_generated, self.work_file)  # генерация конечного темплейта
+                # p.close()
+                # p.join()
+                for item in self.work_file:
+                    self.template_generated(item)
+
+                main = json_work("other_files/main.json", "r")
+                work = json_work("other_files/work_file.json", "r")
+                gen_data = main + work
+                json_work("other_files/main.json", "w", gen_data)
+
+        print("Завершено")
+        # ''' Кластеризуем work '''
+        # if len(main) < 0:
+        #     return False
+        # else:
+        #     clasterization = Clasterization(main, url=url)
+        #     clasterization.run()
+        #     return True
 
     # работа по 10 url
     def get_claster_with_count(self, count):
@@ -291,4 +309,5 @@ if __name__ == "__main__":
     queries = Queries()
     # queries.run("some_url")
     # queries.generate_list_link()
+    # queries.section_list()
     queries.run("https://redsale.by/remont/stuccoing/shtukaturka-mayakam")
