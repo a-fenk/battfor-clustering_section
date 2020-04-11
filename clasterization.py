@@ -3,6 +3,7 @@ from pprint import pprint
 
 import pandas as pd
 from openpyxl import Workbook, load_workbook
+from openpyxl.workbook.workbook import Workbook
 
 from helping_functions import json_work, split_list
 
@@ -17,12 +18,12 @@ class Clasterization:
         self.name_doc = name_doc
         # self.url = url
 
-    # Получаем список урлов из work
+    # Получаем список запросов
     def get_dict_from_work(self):
         for item in self.work_file:
             self.list_query.append(item["maska"]["with_minsk"])
 
-    def set_claster(self, list_in):
+    def set_claster(self, list_in, lvl):
         tmp_list = []  # входящие в кластер
         for query in list_in:
             query_urls = self.get_data(query)["SERP"]["url"]
@@ -36,31 +37,26 @@ class Clasterization:
             # print(tmp_list)
         return tmp_list
 
-    def hard_claster(self, list_):
-        tmp_list = []
+    # def hard_claster(self, list_):
+    #     tmp_list = []
+    #     for list_item in list_:
+    #         if len(list_item) >= 2:
+    #             tmp_list.append(list_item[0])
+    #             tmp_list_1 = self.set_claster(list_item[1:])
+    #             tmp = split_list(tmp_list_1)
+    #             tmp_list.append(self.hard_claster(tmp))
+    #         else:
+    #             tmp_list.append(list_item)
+    #
+    #     # pprint(tmp_list)
+    #     return tmp_list
 
-        for list_item in list_:
-            if len(list_item) > 2:
-                tmp_list.append(list_item[0])
-                tmp_list_1 = self.set_claster(list_item[1:])
-                tmp = split_list(tmp_list_1)
-                tmp_list.append(self.hard_claster(tmp))
-            else:
-                tmp_list.append(list_item)
-
-        # pprint(tmp_list)
-        return tmp_list
-
-    def get_match(self):
-        tmp_list = self.set_claster(self.list_query)
-        tmp = split_list(tmp_list)
-
+    def get_match(self, list_):
         # tmp = self.hard_claster(tmp)
-
         # print(tmp)
         out_list = []
 
-        for list_lev2 in tmp:
+        for list_lev2 in list_:
             tmp_d = {}
             if len(list_lev2) > 1:
                 tmp_d["query"] = list_lev2[0]
@@ -151,53 +147,42 @@ class Clasterization:
 
         sheet = workbook.create_sheet()
 
+        const = 2
+        # sheet["A2"].style = "Good"
+        # sheet["B2"].style = "Good"
+        # sheet["C2"].style = "Good"
+        # sheet["D2"].style = "Good"
+        # sheet["F2"].style = "Good"
         sheet["A2"] = "cluster"
-        sheet["A2"].style = "Good"
-        sheet["B2"] = "queries"
-        sheet["B2"].style = "Good"
-        sheet["C2"] = "freq_basic"
-        sheet["C2"].style = "Good"
-        sheet["D2"] = "freq_accurate"
-        sheet["D2"].style = "Good"
-        sheet["E2"] = "heading_entry"
-        sheet["E2"].style = "Good"
-        sheet["F2"] = "H1"
-        sheet["F2"].style = "Good"
+        sheet["B2"] = "query"
+        sheet[f"{chr(ord('C') + const)}2"] = "frequency_basic"
+        sheet[f"{chr(ord('D') + const)}2"] = "freq_accurate"
+        sheet[f"{chr(ord('E') + const)}2"] = "heading_entry"
+        sheet[f"{chr(ord('F') + const)}2"] = "H1"
         sheet.merge_cells("A1:F1")
         # sheet["A1"] = self.url
         header = sheet["A1"]
         header.style = "Note"
         idx = 3
         pred_cluster = None
-
         for i in data_:
-            first_iter = True
+            idx_ = 0
             if i["cluster"] != pred_cluster:
-                sheet[f"A{idx}"] = i["cluster"]
-                sheet[f"A{idx}"].style = "20 % - Accent1"
-                sheet[f"C{idx}"] = i["frequency_basic"]
-                sheet[f"D{idx}"] = i["frequency_accurate"]
-                sheet[f"E{idx}"] = i["heading_entry"]
-                sheet[f"F{idx}"] = i["H1"]
+                sheet[f"{chr(ord('A') + idx_)}{idx}"] = i["cluster"]
+                sheet[f"{chr(ord('C') + const)}{idx}"] = i["frequency_basic"]
+                sheet[f"{chr(ord('D') + const)}{idx}"] = i["frequency_accurate"]
+                sheet[f"{chr(ord('E') + const)}{idx}"] = i["heading_entry"]
+                sheet[f"{chr(ord('F') + const)}{idx}"] = i["H1"]
                 idx += 1
+                idx_ += 1
                 try:
                     for q in i["queries"]:
-                        if not first_iter:
-                            sheet[f"A{idx}"] = q["query"]
-                            sheet[f"A{idx}"].style = "20 % - Accent1"
-                            sheet[f"C{idx}"] = q["frequency_basic"]
-                            sheet[f"D{idx}"] = q["frequency_accurate"]
-                            sheet[f"E{idx}"] = q["heading_entry"]
-                            sheet[f"F{idx}"] = q["H1"]
-                            idx += 1
-                            first_iter = False
-                        else:
-                            sheet[f"B{idx}"] = q["query"]
-                            sheet[f"C{idx}"] = q["frequency_basic"]
-                            sheet[f"D{idx}"] = q["frequency_accurate"]
-                            sheet[f"E{idx}"] = q["heading_entry"]
-                            sheet[f"F{idx}"] = q["H1"]
-                            idx += 1
+                        sheet[f"{chr(ord('A') + idx_)}{idx}"] = q["query"]
+                        sheet[f"{chr(ord('C') + const)}{idx}"] = q["frequency_basic"]
+                        sheet[f"{chr(ord('D') + const)}{idx}"] = q["frequency_accurate"]
+                        sheet[f"{chr(ord('E') + const)}{idx}"] = q["heading_entry"]
+                        sheet[f"{chr(ord('F') + const)}{idx}"] = q["H1"]
+                        idx += 1
                     pred_cluster = i['cluster']
                 except IndexError:
                     pred_cluster = i['cluster']
@@ -205,13 +190,36 @@ class Clasterization:
         workbook.save(filename=f"excel_files/{self.name_doc}.xlsx")
         print(f"{sheet.title} добавлен в {self.name_doc}.xlsx")
 
+    def hard_cluster(self, list_):
+        tmp_list = []
+        for query in list_:
+            if query["queries"]:
+                tmp_list += query["queries"]
+                tmp_list += '/'
+        tmp_list = split_list(tmp_list)
+        for idx, item in enumerate(tmp_list):
+            query_list = []
+            for idx_, query in enumerate(item):
+                query_list.append(query["query"])
+
+
+
     # запуск скрипта
     def run(self):
         self.compare_with()
-        self.get_dict_from_work()
-        query_list = self.get_match()
+        self.get_dict_from_work()   # получаем список запросов
+        lvl = 0
+        tmp_list = self.set_claster(self.list_query, lvl)
+        lvl += 1
+        tmp_list = split_list(tmp_list)
+        clusters = []
+        for item in tmp_list:
+            tmp = self.set_claster(item, lvl)
+            tmp = split_list(tmp)
+            clusters.append(tmp)
+        query_list = self.get_match(tmp_list)
         clean_query_list = self.clean_query(query_list)
-        pprint(query_list)
+        print(query_list)
         if len(clean_query_list) > 0:
             try:
                 self.create_excel(clean_query_list)
