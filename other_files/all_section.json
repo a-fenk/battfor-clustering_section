@@ -47,8 +47,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 588,
-      "accurate": 37
+      "basic": 1644,
+      "accurate": 101
     }
   },
   {
@@ -99,8 +99,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 1252,
-      "accurate": 358
+      "basic": 3492,
+      "accurate": 998
     }
   },
   {
@@ -148,7 +148,7 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 432,
+      "basic": 1200,
       "accurate": 0
     }
   },
@@ -200,8 +200,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 683,
-      "accurate": 54
+      "basic": 1899,
+      "accurate": 150
     }
   },
   {
@@ -301,7 +301,7 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 54,
+      "basic": 150,
       "accurate": 0
     }
   },
@@ -353,8 +353,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 143,
-      "accurate": 17
+      "basic": 399,
+      "accurate": 49
     }
   },
   {
@@ -457,7 +457,7 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 251,
+      "basic": 699,
       "accurate": 0
     }
   },
@@ -509,8 +509,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 72,
-      "accurate": 18
+      "basic": 200,
+      "accurate": 50
     }
   },
   {
@@ -561,8 +561,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 234,
-      "accurate": 72
+      "basic": 650,
+      "accurate": 200
     }
   },
   {
@@ -613,8 +613,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 71,
-      "accurate": 18
+      "basic": 199,
+      "accurate": 50
     }
   },
   {
@@ -665,7 +665,7 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 161,
+      "basic": 449,
       "accurate": 0
     }
   },
@@ -714,7 +714,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 252,
+      "basic": 700,
       "accurate": 0
     }
   },
@@ -815,8 +815,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 2408,
-      "accurate": 90
+      "basic": 6696,
+      "accurate": 250
     }
   },
   {
@@ -867,8 +867,8 @@
     },
     "heading_entry": 9,
     "frequency": {
-      "basic": 575,
-      "accurate": 54
+      "basic": 1599,
+      "accurate": 150
     }
   },
   {
@@ -919,8 +919,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 1949,
-      "accurate": 1011
+      "basic": 5405,
+      "accurate": 2803
     }
   },
   {
@@ -971,8 +971,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 5206,
-      "accurate": 163
+      "basic": 14454,
+      "accurate": 451
     }
   },
   {
@@ -1023,7 +1023,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 180,
+      "basic": 500,
       "accurate": 0
     }
   },
@@ -1075,7 +1075,7 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 162,
+      "basic": 450,
       "accurate": 0
     }
   },
@@ -1127,8 +1127,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 1513,
-      "accurate": 18
+      "basic": 4201,
+      "accurate": 50
     }
   },
   {
@@ -1179,8 +1179,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 36,
-      "accurate": 18
+      "basic": 100,
+      "accurate": 50
     }
   },
   {
@@ -1231,7 +1231,7 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 7584,
+      "basic": 21056,
       "accurate": 0
     }
   },
@@ -1332,7 +1332,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 2538,
+      "basic": 6909,
       "accurate": 0
     }
   },
@@ -1384,8 +1384,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 126,
-      "accurate": 36
+      "basic": 343,
+      "accurate": 98
     }
   },
   {
@@ -1436,8 +1436,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 126,
-      "accurate": 18
+      "basic": 343,
+      "accurate": 49
     }
   },
   {
@@ -1488,8 +1488,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 2911,
-      "accurate": 270
+      "basic": 7933,
+      "accurate": 735
     }
   },
   {
@@ -1537,7 +1537,7 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 18,
+      "basic": 49,
       "accurate": 0
     }
   },
@@ -1589,8 +1589,8 @@
     },
     "heading_entry": 9,
     "frequency": {
-      "basic": 8124,
-      "accurate": 288
+      "basic": 22105,
+      "accurate": 784
     }
   },
   {
@@ -1641,7 +1641,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 90,
+      "basic": 245,
       "accurate": 0
     }
   },
@@ -1693,7 +1693,7 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 72,
+      "basic": 196,
       "accurate": 0
     }
   },
@@ -1745,8 +1745,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 306,
-      "accurate": 198
+      "basic": 833,
+      "accurate": 539
     }
   },
   {
@@ -1794,8 +1794,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 3389,
-      "accurate": 72
+      "basic": 9217,
+      "accurate": 196
     }
   },
   {
@@ -1898,7 +1898,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 357,
+      "basic": 977,
       "accurate": 0
     }
   },
@@ -1950,8 +1950,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 108,
-      "accurate": 18
+      "basic": 294,
+      "accurate": 49
     }
   },
   {
@@ -2002,8 +2002,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 1550,
-      "accurate": 325
+      "basic": 4216,
+      "accurate": 883
     }
   },
   {
@@ -2054,8 +2054,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 234,
-      "accurate": 18
+      "basic": 637,
+      "accurate": 49
     }
   },
   {
@@ -2106,8 +2106,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 3384,
-      "accurate": 126
+      "basic": 9212,
+      "accurate": 343
     }
   },
   {
@@ -2158,8 +2158,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 34757,
-      "accurate": 1491
+      "basic": 94587,
+      "accurate": 4064
     }
   },
   {
@@ -2210,7 +2210,7 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 69,
+      "basic": 193,
       "accurate": 0
     }
   },
@@ -2262,7 +2262,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 18,
+      "basic": 49,
       "accurate": 0
     }
   },
@@ -2314,8 +2314,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 432,
-      "accurate": 18
+      "basic": 1176,
+      "accurate": 49
     }
   },
   {
@@ -2415,7 +2415,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 158,
+      "basic": 437,
       "accurate": 0
     }
   },
@@ -2519,7 +2519,7 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 36,
+      "basic": 98,
       "accurate": 0
     }
   },
@@ -2623,8 +2623,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 34,
-      "accurate": 17
+      "basic": 96,
+      "accurate": 48
     }
   },
   {
@@ -2675,7 +2675,7 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 17,
+      "basic": 48,
       "accurate": 0
     }
   },
@@ -2727,8 +2727,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 85,
-      "accurate": 17
+      "basic": 240,
+      "accurate": 48
     }
   },
   {
@@ -2831,8 +2831,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 9585,
-      "accurate": 649
+      "basic": 27069,
+      "accurate": 1827
     }
   },
   {
@@ -2883,8 +2883,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 118,
-      "accurate": 67
+      "basic": 335,
+      "accurate": 191
     }
   },
   {
@@ -2935,7 +2935,7 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 730,
+      "basic": 2063,
       "accurate": 0
     }
   },
@@ -2987,8 +2987,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 86,
-      "accurate": 35
+      "basic": 241,
+      "accurate": 97
     }
   },
   {
@@ -3039,8 +3039,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 4048,
-      "accurate": 320
+      "basic": 11891,
+      "accurate": 940
     }
   },
   {
@@ -3091,8 +3091,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 288,
-      "accurate": 80
+      "basic": 846,
+      "accurate": 235
     }
   },
   {
@@ -3143,8 +3143,8 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 51,
-      "accurate": 17
+      "basic": 144,
+      "accurate": 48
     }
   },
   {
@@ -3195,8 +3195,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 102,
-      "accurate": 34
+      "basic": 288,
+      "accurate": 96
     }
   },
   {
@@ -3247,8 +3247,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 153,
-      "accurate": 34
+      "basic": 432,
+      "accurate": 96
     }
   },
   {
@@ -3299,7 +3299,7 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 408,
+      "basic": 1152,
       "accurate": 0
     }
   },
@@ -3345,7 +3345,7 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 17,
+      "basic": 48,
       "accurate": 0
     }
   },
@@ -3397,8 +3397,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 221,
-      "accurate": 17
+      "basic": 624,
+      "accurate": 48
     }
   },
   {
@@ -3501,8 +3501,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 289,
-      "accurate": 85
+      "basic": 816,
+      "accurate": 240
     }
   },
   {
@@ -3553,7 +3553,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 170,
+      "basic": 480,
       "accurate": 0
     }
   },
@@ -3605,8 +3605,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 986,
-      "accurate": 204
+      "basic": 2784,
+      "accurate": 576
     }
   },
   {
@@ -3657,7 +3657,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 34,
+      "basic": 96,
       "accurate": 0
     }
   },
@@ -3758,7 +3758,7 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 170,
+      "basic": 480,
       "accurate": 0
     }
   },
@@ -3862,8 +3862,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 3043,
-      "accurate": 17
+      "basic": 8592,
+      "accurate": 48
     }
   },
   {
@@ -3914,7 +3914,7 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 85,
+      "basic": 240,
       "accurate": 0
     }
   },
@@ -4015,7 +4015,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 51,
+      "basic": 144,
       "accurate": 0
     }
   },
@@ -4067,8 +4067,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 1088,
-      "accurate": 425
+      "basic": 3072,
+      "accurate": 1200
     }
   },
   {
@@ -4116,7 +4116,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 68,
+      "basic": 192,
       "accurate": 0
     }
   },
@@ -4474,8 +4474,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 544,
-      "accurate": 68
+      "basic": 1536,
+      "accurate": 192
     }
   },
   {
@@ -4526,8 +4526,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 306,
-      "accurate": 34
+      "basic": 864,
+      "accurate": 96
     }
   },
   {
@@ -4578,8 +4578,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 5270,
-      "accurate": 629
+      "basic": 14880,
+      "accurate": 1776
     }
   },
   {
@@ -4630,7 +4630,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 68,
+      "basic": 192,
       "accurate": 0
     }
   },
@@ -4682,7 +4682,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 51,
+      "basic": 144,
       "accurate": 0
     }
   },
@@ -4734,7 +4734,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 17,
+      "basic": 48,
       "accurate": 0
     }
   },
@@ -4838,7 +4838,7 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 867,
+      "basic": 2448,
       "accurate": 0
     }
   },
@@ -4939,8 +4939,8 @@
     },
     "heading_entry": 9,
     "frequency": {
-      "basic": 884,
-      "accurate": 17
+      "basic": 2496,
+      "accurate": 48
     }
   },
   {
@@ -4991,8 +4991,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 340,
-      "accurate": 17
+      "basic": 960,
+      "accurate": 48
     }
   },
   {
@@ -5147,7 +5147,7 @@
     },
     "heading_entry": 9,
     "frequency": {
-      "basic": 170,
+      "basic": 480,
       "accurate": 0
     }
   },
@@ -5199,8 +5199,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 85,
-      "accurate": 51
+      "basic": 240,
+      "accurate": 144
     }
   },
   {
@@ -5251,7 +5251,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 136,
+      "basic": 384,
       "accurate": 0
     }
   },
@@ -5355,8 +5355,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 510,
-      "accurate": 34
+      "basic": 1440,
+      "accurate": 96
     }
   },
   {
@@ -5407,7 +5407,7 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 34,
+      "basic": 96,
       "accurate": 0
     }
   },
@@ -5667,8 +5667,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 1564,
-      "accurate": 68
+      "basic": 4416,
+      "accurate": 192
     }
   },
   {
@@ -5927,7 +5927,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 51,
+      "basic": 144,
       "accurate": 0
     }
   },
@@ -5979,8 +5979,8 @@
     },
     "heading_entry": 9,
     "frequency": {
-      "basic": 14144,
-      "accurate": 238
+      "basic": 39936,
+      "accurate": 672
     }
   },
   {
@@ -6028,7 +6028,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 68,
+      "basic": 192,
       "accurate": 0
     }
   },
@@ -6080,7 +6080,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 68,
+      "basic": 192,
       "accurate": 0
     }
   },
@@ -6181,8 +6181,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 884,
-      "accurate": 102
+      "basic": 2496,
+      "accurate": 288
     }
   },
   {
@@ -6233,8 +6233,8 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 221,
-      "accurate": 34
+      "basic": 624,
+      "accurate": 96
     }
   },
   {
@@ -6282,7 +6282,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 85,
+      "basic": 240,
       "accurate": 0
     }
   },
@@ -6334,8 +6334,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 765,
-      "accurate": 51
+      "basic": 2160,
+      "accurate": 144
     }
   },
   {
@@ -6386,7 +6386,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 119,
+      "basic": 336,
       "accurate": 0
     }
   },
@@ -6438,8 +6438,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 238,
-      "accurate": 68
+      "basic": 672,
+      "accurate": 192
     }
   },
   {
@@ -6490,8 +6490,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 391,
-      "accurate": 17
+      "basic": 1104,
+      "accurate": 48
     }
   },
   {
@@ -6539,8 +6539,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 51,
-      "accurate": 34
+      "basic": 144,
+      "accurate": 96
     }
   },
   {
@@ -6591,8 +6591,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 2176,
-      "accurate": 102
+      "basic": 6144,
+      "accurate": 288
     }
   },
   {
@@ -6643,7 +6643,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 357,
+      "basic": 1008,
       "accurate": 0
     }
   },
@@ -6695,7 +6695,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 170,
+      "basic": 480,
       "accurate": 0
     }
   },
@@ -6744,7 +6744,7 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 34,
+      "basic": 96,
       "accurate": 0
     }
   },
@@ -6796,8 +6796,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 238,
-      "accurate": 17
+      "basic": 672,
+      "accurate": 48
     }
   },
   {
@@ -6845,7 +6845,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 374,
+      "basic": 1056,
       "accurate": 0
     }
   },
@@ -6894,8 +6894,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 408,
-      "accurate": 51
+      "basic": 1152,
+      "accurate": 144
     }
   },
   {
@@ -6946,7 +6946,7 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 153,
+      "basic": 432,
       "accurate": 0
     }
   },
@@ -6995,8 +6995,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 68,
-      "accurate": 17
+      "basic": 192,
+      "accurate": 48
     }
   },
   {
@@ -7044,7 +7044,7 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 17,
+      "basic": 48,
       "accurate": 0
     }
   },
@@ -7096,8 +7096,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 578,
-      "accurate": 102
+      "basic": 1632,
+      "accurate": 288
     }
   },
   {
@@ -7148,7 +7148,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 697,
+      "basic": 1968,
       "accurate": 0
     }
   },
@@ -7197,7 +7197,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 170,
+      "basic": 480,
       "accurate": 0
     }
   },
@@ -7347,7 +7347,7 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 17,
+      "basic": 48,
       "accurate": 0
     }
   },
@@ -7448,7 +7448,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 51,
+      "basic": 144,
       "accurate": 0
     }
   },
@@ -7595,7 +7595,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 102,
+      "basic": 288,
       "accurate": 0
     }
   },
@@ -7644,7 +7644,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 153,
+      "basic": 432,
       "accurate": 0
     }
   },
@@ -7696,7 +7696,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 51,
+      "basic": 144,
       "accurate": 0
     }
   },
@@ -7745,7 +7745,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 68,
+      "basic": 192,
       "accurate": 0
     }
   },
@@ -7797,8 +7797,8 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 476,
-      "accurate": 34
+      "basic": 1344,
+      "accurate": 96
     }
   },
   {
@@ -7849,7 +7849,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 17,
+      "basic": 48,
       "accurate": 0
     }
   },
@@ -7901,8 +7901,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 391,
-      "accurate": 17
+      "basic": 1104,
+      "accurate": 48
     }
   },
   {
@@ -7953,7 +7953,7 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 2499,
+      "basic": 7056,
       "accurate": 0
     }
   },
@@ -8054,8 +8054,8 @@
     },
     "heading_entry": 9,
     "frequency": {
-      "basic": 782,
-      "accurate": 187
+      "basic": 2208,
+      "accurate": 528
     }
   },
   {
@@ -8106,7 +8106,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 1292,
+      "basic": 3648,
       "accurate": 0
     }
   },
@@ -8158,8 +8158,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 2754,
-      "accurate": 340
+      "basic": 7776,
+      "accurate": 960
     }
   },
   {
@@ -8262,7 +8262,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 34,
+      "basic": 96,
       "accurate": 0
     }
   },
@@ -8314,8 +8314,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 1037,
-      "accurate": 102
+      "basic": 2928,
+      "accurate": 288
     }
   },
   {
@@ -8366,7 +8366,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 17,
+      "basic": 48,
       "accurate": 0
     }
   },
@@ -8418,8 +8418,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 187,
-      "accurate": 102
+      "basic": 528,
+      "accurate": 288
     }
   },
   {
@@ -8470,8 +8470,8 @@
     },
     "heading_entry": 9,
     "frequency": {
-      "basic": 1394,
-      "accurate": 102
+      "basic": 3936,
+      "accurate": 288
     }
   },
   {
@@ -8522,7 +8522,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 442,
+      "basic": 1248,
       "accurate": 0
     }
   },
@@ -8574,7 +8574,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 476,
+      "basic": 1344,
       "accurate": 0
     }
   },
@@ -8626,8 +8626,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 136,
-      "accurate": 17
+      "basic": 384,
+      "accurate": 48
     }
   },
   {
@@ -8675,8 +8675,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 17,
-      "accurate": 17
+      "basic": 48,
+      "accurate": 48
     }
   },
   {
@@ -8727,8 +8727,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 2091,
-      "accurate": 170
+      "basic": 5904,
+      "accurate": 480
     }
   },
   {
@@ -8779,8 +8779,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 2567,
-      "accurate": 136
+      "basic": 7248,
+      "accurate": 384
     }
   },
   {
@@ -8831,8 +8831,8 @@
     },
     "heading_entry": 9,
     "frequency": {
-      "basic": 7123,
-      "accurate": 884
+      "basic": 20112,
+      "accurate": 2496
     }
   },
   {
@@ -8883,8 +8883,8 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 425,
-      "accurate": 34
+      "basic": 1200,
+      "accurate": 96
     }
   },
   {
@@ -8935,8 +8935,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 561,
-      "accurate": 391
+      "basic": 1584,
+      "accurate": 1104
     }
   },
   {
@@ -8987,7 +8987,7 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 136,
+      "basic": 384,
       "accurate": 0
     }
   },
@@ -9039,8 +9039,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 68,
-      "accurate": 17
+      "basic": 188,
+      "accurate": 47
     }
   },
   {
@@ -9091,7 +9091,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 136,
+      "basic": 376,
       "accurate": 0
     }
   },
@@ -9143,7 +9143,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 119,
+      "basic": 329,
       "accurate": 0
     }
   },
@@ -9195,7 +9195,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 68,
+      "basic": 188,
       "accurate": 0
     }
   },
@@ -9247,8 +9247,8 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 527,
-      "accurate": 34
+      "basic": 1457,
+      "accurate": 94
     }
   },
   {
@@ -9299,8 +9299,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 85,
-      "accurate": 51
+      "basic": 235,
+      "accurate": 141
     }
   },
   {
@@ -9351,7 +9351,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 102,
+      "basic": 282,
       "accurate": 0
     }
   },
@@ -9403,7 +9403,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 136,
+      "basic": 376,
       "accurate": 0
     }
   },
@@ -9455,8 +9455,8 @@
     },
     "heading_entry": 9,
     "frequency": {
-      "basic": 3400,
-      "accurate": 221
+      "basic": 9400,
+      "accurate": 611
     }
   },
   {
@@ -9507,8 +9507,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 136,
-      "accurate": 17
+      "basic": 376,
+      "accurate": 47
     }
   },
   {
@@ -9559,7 +9559,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 272,
+      "basic": 752,
       "accurate": 0
     }
   },
@@ -9611,8 +9611,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 16405,
-      "accurate": 1513
+      "basic": 45355,
+      "accurate": 4183
     }
   },
   {
@@ -9663,8 +9663,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 3791,
-      "accurate": 3417
+      "basic": 10481,
+      "accurate": 9447
     }
   },
   {
@@ -9715,8 +9715,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 816,
-      "accurate": 323
+      "basic": 2256,
+      "accurate": 893
     }
   },
   {
@@ -9767,8 +9767,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 255,
-      "accurate": 51
+      "basic": 705,
+      "accurate": 141
     }
   },
   {
@@ -9819,7 +9819,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 187,
+      "basic": 517,
       "accurate": 0
     }
   },
@@ -9871,8 +9871,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 357,
-      "accurate": 34
+      "basic": 987,
+      "accurate": 94
     }
   },
   {
@@ -9923,8 +9923,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 493,
-      "accurate": 136
+      "basic": 1363,
+      "accurate": 376
     }
   },
   {
@@ -9975,7 +9975,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 102,
+      "basic": 282,
       "accurate": 0
     }
   },
@@ -10027,8 +10027,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 17,
-      "accurate": 17
+      "basic": 47,
+      "accurate": 47
     }
   },
   {
@@ -10128,8 +10128,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 34,
-      "accurate": 34
+      "basic": 94,
+      "accurate": 94
     }
   },
   {
@@ -10180,8 +10180,8 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 153,
-      "accurate": 34
+      "basic": 423,
+      "accurate": 94
     }
   },
   {
@@ -10232,7 +10232,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 34,
+      "basic": 94,
       "accurate": 0
     }
   },
@@ -10284,8 +10284,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 153,
-      "accurate": 17
+      "basic": 423,
+      "accurate": 47
     }
   },
   {
@@ -10336,7 +10336,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 51,
+      "basic": 141,
       "accurate": 0
     }
   },
@@ -10388,8 +10388,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 1445,
-      "accurate": 68
+      "basic": 3995,
+      "accurate": 188
     }
   },
   {
@@ -10486,7 +10486,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 102,
+      "basic": 282,
       "accurate": 0
     }
   },
@@ -10538,8 +10538,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 629,
-      "accurate": 272
+      "basic": 1739,
+      "accurate": 752
     }
   },
   {
@@ -10590,7 +10590,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 85,
+      "basic": 235,
       "accurate": 0
     }
   },
@@ -10642,8 +10642,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 714,
-      "accurate": 204
+      "basic": 1974,
+      "accurate": 564
     }
   },
   {
@@ -10694,7 +10694,7 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 493,
+      "basic": 1363,
       "accurate": 0
     }
   },
@@ -10746,7 +10746,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 17,
+      "basic": 47,
       "accurate": 0
     }
   },
@@ -10798,7 +10798,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 51,
+      "basic": 141,
       "accurate": 0
     }
   },
@@ -10899,7 +10899,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 102,
+      "basic": 282,
       "accurate": 0
     }
   },
@@ -10951,8 +10951,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 51,
-      "accurate": 17
+      "basic": 141,
+      "accurate": 47
     }
   },
   {
@@ -11003,7 +11003,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 17,
+      "basic": 47,
       "accurate": 0
     }
   },
@@ -11055,7 +11055,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 51,
+      "basic": 141,
       "accurate": 0
     }
   },
@@ -11107,7 +11107,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 17,
+      "basic": 47,
       "accurate": 0
     }
   },
@@ -11159,8 +11159,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 595,
-      "accurate": 51
+      "basic": 1645,
+      "accurate": 141
     }
   },
   {
@@ -11208,7 +11208,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 34,
+      "basic": 94,
       "accurate": 0
     }
   },
@@ -11260,7 +11260,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 17,
+      "basic": 47,
       "accurate": 0
     }
   },
@@ -11312,8 +11312,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 459,
-      "accurate": 34
+      "basic": 1269,
+      "accurate": 94
     }
   },
   {
@@ -11364,8 +11364,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 51,
-      "accurate": 34
+      "basic": 141,
+      "accurate": 94
     }
   },
   {
@@ -11416,8 +11416,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 357,
-      "accurate": 17
+      "basic": 987,
+      "accurate": 47
     }
   },
   {
@@ -11468,7 +11468,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 34,
+      "basic": 94,
       "accurate": 0
     }
   },
@@ -11572,7 +11572,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 17,
+      "basic": 47,
       "accurate": 0
     }
   },
@@ -11728,8 +11728,8 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 187,
-      "accurate": 68
+      "basic": 517,
+      "accurate": 188
     }
   },
   {
@@ -11881,8 +11881,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 153,
-      "accurate": 68
+      "basic": 423,
+      "accurate": 188
     }
   },
   {
@@ -12037,8 +12037,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 34,
-      "accurate": 17
+      "basic": 94,
+      "accurate": 47
     }
   },
   {
@@ -12227,7 +12227,7 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 34,
+      "basic": 94,
       "accurate": 0
     }
   },
@@ -12429,7 +12429,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 102,
+      "basic": 282,
       "accurate": 0
     }
   },
@@ -12481,8 +12481,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 51,
-      "accurate": 34
+      "basic": 141,
+      "accurate": 94
     }
   },
   {
@@ -12582,8 +12582,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 136,
-      "accurate": 17
+      "basic": 376,
+      "accurate": 47
     }
   },
   {
@@ -12686,8 +12686,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 1683,
-      "accurate": 221
+      "basic": 4653,
+      "accurate": 611
     }
   },
   {
@@ -12790,8 +12790,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 51,
-      "accurate": 51
+      "basic": 141,
+      "accurate": 141
     }
   },
   {
@@ -12894,8 +12894,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 306,
-      "accurate": 85
+      "basic": 828,
+      "accurate": 230
     }
   },
   {
@@ -12946,8 +12946,8 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 68,
-      "accurate": 34
+      "basic": 184,
+      "accurate": 92
     }
   },
   {
@@ -12998,8 +12998,8 @@
     },
     "heading_entry": 9,
     "frequency": {
-      "basic": 1411,
-      "accurate": 136
+      "basic": 3818,
+      "accurate": 368
     }
   },
   {
@@ -13050,8 +13050,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 1530,
-      "accurate": 170
+      "basic": 4140,
+      "accurate": 460
     }
   },
   {
@@ -13102,8 +13102,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 68,
-      "accurate": 17
+      "basic": 184,
+      "accurate": 46
     }
   },
   {
@@ -13206,8 +13206,8 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 17,
-      "accurate": 17
+      "basic": 46,
+      "accurate": 46
     }
   },
   {
@@ -13255,7 +13255,7 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 17,
+      "basic": 46,
       "accurate": 0
     }
   },
@@ -13356,7 +13356,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 136,
+      "basic": 368,
       "accurate": 0
     }
   },
@@ -13408,8 +13408,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 1547,
-      "accurate": 17
+      "basic": 4186,
+      "accurate": 46
     }
   },
   {
@@ -13460,8 +13460,8 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 170,
-      "accurate": 17
+      "basic": 460,
+      "accurate": 46
     }
   },
   {
@@ -13512,8 +13512,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 357,
-      "accurate": 85
+      "basic": 966,
+      "accurate": 230
     }
   },
   {
@@ -13564,8 +13564,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 136,
-      "accurate": 17
+      "basic": 368,
+      "accurate": 46
     }
   },
   {
@@ -13616,8 +13616,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 408,
-      "accurate": 85
+      "basic": 1104,
+      "accurate": 230
     }
   },
   {
@@ -13668,7 +13668,7 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 748,
+      "basic": 2024,
       "accurate": 0
     }
   },
@@ -13720,7 +13720,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 493,
+      "basic": 1334,
       "accurate": 0
     }
   },
@@ -13772,8 +13772,8 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 408,
-      "accurate": 51
+      "basic": 1104,
+      "accurate": 138
     }
   },
   {
@@ -13824,7 +13824,7 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 187,
+      "basic": 506,
       "accurate": 0
     }
   },
@@ -13876,8 +13876,8 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 68,
-      "accurate": 17
+      "basic": 184,
+      "accurate": 46
     }
   },
   {
@@ -13928,7 +13928,7 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 51,
+      "basic": 138,
       "accurate": 0
     }
   },
@@ -13980,7 +13980,7 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 255,
+      "basic": 690,
       "accurate": 0
     }
   },
@@ -14136,8 +14136,8 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 374,
-      "accurate": 34
+      "basic": 1012,
+      "accurate": 92
     }
   },
   {
@@ -14188,7 +14188,7 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 17,
+      "basic": 46,
       "accurate": 0
     }
   },
@@ -14240,8 +14240,8 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 102,
-      "accurate": 34
+      "basic": 276,
+      "accurate": 92
     }
   },
   {
@@ -14292,8 +14292,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 612,
-      "accurate": 170
+      "basic": 1656,
+      "accurate": 460
     }
   },
   {
@@ -14344,8 +14344,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 289,
-      "accurate": 34
+      "basic": 782,
+      "accurate": 92
     }
   },
   {
@@ -14500,8 +14500,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 255,
-      "accurate": 17
+      "basic": 690,
+      "accurate": 46
     }
   },
   {
@@ -14552,7 +14552,7 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 17,
+      "basic": 46,
       "accurate": 0
     }
   },
@@ -14604,7 +14604,7 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 68,
+      "basic": 184,
       "accurate": 0
     }
   },
@@ -14656,7 +14656,7 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 51,
+      "basic": 138,
       "accurate": 0
     }
   },
@@ -14708,7 +14708,7 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 51,
+      "basic": 138,
       "accurate": 0
     }
   },
@@ -14760,7 +14760,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 340,
+      "basic": 920,
       "accurate": 0
     }
   },
@@ -14812,8 +14812,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 8398,
-      "accurate": 799
+      "basic": 22724,
+      "accurate": 2162
     }
   },
   {
@@ -14864,8 +14864,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 697,
-      "accurate": 17
+      "basic": 1886,
+      "accurate": 46
     }
   },
   {
@@ -14916,8 +14916,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 85,
-      "accurate": 17
+      "basic": 230,
+      "accurate": 46
     }
   },
   {
@@ -15020,8 +15020,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 1258,
-      "accurate": 85
+      "basic": 3404,
+      "accurate": 230
     }
   },
   {
@@ -15072,8 +15072,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 1411,
-      "accurate": 68
+      "basic": 3818,
+      "accurate": 184
     }
   },
   {
@@ -15124,8 +15124,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 459,
-      "accurate": 153
+      "basic": 1242,
+      "accurate": 414
     }
   },
   {
@@ -15176,8 +15176,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 391,
-      "accurate": 17
+      "basic": 1058,
+      "accurate": 46
     }
   },
   {
@@ -15228,8 +15228,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 816,
-      "accurate": 51
+      "basic": 2208,
+      "accurate": 138
     }
   },
   {
@@ -15280,8 +15280,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 680,
-      "accurate": 68
+      "basic": 1840,
+      "accurate": 184
     }
   },
   {
@@ -15329,7 +15329,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 136,
+      "basic": 368,
       "accurate": 0
     }
   },
@@ -15378,7 +15378,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 561,
+      "basic": 1518,
       "accurate": 0
     }
   },
@@ -15430,8 +15430,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 391,
-      "accurate": 34
+      "basic": 1058,
+      "accurate": 92
     }
   },
   {

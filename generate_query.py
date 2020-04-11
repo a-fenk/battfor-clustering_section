@@ -311,4 +311,4 @@ if __name__ == "__main__":
     # queries.run("some_url")
     # queries.generate_list_link()
     # queries.section_list()
-    queries.run("https://redsale.by/remont/stuccoing/shtukaturka-mayakam")
+    queries.run("https://redsale.by/remont/stuccoing/")

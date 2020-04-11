@@ -89,7 +89,6 @@ def split_list(list_in, delimiter="/"):
             if len(list_) > 0:
                 tmp.append(list_)
             list_ = []
-
     return tmp
 
 

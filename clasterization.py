@@ -9,8 +9,6 @@ from helping_functions import json_work, split_list
 data = json_work("other_files/main.json", "r")
 
 
-
-
 class Clasterization:
     def __init__(self, work_file, sheet_name="sheet", name_doc="file_"):
         self.work_file = work_file
@@ -25,15 +23,17 @@ class Clasterization:
             self.list_query.append(item["maska"]["with_minsk"])
 
     def set_claster(self, list_in):
-        tmp_list = []   # входящие в кластер
+        tmp_list = []  # входящие в кластер
         for query in list_in:
             query_urls = self.get_data(query)["SERP"]["url"]
             for query1 in list_in:
                 query_urls1 = self.get_data(query1)["SERP"]["url"]
-                if len(set(query_urls) & set(query_urls1)) >= 7 and query1 not in tmp_list:
-                    tmp_list.append(query1)
 
-            tmp_list.append("/")
+                if len(set(query_urls) & set(query_urls1)) >= 7 and query1 not in tmp_list:  # если 7+ общих
+                    tmp_list.append(query1)  # добавляем в кластер
+
+            tmp_list.append("/")  # отделение кластера
+            # print(tmp_list)
         return tmp_list
 
     def hard_claster(self, list_):
@@ -48,15 +48,16 @@ class Clasterization:
             else:
                 tmp_list.append(list_item)
 
-        pprint(tmp_list)
+        # pprint(tmp_list)
         return tmp_list
 
     def get_match(self):
         tmp_list = self.set_claster(self.list_query)
         tmp = split_list(tmp_list)
-        # self.hard_claster(tmp)
 
-        # pprint(tmp)
+        # tmp = self.hard_claster(tmp)
+
+        # print(tmp)
         out_list = []
 
         for list_lev2 in tmp:
@@ -69,11 +70,12 @@ class Clasterization:
                 tmp_d["list_query"] = []
             out_list.append(tmp_d)
 
-        print(out_list)
+        # print(out_list)
 
         return out_list
 
     # Очищаем список от пустых и не пересекающихся запросов
+    # TODO сейчас чистит просто от 1ого элемента
     def clean_query(self, query_list):
         tmp = []
         for item in query_list:
@@ -93,21 +95,33 @@ class Clasterization:
     def generate_out_data(self, cluster):
         tmp = []
         for item in cluster:
-            tmp_dict = {"cluster": item["query"], "queries": []}
+            tmp_dict = {"cluster": item["query"],
+                        "frequency_basic": int(self.get_data(item["query"])["frequency"]["basic"]),
+                        "frequency_accurate": int(self.get_data(item["query"])["frequency"]["accurate"]),
+                        "heading_entry": int(self.get_data(item["query"])["heading_entry"]),
+                        "queries": []}
+            try:
+                tmp_dict["H1"] = self.get_data(item["query"])["H1_"]
+            except KeyError:
+                tmp_dict["H1"] = ""
             for query in item["list_query"]:
-
-                in_dict = {"query": query,
-                           "frequency_basic": int(self.get_data(query)["frequency"]["basic"]),
-                           "frequency_accurate": int(self.get_data(query)["frequency"]["accurate"]),
-                           "heading_entry": int(self.get_data(query)["heading_entry"])}
                 try:
-                    in_dict["H1"] = self.get_data(query)["H1_"]
-                except KeyError:
-                    in_dict["H1"] = " "
-                tmp_dict["queries"].append(in_dict)
+                    in_dict = {"query": query,
+                               "frequency_basic": int(self.get_data(query)["frequency"]["basic"]),
+                               "frequency_accurate": int(self.get_data(query)["frequency"]["accurate"]),
+                               "heading_entry": int(self.get_data(query)["heading_entry"])}
+                    try:
+                        in_dict["H1"] = self.get_data(query)["H1_"]
+                    except KeyError:
+                        in_dict["H1"] = " "
+                    tmp_dict["queries"].append(in_dict)
+                except TypeError:
+                    pass
             tmp.append(tmp_dict)
+            # pprint(tmp)
         return tmp
 
+    # сравнивает urls с all_section и при 7+ общих присваивает h1
     def compare_with(self):
         all_section = json_work("other_files/all_section.json", "r")
         for item in self.work_file:
@@ -150,7 +164,7 @@ class Clasterization:
         sheet["F2"] = "H1"
         sheet["F2"].style = "Good"
         sheet.merge_cells("A1:F1")
-        #sheet["A1"] = self.url
+        # sheet["A1"] = self.url
         header = sheet["A1"]
         header.style = "Note"
         idx = 3
@@ -159,9 +173,16 @@ class Clasterization:
         for i in data_:
             first_iter = True
             if i["cluster"] != pred_cluster:
+                sheet[f"A{idx}"] = i["cluster"]
+                sheet[f"A{idx}"].style = "20 % - Accent1"
+                sheet[f"C{idx}"] = i["frequency_basic"]
+                sheet[f"D{idx}"] = i["frequency_accurate"]
+                sheet[f"E{idx}"] = i["heading_entry"]
+                sheet[f"F{idx}"] = i["H1"]
+                idx += 1
                 try:
                     for q in i["queries"]:
-                        if first_iter:
+                        if not first_iter:
                             sheet[f"A{idx}"] = q["query"]
                             sheet[f"A{idx}"].style = "20 % - Accent1"
                             sheet[f"C{idx}"] = q["frequency_basic"]
@@ -190,6 +211,7 @@ class Clasterization:
         self.get_dict_from_work()
         query_list = self.get_match()
         clean_query_list = self.clean_query(query_list)
+        pprint(query_list)
         if len(clean_query_list) > 0:
             try:
                 self.create_excel(clean_query_list)
