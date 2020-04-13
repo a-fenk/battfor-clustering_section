@@ -229,14 +229,21 @@ class Queries:
 
         keys = self.get_keys_from_gls(url)  # получение ключей gsc
         keys += self.get_key_from_txt(keys)  # получение ключей из файла
+        print("Ключи до удаления:")
+        print(keys)
+        print(f'Ключей до удаления: {len(keys)}')
+        time.sleep(5)
         keys = self.clean_double(keys)  # удаление дублей
+
 
         if len(keys) > 0:
             self.checkin_main(self.main_file, keys)  # Удаление ключей присутствующих в main_file
             self.generate_pretmp(keys)  # генерация претемплейтов по ключам c уникальным stemming
+            print("Ключи после удаления:")
             for item in self.work_file:
                 print(item["maska"]["without_minsk"])
-
+            print(f'Ключей после удаления: {len(self.work_file)}')
+            time.sleep(5)
             if len(self.work_file) > 0:
                 # l = Lock()
                 # p = Pool(initializer=init, initargs=(l,), processes=5)
