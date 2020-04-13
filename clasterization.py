@@ -63,11 +63,11 @@ class Clasterization:
             idx += 1
         return res
 
-    def cluster_to_excel(self, cluster, cluster_lvl, size):
+    def cluster_to_excel(self, cluster, cluster_lvl, index):
         # print(cluster)
         # print(f'Cluster lvl: {cluster_lvl}')
         # print(size)
-        const = 2
+        const = 10
         sheet = self.sheet
         sheet.merge_cells(f"A2:{chr(ord('A') + const)}2")
         sheet["A2"] = "query"
@@ -80,32 +80,12 @@ class Clasterization:
         header = sheet["A1"]
         header.style = "Note"
         idx = 3
-        sheet[f"{chr(ord('A') + cluster_lvl)}{idx + size}"] = cluster
-        # pred_cluster = None
-        # for i in data_:
-        #     idx_ = 0
-        #     if i["cluster"] != pred_cluster:
-        #         sheet[f"{chr(ord('A') + idx_)}{idx}"] = i["cluster"]
-        #         sheet[f"{chr(ord('C') + const)}{idx}"] = i["frequency_basic"]
-        #         sheet[f"{chr(ord('D') + const)}{idx}"] = i["frequency_accurate"]
-        #         sheet[f"{chr(ord('E') + const)}{idx}"] = i["heading_entry"]
-        #         sheet[f"{chr(ord('F') + const)}{idx}"] = i["H1"]
-        #         idx += 1
-        #         idx_ += 1
-        #         try:
-        #             for q in i["queries"]:
-        #                 sheet[f"{chr(ord('A') + idx_)}{idx}"] = q["query"]
-        #                 sheet[f"{chr(ord('C') + const)}{idx}"] = q["frequency_basic"]
-        #                 sheet[f"{chr(ord('D') + const)}{idx}"] = q["frequency_accurate"]
-        #                 sheet[f"{chr(ord('E') + const)}{idx}"] = q["heading_entry"]
-        #                 sheet[f"{chr(ord('F') + const)}{idx}"] = q["H1"]
-        #                 idx += 1
-        #             pred_cluster = i['cluster']
-        #         except IndexError:
-        #             pred_cluster = i['cluster']
-        #             idx += 1
-        # workbook.save(filename=f"excel_files/{self.name_doc}.xlsx")
-        # print(f"{sheet.title} добавлен в {self.name_doc}.xlsx")
+        sheet[f"{chr(ord('A') + cluster_lvl)}{idx + index}"] = cluster
+        cluster = self.get_data(cluster)
+        sheet[f"{chr(ord('B') + const)}{idx + index}"] = cluster["frequency"]["basic"]
+        sheet[f"{chr(ord('C') + const)}{idx + index}"] = cluster["frequency"]["accurate"]
+        sheet[f"{chr(ord('D') + const)}{idx + index}"] = cluster["heading_entry"]
+
 
     def set_cluster_hard(self, list_in, cluster_lvl):
         frame = pd.DataFrame()
@@ -113,7 +93,6 @@ class Clasterization:
             self.cluster_to_excel(list_in[0], cluster_lvl, self.index)
             self.index += 1
             self.blacklist.append(list_in[0])
-            print(f'Не имеет эл-во в кластере: {list_in[0]}')
             return
         for idx, query in enumerate(list_in):
             query_urls = self.get_data(query)["SERP"]["url"]
