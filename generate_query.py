@@ -13,7 +13,7 @@ from oauth2client import client, tools, file
 
 from all_constants import SCOPE_SEARCH, CLIENT_SECRETS, TOKEN_YM
 from all_section import AllSection
-from clasterization import Clasterization
+from clustering import Clustering
 from helping_functions import masked, stemmed, json_work
 
 all_section = AllSection()
