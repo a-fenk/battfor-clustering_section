@@ -1,4 +1,5 @@
 import json
+import os
 import re
 import string
 
@@ -6,6 +7,9 @@ import requests
 from nltk.stem.snowball import SnowballStemmer
 
 from all_constants import STOPWORDS, API_WORDSTAT, TOKEN_YM, EXCEPT_URLS
+
+from openpyxl import Workbook, load_workbook
+from openpyxl.workbook.workbook import Workbook
 
 ''' Вспомогательные функции '''
 
@@ -112,3 +116,25 @@ def get_request_to_ya(data):
         return resp_json
     except requests.exceptions.ConnectionError:
         return get_request_to_ya(data)
+
+
+def create_excel(name_doc):
+    num = 0
+
+    try:
+        name_doc = os.listdir("excel_files")[-1].split(".")[0]
+        workbook = load_workbook(filename=f"excel_files/{name_doc}.xlsx")
+    except:
+        workbook = Workbook(iso_dates=True)
+
+    # print(workbook.worksheets)
+    if len(workbook.worksheets) > 10:
+        del workbook["Sheet"]
+        while os.path.exists(f"excel_files/{name_doc}.xlsx"):
+            num += 1
+            name = name_doc.split("_")[0]
+            name_doc = f"{name}_{num}"
+        else:
+            workbook = Workbook(iso_dates=True)
+
+    return workbook
