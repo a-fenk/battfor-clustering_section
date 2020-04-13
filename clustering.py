@@ -20,7 +20,7 @@ class Clustering:
         for item in self.work_file:
             self.list_query.append(item["maska"]["with_minsk"])
 
-    def cluster_to_excel(self, cluster, cluster_lvl, index):
+    def cluster_to_excel(self, item, cluster_lvl, index):
         const = 10
         sheet = self.sheet
         sheet.merge_cells(f"A2:{chr(ord('A') + const)}2")
@@ -33,12 +33,11 @@ class Clustering:
         header = sheet["A1"]
         header.style = "Note"
         idx = 3
-        sheet[f"{chr(ord('A') + cluster_lvl)}{idx + index}"] = cluster
-        cluster = self.get_data(cluster)
-        sheet[f"{chr(ord('B') + const)}{idx + index}"] = cluster["frequency"]["basic"]
-        sheet[f"{chr(ord('C') + const)}{idx + index}"] = cluster["frequency"]["accurate"]
-        sheet[f"{chr(ord('D') + const)}{idx + index}"] = cluster["heading_entry"]
-
+        sheet[f"{chr(ord('A') + cluster_lvl)}{idx + index}"] = item
+        item = self.get_data(item)
+        sheet[f"{chr(ord('B') + const)}{idx + index}"] = item["frequency"]["basic"]
+        sheet[f"{chr(ord('C') + const)}{idx + index}"] = item["frequency"]["accurate"]
+        sheet[f"{chr(ord('D') + const)}{idx + index}"] = item["heading_entry"]
 
     def set_cluster_hard(self, list_in, cluster_lvl):
         if len(list_in) == 1 and list_in[0] not in self.blacklist:
@@ -62,7 +61,7 @@ class Clustering:
                 self.index += 1
                 self.blacklist.append(query)
             if tmp_list:
-                self.set_cluster_hard(clustered, cluster_lvl+1)
+                self.set_cluster_hard(clustered, cluster_lvl + 1)
 
     # Получение frequency из work_file
     def get_data(self, item):

@@ -136,5 +136,4 @@ def create_excel(name_doc):
             name_doc = f"{name}_{num}"
         else:
             workbook = Workbook(iso_dates=True)
-
     return workbook
