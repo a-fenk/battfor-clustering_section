@@ -226,15 +226,13 @@ class Queries:
         json_work("other_files/work_file.json", "w", empty)
         print(url)
         self.get_from_ym(url)
-
         keys = self.get_keys_from_gls(url)  # получение ключей gsc
         keys += self.get_key_from_txt(keys)  # получение ключей из файла
         print("Ключи до удаления:")
         print(keys)
         print(f'Ключей до удаления: {len(keys)}')
-        time.sleep(5)
+        time.sleep(3)
         keys = self.clean_double(keys)  # удаление дублей
-
 
         if len(keys) > 0:
             self.checkin_main(self.main_file, keys)  # Удаление ключей присутствующих в main_file
@@ -243,7 +241,7 @@ class Queries:
             for item in self.work_file:
                 print(item["maska"]["without_minsk"])
             print(f'Ключей после удаления: {len(self.work_file)}')
-            time.sleep(5)
+            time.sleep(3)
             if len(self.work_file) > 0:
                 # l = Lock()
                 # p = Pool(initializer=init, initargs=(l,), processes=5)
@@ -318,4 +316,4 @@ if __name__ == "__main__":
     # queries.run("some_url")
     # queries.generate_list_link()
     # queries.section_list()
-    queries.run("https://redsale.by/remont/stuccoing/")
+    queries.run("https://redsale.by/artist/animators")

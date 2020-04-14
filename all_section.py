@@ -30,6 +30,7 @@ class AllSection:
         self.all_section = json_work("other_files/all_section.json", 'r')
         self.count_river = 0
         self.trying_freq = 0
+        self.count = 0
 
     # удаление отчета аналитики
     def delete_wordstat_report(self, id_):
@@ -327,7 +328,8 @@ class AllSection:
         for url in url_to_add:
             self.get_h1_from_url(url)
             print(f'url {url} добавлен в json')
-
+            self.count += 1
+            print(f'Всего url добавлено за сессию: {self.count}')
     # обновление serp sitemap
     def update_serp(self):
         for item in self.all_section:
