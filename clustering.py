@@ -5,11 +5,11 @@ from openpyxl.styles import PatternFill, Fill
 
 from helping_functions import json_work, create_excel
 
-data = json_work("other_files/main.json", "r")
+# data = json_work("other_files/main.json", "r")
 
 
 class Clustering:
-    def __init__(self, work_file, name_doc="file_"):
+    def __init__(self, work_file, url, name_doc="file_"):
         self.index = 0
         self.workbook = None
         self.sheet = None
@@ -17,6 +17,7 @@ class Clustering:
         self.list_query = []
         self.name_doc = name_doc
         self.blacklist = []
+        self.url = url
 
     # Получаем список запросов
     def get_dict_from_work(self):
@@ -26,6 +27,8 @@ class Clustering:
     def cluster_to_excel(self, item, cluster_lvl, index, color):
         const = 3
         sheet = self.sheet
+        sheet.merge_cells(f"A1:A{chr(ord('A') + const)}1")
+        sheet["A1"] = self.url
         sheet.merge_cells(f"A2:{chr(ord('A') + const)}2")
         sheet["A2"] = "query"
         sheet[f"{chr(ord('B') + const)}2"] = "frequency_basic"
@@ -131,6 +134,6 @@ class Clustering:
         print(f"{self.sheet.title} добавлен в {self.name_doc}.xlsx")
 
 
-if __name__ == "__main__":
-    cluster = Clustering(data)
-    cluster.run()
+# if __name__ == "__main__":
+#     cluster = Clustering(data)
+#     cluster.run()

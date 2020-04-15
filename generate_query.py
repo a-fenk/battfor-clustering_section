@@ -37,6 +37,7 @@ class Queries:
         self.all_section = json_work("other_files/all_section.json", "r")
         self.work_file = []
         self.main_file = json_work("other_files/main.json", "r")
+        self.to_excel_file = json_work("other_files/to_excel.json", "r")
         self.list_links = json_work("other_files/list_links.json", "r")
 
     # TODO найти метод для получения ключей
@@ -174,10 +175,10 @@ class Queries:
         item["frequency"] = frequency
         # lock.acquire()
         try:
-            work = json_work("other_files/main.json", "r")
+            work = json_work("other_files/work_file.json", "r")
             work.append(item)
-            json_work("other_files/main.json", "w", work)
-            print(f'Запрос {maska["with_minsk"]} был добавлен в main.json')
+            json_work("other_files/work_file.json", "w", work)
+            print(f'Запрос {maska["with_minsk"]} был добавлен в work_file.json')
         finally:
             pass
             # lock.release()
@@ -203,7 +204,7 @@ class Queries:
         list_links = []
         with open("other_files/links.txt") as f:
             for item in f:
-                list_links.append(item)
+                list_links.append(item.rstrip('\n'))
 
         return list_links
 
@@ -236,26 +237,8 @@ class Queries:
     #
     #     return True
 
-    # Запуск скрипта
-    def run(self, manual_keys=False, manual_links=False):
-        empty = []
-        keys = []
-        json_work("other_files/work_file.json", "w", empty)
-        # self.get_from_ym(url)
-        if manual_keys:
-            keys += self.get_key_from_txt()  # получение ключей из файла
-        elif manual_links:
-            urls = self.get_links_from_txt()
-            for url in urls:
-                keys += self.get_keys_from_gls(url)  # получение ключей gsc
-        else:
-            if not json_work("other_files/list_links.json", "r"):   # если список пустой, наполняем из all_section
-                print("list_link.json пуст, получаю URL из all_section.json")
-                self.generate_list_link()
-            urls = json_work("other_files/list_links.json", "r")
-            urls = self.get_urls_with_limit(urls, 5)
-            for url in urls:
-                keys += self.get_keys_from_gls(url)  # получение ключей gsc
+    def generate(self, keys, url):
+        json_work("other_files/work_file.json", "w", [])
 
         print("Ключи до удаления:")
         print(keys)
@@ -280,16 +263,53 @@ class Queries:
                 for item in self.work_file:
                     self.template_generated(item)
 
-        main = json_work("other_files/main.json", "r")
-        gen_data = sorted(main, key=lambda x: x["frequency"]["accurate"], reverse=True)
+        work = json_work("other_files/work_file.json", "r")
+        gen_data = sorted(work, key=lambda x: x["frequency"]["accurate"], reverse=True)
+        json_work("other_files/work_file.json", "w", gen_data)
+        gen_data += json_work("other_files/main.json", "r")
+        gen_data = sorted(gen_data, key=lambda x: x["frequency"]["accurate"], reverse=True)
         json_work("other_files/main.json", "w", gen_data)
-        clustering = Clustering(json_work("other_files/main.json", "r"))
+        clustering = Clustering(json_work("other_files/work_file.json", "r"), url)
         clustering.run()
+        return
 
+    # Запуск скрипта
+    def run(self, manual_keys=False, manual_links=False):
+        keys = []
+        # self.get_from_ym(url)
+        if manual_keys:
+            keys += self.get_key_from_txt()  # получение ключей из файла
+            self.generate(keys, "None")
+        elif manual_links:
+            urls = self.get_links_from_txt()
+            print(urls)
+            for url in urls:
+                print(f"Получаю ключи по {url} ...")
+                keys = self.get_keys_from_gls(url)  # получение ключей gsc
+                if keys:
+                    self.generate(keys, url)
+                else:
+                    print("Список ключей пуст.")
 
-
+        else:
+            if not json_work("other_files/list_links.json", "r"):   # если список пустой, наполняем из all_section
+                print("list_link.json пуст, получаю URL из all_section.json ...")
+                self.generate_list_link()
+            urls = json_work("other_files/list_links.json", "r")
+            urls = self.get_urls_with_limit(urls, 5)
+            for url in urls:
+                keys = self.get_keys_from_gls(url)  # получение ключей gsc
+                if keys:
+                    self.generate(keys, url)
+                else:
+                    print("Список ключей пуст.")
 
         print("Завершено")
+
+
+
+
+
         # ''' Кластеризуем work '''
         # if len(main) < 0:
         #     return False
