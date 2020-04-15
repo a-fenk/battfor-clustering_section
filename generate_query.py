@@ -249,11 +249,13 @@ class Queries:
             for url in urls:
                 keys += self.get_keys_from_gls(url)  # получение ключей gsc
         else:
-            self.generate_list_link()
+            if not json_work("other_files/list_links.json", "r"):   # если список пустой, наполняем из all_section
+                print("list_link.json пуст, получаю URL из all_section.json")
+                self.generate_list_link()
             urls = json_work("other_files/list_links.json", "r")
+            urls = self.get_urls_with_limit(urls, 5)
             for url in urls:
-                keys += self.get_keys_from_gls(url)
-                keys = self.clean_list(keys, 5)    # чистим и оставляем выбранное кол-во неиспользовавшихся раннее ссылок
+                keys += self.get_keys_from_gls(url)  # получение ключей gsc
 
         print("Ключи до удаления:")
         print(keys)
@@ -340,8 +342,17 @@ class Queries:
 
         json_work("other_files/list_links.json", "w", list_links)
 
-    # def clean_list(self, keys, size):
-    #     for url in
+    def get_urls_with_limit(self, list_in, limit):
+        limit -= 1
+        list_out = []
+        print(f'размер list_links.json: {len(list_in)}')
+        while len(list_out) <= limit and list_in:
+            list_out.append(list_in[0])
+            list_in.pop()[0]
+        print(f'кол-во ссылок, оставшихся в list_links.json: {len(list_in)}')
+        print(f'размер списка на обработку: {len(list_out)}')
+        json_work("other_files/list_links.json", "w", list_in)
+        return list_out
 
 
 
