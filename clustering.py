@@ -61,6 +61,7 @@ class Clustering:
                 query_urls = self.get_data(query)["SERP"]["url"]
                 tmp_list = []
                 clustered = []
+                flag = False
                 if cluster_lvl == 0:
                     index += 1
                 else:
@@ -73,10 +74,9 @@ class Clustering:
                                 self.cluster_to_excel(query, cluster_lvl, self.index, False)
                                 self.index += 1
                                 self.blacklist.append(query)
-                                if cluster_lvl < 3:
-                                    cluster_lvl_ = cluster_lvl+1
-                                else:
-                                    cluster_lvl_ = cluster_lvl
+                                flag = True
+                            if cluster_lvl < 3 and flag:
+                                cluster_lvl_ = cluster_lvl+1
                             else:
                                 cluster_lvl_ = cluster_lvl
                             self.cluster_to_excel(query1, cluster_lvl_, self.index, True)

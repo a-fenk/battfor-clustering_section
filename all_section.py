@@ -303,6 +303,8 @@ class AllSection:
         # data = list_site
         print(f'Template по {template} обработан')
         data_from_template = [self.generate_template(template)]
+        if data_from_template == -1:
+            return
         lock.acquire()
         try:
             data_in_json = json_work("other_files/all_section.json", "r")
@@ -314,6 +316,7 @@ class AllSection:
             lock.release()
 
         print('Записан в файл')
+        return
 
     def delete_duplicates(self, ser_from, ser_rm):
         ser_from = pd.Series(ser_from)
