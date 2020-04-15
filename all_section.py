@@ -325,6 +325,8 @@ class AllSection:
 
     def check_sitemap(self):
         sources_json = self.get_sources()
+        print(f"Всего URL в sitemap: {self.list_url.size}")
+        print(f"Всего URL в all_section.json: {sources_json.size}")
         url_to_delete = self.delete_duplicates(sources_json, self.list_url)  # Получаем серию URL которую нужно удалить
         url_to_add = self.delete_duplicates(self.list_url, sources_json)  # Получаем серию URL которую добавить
         for idx, item in enumerate(self.all_section):
