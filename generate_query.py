@@ -1,7 +1,10 @@
 import os
 import re
+import sys
 import time
 from datetime import datetime
+
+from clustering import Clustering
 from pprint import pprint
 
 from multiprocessing import *
@@ -168,9 +171,10 @@ class Queries:
         item["frequency"] = frequency
         # lock.acquire()
         try:
-            work = json_work("other_files/work_file.json", "r")
+            work = json_work("other_files/main.json", "r")
             work.append(item)
-            json_work("other_files/work_file.json", "w", work)
+            json_work("other_files/main.json", "w", work)
+            print(f'Запрос {maska["with_minsk"]} был добавлен в main.json')
         finally:
             pass
             # lock.release()
@@ -182,14 +186,23 @@ class Queries:
                 keys.remove(item["query"])
 
     # получение ключей из текстового файла
-    def get_key_from_txt(self, keys):
+    def get_key_from_txt(self):
         list_keys = []
-        with open("other_files/keys_.txt") as f:
+        with open("other_files/keys.txt") as f:
             for item in f:
-                if item.strip().lower() not in keys:
+                if item.strip().lower() not in list_keys:
                     list_keys.append(item.strip().lower())
 
         return list_keys
+
+    # получение ссылок из текстового файла
+    def get_links_from_txt(self):
+        list_links = []
+        with open("other_files/links.txt") as f:
+            for item in f:
+                list_links.append(item)
+
+        return list_links
 
     # проверка наличия stemming вне зависимости от последовательности слов
     def checkin_stemming(self, stemmings, item):
@@ -221,27 +234,36 @@ class Queries:
     #     return True
 
     # Запуск скрипта
-    def run(self, url):
+    def run(self, manual_keys=False, manual_links=False):
         empty = []
+        keys = []
         json_work("other_files/work_file.json", "w", empty)
-        print(url)
-        self.get_from_ym(url)
-        keys = self.get_keys_from_gls(url)  # получение ключей gsc
-        keys += self.get_key_from_txt(keys)  # получение ключей из файла
+        # self.get_from_ym(url)
+        if manual_keys:
+            keys += self.get_key_from_txt()  # получение ключей из файла
+        elif manual_links:
+            urls = self.get_links_from_txt()
+            for url in urls:
+                keys += self.get_keys_from_gls(url)  # получение ключей gsc
+        # else:
+        #     usls = self.get_all_section_url()
+        #     for url in urls:
+        #         keys += self.get_keys_from_gls(url)
+
         print("Ключи до удаления:")
         print(keys)
-        print(f'Ключей до удаления: {len(keys)}')
-        time.sleep(3)
+        print(f'Ключей получено: {len(keys)}')
+        time.sleep(2)
         keys = self.clean_double(keys)  # удаление дублей
 
         if len(keys) > 0:
-            self.checkin_main(self.main_file, keys)  # Удаление ключей присутствующих в main_file
+            # self.checkin_main(self.main_file, keys)  # Удаление ключей присутствующих в main_file
             self.generate_pretmp(keys)  # генерация претемплейтов по ключам c уникальным stemming
             print("Ключи после удаления:")
             for item in self.work_file:
-                print(item["maska"]["without_minsk"])
-            print(f'Ключей после удаления: {len(self.work_file)}')
-            time.sleep(3)
+                print(item["maska"]["with_minsk"])
+            print(f'Ключей после удаления дублей: {len(self.work_file)}')
+            time.sleep(2)
             if len(self.work_file) > 0:
                 # l = Lock()
                 # p = Pool(initializer=init, initargs=(l,), processes=5)
@@ -251,11 +273,14 @@ class Queries:
                 for item in self.work_file:
                     self.template_generated(item)
 
-                main = json_work("other_files/main.json", "r")
-                work = json_work("other_files/work_file.json", "r")
-                gen_data = main + work
-                gen_data = sorted(gen_data, key=lambda x: x["frequency"]["accurate"], reverse=True)
-                json_work("other_files/main.json", "w", gen_data)
+        main = json_work("other_files/main.json", "r")
+        gen_data = sorted(main, key=lambda x: x["frequency"]["accurate"], reverse=True)
+        json_work("other_files/main.json", "w", gen_data)
+        clustering = Clustering(json_work("other_files/main.json", "r"))
+        clustering.run()
+
+
+
 
         print("Завершено")
         # ''' Кластеризуем work '''
@@ -280,14 +305,14 @@ class Queries:
             if not status:
                 count += 1
 
-    # запуск скрипта по списку урлов
-    def start_for_list_url(self, item):
-        url_second_level = re.search(r"https://redsale.by/[^/]+/[^/]+$", item["source"])
-        if url_second_level is not None:
-            self.run(item["source"])
+    # запуск скрипта автоматом
+    def get_all_section_url(self):
 
-    def section_list(self):
-        self.start_for_list_url(self.all_section)
+        url_second_level = re.search(r"https://redsale.by/[^/]+/[^/]+$", item["source"])
+        if url_second_level is None:
+            return None
+
+        return
 
     # запуск скрипта по времени
     def start(self):
@@ -300,7 +325,7 @@ class Queries:
         #     schedule.run_pending()
         #     time.sleep(1)
 
-    # генерация list_links
+    # генерация list_links из all section
     def generate_list_link(self):
         list_links = []
         for item in self.all_section:
@@ -311,9 +336,24 @@ class Queries:
         json_work("other_files/list_links.json", "w", list_links)
 
 
+# if __name__ == "__main__":
+#     queries = Queries()
+#     # queries.run("some_url")
+#     # queries.generate_list_link()
+#     # queries.section_list()
+#     queries.run()
+
 if __name__ == "__main__":
+    try:
+        mode = sys.argv[1]
+    except IndexError:
+        mode = ""
     queries = Queries()
-    # queries.run("some_url")
-    # queries.generate_list_link()
-    # queries.section_list()
-    queries.run("https://redsale.by/artist/animators")
+    if mode == "manual_keys":
+        queries.run(manual_keys=True)
+
+    elif mode == "manual_links":
+        queries.run(manual_links=True)
+
+    else:
+        queries.run()

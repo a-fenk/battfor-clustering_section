@@ -47,8 +47,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 1644,
-      "accurate": 101
+      "basic": 10623,
+      "accurate": 539
     }
   },
   {
@@ -99,8 +99,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 3492,
-      "accurate": 998
+      "basic": 19698,
+      "accurate": 4502
     }
   },
   {
@@ -148,7 +148,7 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 1200,
+      "basic": 6237,
       "accurate": 0
     }
   },
@@ -200,8 +200,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 1899,
-      "accurate": 150
+      "basic": 10002,
+      "accurate": 807
     }
   },
   {
@@ -301,7 +301,7 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 150,
+      "basic": 1026,
       "accurate": 0
     }
   },
@@ -353,8 +353,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 399,
-      "accurate": 49
+      "basic": 2151,
+      "accurate": 268
     }
   },
   {
@@ -457,7 +457,7 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 699,
+      "basic": 3546,
       "accurate": 0
     }
   },
@@ -509,8 +509,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 200,
-      "accurate": 50
+      "basic": 1076,
+      "accurate": 269
     }
   },
   {
@@ -561,8 +561,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 650,
-      "accurate": 200
+      "basic": 4154,
+      "accurate": 1295
     }
   },
   {
@@ -613,8 +613,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 199,
-      "accurate": 50
+      "basic": 1075,
+      "accurate": 269
     }
   },
   {
@@ -665,7 +665,7 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 449,
+      "basic": 1982,
       "accurate": 0
     }
   },
@@ -714,7 +714,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 700,
+      "basic": 3547,
       "accurate": 0
     }
   },
@@ -815,8 +815,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 6696,
-      "accurate": 250
+      "basic": 37137,
+      "accurate": 1345
     }
   },
   {
@@ -867,8 +867,8 @@
     },
     "heading_entry": 9,
     "frequency": {
-      "basic": 1599,
-      "accurate": 150
+      "basic": 7512,
+      "accurate": 807
     }
   },
   {
@@ -919,8 +919,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 5405,
-      "accurate": 2803
+      "basic": 27305,
+      "accurate": 14848
     }
   },
   {
@@ -971,8 +971,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 14454,
-      "accurate": 451
+      "basic": 78621,
+      "accurate": 2641
     }
   },
   {
@@ -1023,7 +1023,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 500,
+      "basic": 3128,
       "accurate": 0
     }
   },
@@ -1075,7 +1075,7 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 450,
+      "basic": 3297,
       "accurate": 0
     }
   },
@@ -1127,8 +1127,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 4201,
-      "accurate": 50
+      "basic": 21721,
+      "accurate": 269
     }
   },
   {
@@ -1179,8 +1179,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 100,
-      "accurate": 50
+      "basic": 538,
+      "accurate": 269
     }
   },
   {
@@ -1231,7 +1231,7 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 21056,
+      "basic": 111941,
       "accurate": 0
     }
   },
@@ -1280,8 +1280,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 0,
-      "accurate": 0
+      "basic": 219,
+      "accurate": 219
     }
   },
   {
@@ -1332,7 +1332,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 6909,
+      "basic": 38007,
       "accurate": 0
     }
   },
@@ -1384,8 +1384,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 343,
-      "accurate": 98
+      "basic": 1876,
+      "accurate": 536
     }
   },
   {
@@ -1436,8 +1436,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 343,
-      "accurate": 49
+      "basic": 1876,
+      "accurate": 268
     }
   },
   {
@@ -1488,8 +1488,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 7933,
-      "accurate": 735
+      "basic": 41440,
+      "accurate": 4239
     }
   },
   {
@@ -1537,7 +1537,7 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 49,
+      "basic": 268,
       "accurate": 0
     }
   },
@@ -1589,8 +1589,8 @@
     },
     "heading_entry": 9,
     "frequency": {
-      "basic": 22105,
-      "accurate": 784
+      "basic": 112552,
+      "accurate": 4288
     }
   },
   {
@@ -1641,8 +1641,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 245,
-      "accurate": 0
+      "basic": 464,
+      "accurate": 219
     }
   },
   {
@@ -1693,8 +1693,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 196,
-      "accurate": 0
+      "basic": 1291,
+      "accurate": 219
     }
   },
   {
@@ -1745,8 +1745,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 833,
-      "accurate": 539
+      "basic": 4118,
+      "accurate": 2510
     }
   },
   {
@@ -1794,8 +1794,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 9217,
-      "accurate": 196
+      "basic": 48637,
+      "accurate": 1072
     }
   },
   {
@@ -1898,7 +1898,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 977,
+      "basic": 4700,
       "accurate": 0
     }
   },
@@ -1950,8 +1950,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 294,
-      "accurate": 49
+      "basic": 1608,
+      "accurate": 268
     }
   },
   {
@@ -2002,8 +2002,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 4216,
-      "accurate": 883
+      "basic": 23707,
+      "accurate": 4387
     }
   },
   {
@@ -2054,8 +2054,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 637,
-      "accurate": 49
+      "basic": 3046,
+      "accurate": 268
     }
   },
   {
@@ -2106,8 +2106,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 9212,
-      "accurate": 343
+      "basic": 49946,
+      "accurate": 1657
     }
   },
   {
@@ -2158,8 +2158,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 94587,
-      "accurate": 4064
+      "basic": 489006,
+      "accurate": 21146
     }
   },
   {
@@ -2210,7 +2210,7 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 193,
+      "basic": 1069,
       "accurate": 0
     }
   },
@@ -2262,7 +2262,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 49,
+      "basic": 268,
       "accurate": 0
     }
   },
@@ -2314,8 +2314,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 1176,
-      "accurate": 49
+      "basic": 7746,
+      "accurate": 487
     }
   },
   {
@@ -2415,7 +2415,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 437,
+      "basic": 2408,
       "accurate": 0
     }
   },
@@ -2519,7 +2519,7 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 98,
+      "basic": 536,
       "accurate": 0
     }
   },
@@ -2623,8 +2623,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 96,
-      "accurate": 48
+      "basic": 534,
+      "accurate": 267
     }
   },
   {
@@ -2675,8 +2675,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 48,
-      "accurate": 0
+      "basic": 486,
+      "accurate": 219
     }
   },
   {
@@ -2727,8 +2727,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 240,
-      "accurate": 48
+      "basic": 1335,
+      "accurate": 267
     }
   },
   {
@@ -2831,8 +2831,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 27069,
-      "accurate": 1827
+      "basic": 143577,
+      "accurate": 10368
     }
   },
   {
@@ -2883,8 +2883,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 335,
-      "accurate": 191
+      "basic": 1868,
+      "accurate": 848
     }
   },
   {
@@ -2935,7 +2935,7 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 2063,
+      "basic": 10823,
       "accurate": 0
     }
   },
@@ -2987,8 +2987,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 241,
-      "accurate": 97
+      "basic": 1117,
+      "accurate": 316
     }
   },
   {
@@ -3039,8 +3039,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 11891,
-      "accurate": 940
+      "basic": 64013,
+      "accurate": 5320
     }
   },
   {
@@ -3091,8 +3091,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 846,
-      "accurate": 235
+      "basic": 4788,
+      "accurate": 1549
     }
   },
   {
@@ -3143,8 +3143,8 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 144,
-      "accurate": 48
+      "basic": 801,
+      "accurate": 267
     }
   },
   {
@@ -3195,8 +3195,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 288,
-      "accurate": 96
+      "basic": 1821,
+      "accurate": 534
     }
   },
   {
@@ -3247,7 +3247,7 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 432,
+      "basic": 2184,
       "accurate": 96
     }
   },
@@ -3299,7 +3299,7 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 1152,
+      "basic": 6408,
       "accurate": 0
     }
   },
@@ -3345,7 +3345,7 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 48,
+      "basic": 267,
       "accurate": 0
     }
   },
@@ -3397,8 +3397,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 624,
-      "accurate": 48
+      "basic": 3690,
+      "accurate": 267
     }
   },
   {
@@ -3501,8 +3501,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 816,
-      "accurate": 240
+      "basic": 3882,
+      "accurate": 678
     }
   },
   {
@@ -3553,7 +3553,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 480,
+      "basic": 2451,
       "accurate": 0
     }
   },
@@ -3605,8 +3605,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 2784,
-      "accurate": 576
+      "basic": 15705,
+      "accurate": 2985
     }
   },
   {
@@ -3657,7 +3657,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 96,
+      "basic": 534,
       "accurate": 0
     }
   },
@@ -3758,7 +3758,7 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 480,
+      "basic": 2670,
       "accurate": 0
     }
   },
@@ -3862,8 +3862,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 8592,
-      "accurate": 48
+      "basic": 48012,
+      "accurate": 267
     }
   },
   {
@@ -3914,8 +3914,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 240,
-      "accurate": 0
+      "basic": 1554,
+      "accurate": 219
     }
   },
   {
@@ -3966,8 +3966,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 0,
-      "accurate": 0
+      "basic": 438,
+      "accurate": 438
     }
   },
   {
@@ -4015,7 +4015,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 144,
+      "basic": 801,
       "accurate": 0
     }
   },
@@ -4067,8 +4067,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 3072,
-      "accurate": 1200
+      "basic": 15555,
+      "accurate": 5799
     }
   },
   {
@@ -4116,7 +4116,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 192,
+      "basic": 1725,
       "accurate": 0
     }
   },
@@ -4474,8 +4474,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 1536,
-      "accurate": 192
+      "basic": 8325,
+      "accurate": 1068
     }
   },
   {
@@ -4526,8 +4526,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 864,
-      "accurate": 96
+      "basic": 5025,
+      "accurate": 753
     }
   },
   {
@@ -4578,8 +4578,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 14880,
-      "accurate": 1776
+      "basic": 83646,
+      "accurate": 10098
     }
   },
   {
@@ -4630,7 +4630,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 192,
+      "basic": 1068,
       "accurate": 0
     }
   },
@@ -4682,7 +4682,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 144,
+      "basic": 1020,
       "accurate": 0
     }
   },
@@ -4734,7 +4734,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 48,
+      "basic": 267,
       "accurate": 0
     }
   },
@@ -4838,7 +4838,7 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 2448,
+      "basic": 13836,
       "accurate": 0
     }
   },
@@ -4939,8 +4939,8 @@
     },
     "heading_entry": 9,
     "frequency": {
-      "basic": 2496,
-      "accurate": 48
+      "basic": 14322,
+      "accurate": 267
     }
   },
   {
@@ -4991,8 +4991,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 960,
-      "accurate": 48
+      "basic": 6216,
+      "accurate": 267
     }
   },
   {
@@ -5043,8 +5043,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 0,
-      "accurate": 0
+      "basic": 219,
+      "accurate": 219
     }
   },
   {
@@ -5147,7 +5147,7 @@
     },
     "heading_entry": 9,
     "frequency": {
-      "basic": 480,
+      "basic": 2670,
       "accurate": 0
     }
   },
@@ -5199,8 +5199,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 240,
-      "accurate": 144
+      "basic": 1335,
+      "accurate": 1020
     }
   },
   {
@@ -5251,7 +5251,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 384,
+      "basic": 2136,
       "accurate": 0
     }
   },
@@ -5355,8 +5355,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 1440,
-      "accurate": 96
+      "basic": 9543,
+      "accurate": 1191
     }
   },
   {
@@ -5407,7 +5407,7 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 96,
+      "basic": 972,
       "accurate": 0
     }
   },
@@ -5511,7 +5511,7 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 0,
+      "basic": 438,
       "accurate": 0
     }
   },
@@ -5615,7 +5615,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 0,
+      "basic": 219,
       "accurate": 0
     }
   },
@@ -5667,8 +5667,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 4416,
-      "accurate": 192
+      "basic": 22155,
+      "accurate": 1287
     }
   },
   {
@@ -5771,8 +5771,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 0,
-      "accurate": 0
+      "basic": 219,
+      "accurate": 219
     }
   },
   {
@@ -5927,7 +5927,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 144,
+      "basic": 582,
       "accurate": 0
     }
   },
@@ -5979,8 +5979,8 @@
     },
     "heading_entry": 9,
     "frequency": {
-      "basic": 39936,
-      "accurate": 672
+      "basic": 209880,
+      "accurate": 4614
     }
   },
   {
@@ -6028,7 +6028,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 192,
+      "basic": 1068,
       "accurate": 0
     }
   },
@@ -6080,7 +6080,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 192,
+      "basic": 1068,
       "accurate": 0
     }
   },
@@ -6181,8 +6181,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 2496,
-      "accurate": 288
+      "basic": 13884,
+      "accurate": 1821
     }
   },
   {
@@ -6233,8 +6233,8 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 624,
-      "accurate": 96
+      "basic": 3471,
+      "accurate": 534
     }
   },
   {
@@ -6282,8 +6282,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 240,
-      "accurate": 0
+      "basic": 1554,
+      "accurate": 219
     }
   },
   {
@@ -6334,8 +6334,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 2160,
-      "accurate": 144
+      "basic": 10482,
+      "accurate": 801
     }
   },
   {
@@ -6386,7 +6386,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 336,
+      "basic": 1212,
       "accurate": 0
     }
   },
@@ -6438,8 +6438,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 672,
-      "accurate": 192
+      "basic": 3738,
+      "accurate": 1068
     }
   },
   {
@@ -6490,7 +6490,7 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 1104,
+      "basic": 5703,
       "accurate": 48
     }
   },
@@ -6539,8 +6539,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 144,
-      "accurate": 96
+      "basic": 801,
+      "accurate": 534
     }
   },
   {
@@ -6591,8 +6591,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 6144,
-      "accurate": 288
+      "basic": 32424,
+      "accurate": 1383
     }
   },
   {
@@ -6643,7 +6643,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 1008,
+      "basic": 5388,
       "accurate": 0
     }
   },
@@ -6695,7 +6695,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 480,
+      "basic": 2670,
       "accurate": 0
     }
   },
@@ -6744,7 +6744,7 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 96,
+      "basic": 534,
       "accurate": 0
     }
   },
@@ -6796,7 +6796,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 672,
+      "basic": 2862,
       "accurate": 48
     }
   },
@@ -6845,7 +6845,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 1056,
+      "basic": 6093,
       "accurate": 0
     }
   },
@@ -6894,8 +6894,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 1152,
-      "accurate": 144
+      "basic": 5094,
+      "accurate": 801
     }
   },
   {
@@ -6946,7 +6946,7 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 432,
+      "basic": 2403,
       "accurate": 0
     }
   },
@@ -6995,8 +6995,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 192,
-      "accurate": 48
+      "basic": 1068,
+      "accurate": 267
     }
   },
   {
@@ -7044,7 +7044,7 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 48,
+      "basic": 267,
       "accurate": 0
     }
   },
@@ -7096,8 +7096,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 1632,
-      "accurate": 288
+      "basic": 6231,
+      "accurate": 1383
     }
   },
   {
@@ -7148,7 +7148,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 1968,
+      "basic": 9195,
       "accurate": 0
     }
   },
@@ -7197,7 +7197,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 480,
+      "basic": 2670,
       "accurate": 0
     }
   },
@@ -7347,7 +7347,7 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 48,
+      "basic": 267,
       "accurate": 0
     }
   },
@@ -7595,7 +7595,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 288,
+      "basic": 1602,
       "accurate": 0
     }
   },
@@ -7644,7 +7644,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 432,
+      "basic": 2403,
       "accurate": 0
     }
   },
@@ -7696,7 +7696,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 144,
+      "basic": 801,
       "accurate": 0
     }
   },
@@ -7745,7 +7745,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 192,
+      "basic": 630,
       "accurate": 0
     }
   },
@@ -7797,8 +7797,8 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 1344,
-      "accurate": 96
+      "basic": 6819,
+      "accurate": 534
     }
   },
   {
@@ -7849,7 +7849,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 48,
+      "basic": 267,
       "accurate": 0
     }
   },
@@ -7901,8 +7901,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 1104,
-      "accurate": 48
+      "basic": 5703,
+      "accurate": 267
     }
   },
   {
@@ -7953,7 +7953,7 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 7056,
+      "basic": 37278,
       "accurate": 0
     }
   },
@@ -8054,8 +8054,8 @@
     },
     "heading_entry": 9,
     "frequency": {
-      "basic": 2208,
-      "accurate": 528
+      "basic": 12282,
+      "accurate": 2937
     }
   },
   {
@@ -8106,7 +8106,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 3648,
+      "basic": 20949,
       "accurate": 0
     }
   },
@@ -8158,8 +8158,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 7776,
-      "accurate": 960
+      "basic": 41721,
+      "accurate": 5340
     }
   },
   {
@@ -8262,7 +8262,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 96,
+      "basic": 534,
       "accurate": 0
     }
   },
@@ -8314,8 +8314,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 2928,
-      "accurate": 288
+      "basic": 13878,
+      "accurate": 1602
     }
   },
   {
@@ -8366,7 +8366,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 48,
+      "basic": 267,
       "accurate": 0
     }
   },
@@ -8418,8 +8418,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 528,
-      "accurate": 288
+      "basic": 2937,
+      "accurate": 1821
     }
   },
   {
@@ -8470,8 +8470,8 @@
     },
     "heading_entry": 9,
     "frequency": {
-      "basic": 3936,
-      "accurate": 288
+      "basic": 20580,
+      "accurate": 1602
     }
   },
   {
@@ -8522,7 +8522,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 1248,
+      "basic": 7161,
       "accurate": 0
     }
   },
@@ -8574,7 +8574,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 1344,
+      "basic": 7257,
       "accurate": 0
     }
   },
@@ -8626,8 +8626,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 384,
-      "accurate": 48
+      "basic": 1479,
+      "accurate": 267
     }
   },
   {
@@ -8727,8 +8727,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 5904,
-      "accurate": 480
+      "basic": 34593,
+      "accurate": 2889
     }
   },
   {
@@ -8779,8 +8779,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 7248,
-      "accurate": 384
+      "basic": 38346,
+      "accurate": 1917
     }
   },
   {
@@ -8831,8 +8831,8 @@
     },
     "heading_entry": 9,
     "frequency": {
-      "basic": 20112,
-      "accurate": 2496
+      "basic": 116472,
+      "accurate": 14979
     }
   },
   {
@@ -8883,8 +8883,8 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 1200,
-      "accurate": 96
+      "basic": 7113,
+      "accurate": 534
     }
   },
   {
@@ -8935,8 +8935,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 1584,
-      "accurate": 1104
+      "basic": 9687,
+      "accurate": 7017
     }
   },
   {
@@ -8987,7 +8987,7 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 384,
+      "basic": 3231,
       "accurate": 0
     }
   },
@@ -9039,8 +9039,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 188,
-      "accurate": 47
+      "basic": 1940,
+      "accurate": 266
     }
   },
   {
@@ -9091,7 +9091,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 376,
+      "basic": 2128,
       "accurate": 0
     }
   },
@@ -9143,7 +9143,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 329,
+      "basic": 2081,
       "accurate": 0
     }
   },
@@ -9195,7 +9195,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 188,
+      "basic": 1064,
       "accurate": 0
     }
   },
@@ -9247,8 +9247,8 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 1457,
-      "accurate": 94
+      "basic": 8903,
+      "accurate": 1189
     }
   },
   {
@@ -9299,8 +9299,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 235,
-      "accurate": 141
+      "basic": 1330,
+      "accurate": 798
     }
   },
   {
@@ -9351,7 +9351,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 282,
+      "basic": 1815,
       "accurate": 0
     }
   },
@@ -9403,7 +9403,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 376,
+      "basic": 2128,
       "accurate": 0
     }
   },
@@ -9455,8 +9455,8 @@
     },
     "heading_entry": 9,
     "frequency": {
-      "basic": 9400,
-      "accurate": 611
+      "basic": 46849,
+      "accurate": 2801
     }
   },
   {
@@ -9507,8 +9507,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 376,
-      "accurate": 47
+      "basic": 1690,
+      "accurate": 266
     }
   },
   {
@@ -9559,8 +9559,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 752,
-      "accurate": 0
+      "basic": 3599,
+      "accurate": 219
     }
   },
   {
@@ -9611,8 +9611,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 45355,
-      "accurate": 4183
+      "basic": 240046,
+      "accurate": 22141
     }
   },
   {
@@ -9663,8 +9663,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 10481,
-      "accurate": 9447
+      "basic": 57785,
+      "accurate": 51276
     }
   },
   {
@@ -9715,8 +9715,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 2256,
-      "accurate": 893
+      "basic": 11454,
+      "accurate": 4835
     }
   },
   {
@@ -9767,8 +9767,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 705,
-      "accurate": 141
+      "basic": 3990,
+      "accurate": 579
     }
   },
   {
@@ -9819,7 +9819,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 517,
+      "basic": 2707,
       "accurate": 0
     }
   },
@@ -9871,8 +9871,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 987,
-      "accurate": 94
+      "basic": 6024,
+      "accurate": 532
     }
   },
   {
@@ -9923,8 +9923,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 1363,
-      "accurate": 376
+      "basic": 7276,
+      "accurate": 1690
     }
   },
   {
@@ -9975,7 +9975,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 282,
+      "basic": 1596,
       "accurate": 0
     }
   },
@@ -10027,8 +10027,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 47,
-      "accurate": 47
+      "basic": 266,
+      "accurate": 266
     }
   },
   {
@@ -10128,8 +10128,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 94,
-      "accurate": 94
+      "basic": 313,
+      "accurate": 313
     }
   },
   {
@@ -10180,8 +10180,8 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 423,
-      "accurate": 94
+      "basic": 2175,
+      "accurate": 313
     }
   },
   {
@@ -10232,7 +10232,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 94,
+      "basic": 532,
       "accurate": 0
     }
   },
@@ -10284,8 +10284,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 423,
-      "accurate": 47
+      "basic": 2394,
+      "accurate": 266
     }
   },
   {
@@ -10336,7 +10336,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 141,
+      "basic": 798,
       "accurate": 0
     }
   },
@@ -10388,8 +10388,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 3995,
-      "accurate": 188
+      "basic": 21953,
+      "accurate": 1064
     }
   },
   {
@@ -10486,7 +10486,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 282,
+      "basic": 1596,
       "accurate": 0
     }
   },
@@ -10538,8 +10538,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 1739,
-      "accurate": 752
+      "basic": 9842,
+      "accurate": 4037
     }
   },
   {
@@ -10590,7 +10590,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 235,
+      "basic": 1330,
       "accurate": 0
     }
   },
@@ -10642,8 +10642,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 1974,
-      "accurate": 564
+      "basic": 10734,
+      "accurate": 2754
     }
   },
   {
@@ -10694,7 +10694,7 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 1363,
+      "basic": 8371,
       "accurate": 0
     }
   },
@@ -10746,7 +10746,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 47,
+      "basic": 266,
       "accurate": 0
     }
   },
@@ -10798,7 +10798,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 141,
+      "basic": 579,
       "accurate": 0
     }
   },
@@ -10899,7 +10899,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 282,
+      "basic": 1815,
       "accurate": 0
     }
   },
@@ -10951,8 +10951,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 141,
-      "accurate": 47
+      "basic": 1017,
+      "accurate": 485
     }
   },
   {
@@ -11003,7 +11003,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 47,
+      "basic": 266,
       "accurate": 0
     }
   },
@@ -11107,7 +11107,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 47,
+      "basic": 266,
       "accurate": 0
     }
   },
@@ -11159,8 +11159,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 1645,
-      "accurate": 141
+      "basic": 9310,
+      "accurate": 1017
     }
   },
   {
@@ -11208,7 +11208,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 94,
+      "basic": 532,
       "accurate": 0
     }
   },
@@ -11260,7 +11260,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 47,
+      "basic": 266,
       "accurate": 0
     }
   },
@@ -11312,8 +11312,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 1269,
-      "accurate": 94
+      "basic": 6087,
+      "accurate": 532
     }
   },
   {
@@ -11364,8 +11364,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 141,
-      "accurate": 94
+      "basic": 798,
+      "accurate": 532
     }
   },
   {
@@ -11416,8 +11416,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 987,
-      "accurate": 47
+      "basic": 5367,
+      "accurate": 266
     }
   },
   {
@@ -11468,8 +11468,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 94,
-      "accurate": 0
+      "basic": 751,
+      "accurate": 219
     }
   },
   {
@@ -11572,7 +11572,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 47,
+      "basic": 266,
       "accurate": 0
     }
   },
@@ -11728,8 +11728,8 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 517,
-      "accurate": 188
+      "basic": 2915,
+      "accurate": 1060
     }
   },
   {
@@ -11881,8 +11881,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 423,
-      "accurate": 188
+      "basic": 2385,
+      "accurate": 1060
     }
   },
   {
@@ -11933,8 +11933,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 0,
-      "accurate": 0
+      "basic": 436,
+      "accurate": 218
     }
   },
   {
@@ -11985,8 +11985,8 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 0,
-      "accurate": 0
+      "basic": 218,
+      "accurate": 218
     }
   },
   {
@@ -12037,8 +12037,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 94,
-      "accurate": 47
+      "basic": 530,
+      "accurate": 265
     }
   },
   {
@@ -12227,7 +12227,7 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 94,
+      "basic": 530,
       "accurate": 0
     }
   },
@@ -12429,7 +12429,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 282,
+      "basic": 936,
       "accurate": 0
     }
   },
@@ -12481,8 +12481,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 141,
-      "accurate": 94
+      "basic": 1013,
+      "accurate": 748
     }
   },
   {
@@ -12582,8 +12582,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 376,
-      "accurate": 47
+      "basic": 2120,
+      "accurate": 265
     }
   },
   {
@@ -12686,8 +12686,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 4653,
-      "accurate": 611
+      "basic": 24055,
+      "accurate": 3009
     }
   },
   {
@@ -12790,8 +12790,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 141,
-      "accurate": 141
+      "basic": 795,
+      "accurate": 795
     }
   },
   {
@@ -12894,8 +12894,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 828,
-      "accurate": 230
+      "basic": 5624,
+      "accurate": 1756
     }
   },
   {
@@ -12946,8 +12946,8 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 184,
-      "accurate": 92
+      "basic": 1056,
+      "accurate": 528
     }
   },
   {
@@ -12998,8 +12998,8 @@
     },
     "heading_entry": 9,
     "frequency": {
-      "basic": 3818,
-      "accurate": 368
+      "basic": 21258,
+      "accurate": 1894
     }
   },
   {
@@ -13050,8 +13050,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 4140,
-      "accurate": 460
+      "basic": 23106,
+      "accurate": 2204
     }
   },
   {
@@ -13102,8 +13102,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 184,
-      "accurate": 46
+      "basic": 838,
+      "accurate": 264
     }
   },
   {
@@ -13206,8 +13206,8 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 46,
-      "accurate": 46
+      "basic": 264,
+      "accurate": 264
     }
   },
   {
@@ -13255,7 +13255,7 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 46,
+      "basic": 264,
       "accurate": 0
     }
   },
@@ -13356,7 +13356,7 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 368,
+      "basic": 2112,
       "accurate": 0
     }
   },
@@ -13408,8 +13408,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 4186,
-      "accurate": 46
+      "basic": 22062,
+      "accurate": 264
     }
   },
   {
@@ -13460,8 +13460,8 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 460,
-      "accurate": 46
+      "basic": 3294,
+      "accurate": 264
     }
   },
   {
@@ -13512,7 +13512,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 966,
+      "basic": 5326,
       "accurate": 230
     }
   },
@@ -13564,8 +13564,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 368,
-      "accurate": 46
+      "basic": 2548,
+      "accurate": 264
     }
   },
   {
@@ -13616,8 +13616,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 1104,
-      "accurate": 230
+      "basic": 7426,
+      "accurate": 1102
     }
   },
   {
@@ -13668,7 +13668,7 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 2024,
+      "basic": 11180,
       "accurate": 0
     }
   },
@@ -13720,7 +13720,7 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 1334,
+      "basic": 7656,
       "accurate": 0
     }
   },
@@ -13772,8 +13772,8 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 1104,
-      "accurate": 138
+      "basic": 5900,
+      "accurate": 792
     }
   },
   {
@@ -13824,7 +13824,7 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 506,
+      "basic": 2904,
       "accurate": 0
     }
   },
@@ -13876,8 +13876,8 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 184,
-      "accurate": 46
+      "basic": 620,
+      "accurate": 264
     }
   },
   {
@@ -13928,7 +13928,7 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 138,
+      "basic": 1228,
       "accurate": 0
     }
   },
@@ -13980,8 +13980,8 @@
     },
     "heading_entry": 0,
     "frequency": {
-      "basic": 690,
-      "accurate": 0
+      "basic": 3742,
+      "accurate": 218
     }
   },
   {
@@ -14136,8 +14136,8 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 1012,
-      "accurate": 92
+      "basic": 7334,
+      "accurate": 528
     }
   },
   {
@@ -14188,8 +14188,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 46,
-      "accurate": 0
+      "basic": 700,
+      "accurate": 436
     }
   },
   {
@@ -14240,8 +14240,8 @@
     },
     "heading_entry": 1,
     "frequency": {
-      "basic": 276,
-      "accurate": 92
+      "basic": 1584,
+      "accurate": 528
     }
   },
   {
@@ -14292,8 +14292,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 1656,
-      "accurate": 460
+      "basic": 8632,
+      "accurate": 2204
     }
   },
   {
@@ -14344,8 +14344,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 782,
-      "accurate": 92
+      "basic": 4924,
+      "accurate": 528
     }
   },
   {
@@ -14448,8 +14448,8 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 0,
-      "accurate": 0
+      "basic": 218,
+      "accurate": 218
     }
   },
   {
@@ -14500,8 +14500,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 690,
-      "accurate": 46
+      "basic": 3742,
+      "accurate": 264
     }
   },
   {
@@ -14552,7 +14552,7 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 46,
+      "basic": 264,
       "accurate": 0
     }
   },
@@ -14604,7 +14604,7 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 184,
+      "basic": 1056,
       "accurate": 0
     }
   },
@@ -14656,8 +14656,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 138,
-      "accurate": 0
+      "basic": 1010,
+      "accurate": 218
     }
   },
   {
@@ -14708,7 +14708,7 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 138,
+      "basic": 1010,
       "accurate": 0
     }
   },
@@ -14760,8 +14760,8 @@
     },
     "heading_entry": 4,
     "frequency": {
-      "basic": 920,
-      "accurate": 0
+      "basic": 5280,
+      "accurate": 218
     }
   },
   {
@@ -14812,8 +14812,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 22724,
-      "accurate": 2162
+      "basic": 131288,
+      "accurate": 12844
     }
   },
   {
@@ -14864,8 +14864,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 1886,
-      "accurate": 46
+      "basic": 10824,
+      "accurate": 264
     }
   },
   {
@@ -14916,8 +14916,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 230,
-      "accurate": 46
+      "basic": 1756,
+      "accurate": 264
     }
   },
   {
@@ -15020,8 +15020,8 @@
     },
     "heading_entry": 6,
     "frequency": {
-      "basic": 3404,
-      "accurate": 230
+      "basic": 20190,
+      "accurate": 1320
     }
   },
   {
@@ -15072,8 +15072,8 @@
     },
     "heading_entry": 8,
     "frequency": {
-      "basic": 3818,
-      "accurate": 184
+      "basic": 19078,
+      "accurate": 838
     }
   },
   {
@@ -15124,8 +15124,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 1242,
-      "accurate": 414
+      "basic": 6910,
+      "accurate": 2158
     }
   },
   {
@@ -15176,8 +15176,8 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 1058,
-      "accurate": 46
+      "basic": 4982,
+      "accurate": 264
     }
   },
   {
@@ -15228,8 +15228,8 @@
     },
     "heading_entry": 5,
     "frequency": {
-      "basic": 2208,
-      "accurate": 138
+      "basic": 11364,
+      "accurate": 574
     }
   },
   {
@@ -15280,8 +15280,8 @@
     },
     "heading_entry": 10,
     "frequency": {
-      "basic": 1840,
-      "accurate": 184
+      "basic": 9034,
+      "accurate": 1056
     }
   },
   {
@@ -15329,7 +15329,7 @@
     },
     "heading_entry": 2,
     "frequency": {
-      "basic": 368,
+      "basic": 2112,
       "accurate": 0
     }
   },
@@ -15378,7 +15378,7 @@
     },
     "heading_entry": 3,
     "frequency": {
-      "basic": 1518,
+      "basic": 8276,
       "accurate": 0
     }
   },
@@ -15430,8 +15430,8 @@
     },
     "heading_entry": 7,
     "frequency": {
-      "basic": 1058,
-      "accurate": 92
+      "basic": 6072,
+      "accurate": 528
     }
   },
   {

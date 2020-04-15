@@ -9,7 +9,7 @@ data = json_work("other_files/main.json", "r")
 
 
 class Clustering:
-    def __init__(self, work_file, sheet_name="sheet", name_doc="file_"):
+    def __init__(self, work_file, name_doc="file_"):
         self.index = 0
         self.workbook = None
         self.sheet = None
@@ -36,7 +36,6 @@ class Clustering:
         header = sheet["A1"]
         header.style = "Note"
         idx = 3
-        sheet.merge_cells(f"{chr(ord('A') + cluster_lvl)}{idx + index}:{chr(ord('A') + const)}{idx + index}")
         if cluster_lvl == 0:
             sheet[f"{chr(ord('A') + cluster_lvl)}{idx + index}"].fill = PatternFill("solid", fgColor="c1d4be")
         if color:
@@ -47,7 +46,7 @@ class Clustering:
         sheet[f"{chr(ord('C') + const)}{idx + index}"] = item["frequency"]["accurate"]
         sheet[f"{chr(ord('D') + const)}{idx + index}"] = item["heading_entry"]
 
-    def set_cluster_hard(self, list_in, cluster_lvl, checklist):
+    def set_cluster_hard(self, list_in, cluster_lvl):
         if len(list_in) == 1 and list_in[0] not in self.blacklist:
             self.cluster_to_excel(list_in[0], cluster_lvl, self.index, False)
             self.index += 1
@@ -55,46 +54,48 @@ class Clustering:
             return
         index = -1
         for idx, query in enumerate(list_in):
-            query_urls = self.get_data(query)["SERP"]["url"]
-            tmp_list = []
-            clustered = []
-            checklist_ = []
-            if cluster_lvl == 0:
-                checklist.append(query_urls)
-                index += 1
-            else:
-                index = idx
-            for query1 in list_in[idx + 1:]:
-                query_urls1 = self.get_data(query1)["SERP"]["url"]
-                if query1 not in self.blacklist:
-                    if len(set(query_urls) & set(query_urls1)) == 10:
-                        if query not in self.blacklist:
-                            self.cluster_to_excel(query, cluster_lvl, self.index, False)
-                            self.index += 1
-                            self.blacklist.append(query)
-                            cluster_lvl_ = cluster_lvl+1
-                        else:
-                            cluster_lvl_ = cluster_lvl
-                        self.cluster_to_excel(query1, cluster_lvl_, self.index, True)
-                        self.index += 1
-                        self.blacklist.append(query1)
-                        print(query, query1, self.index)
-                    elif cluster_lvl == 3:
-                        self.cluster_to_excel(query1, cluster_lvl, self.index, False)
-                        self.index += 1
-                        self.blacklist.append(query1)
-                if len(set(query_urls) & set(query_urls1) & set(checklist[index])) >= 7 and query1 not \
-                        in (clustered or self.blacklist):
-                    tmp_list.append(query1)
-                    clustered.append(query1)
-                    checklist_.append(set(query_urls1) & set(checklist[index]))
-
             if query not in self.blacklist:
-                self.cluster_to_excel(query, cluster_lvl, self.index, False)
-                self.index += 1
-                self.blacklist.append(query)
-            if tmp_list:
-                self.set_cluster_hard(clustered, cluster_lvl + 1, checklist_)
+                query_urls = self.get_data(query)["SERP"]["url"]
+                tmp_list = []
+                clustered = []
+                if cluster_lvl == 0:
+                    index += 1
+                else:
+                    index = idx
+                for query1 in list_in[idx + 1:]:
+                    query_urls1 = self.get_data(query1)["SERP"]["url"]
+                    if query1 not in self.blacklist:
+                        if len(set(query_urls) & set(query_urls1)) == 10:
+                            if query not in self.blacklist:
+                                self.cluster_to_excel(query, cluster_lvl, self.index, False)
+                                self.index += 1
+                                self.blacklist.append(query)
+                                if cluster_lvl < 3:
+                                    cluster_lvl_ = cluster_lvl+1
+                                else:
+                                    cluster_lvl_ = cluster_lvl
+                            else:
+                                cluster_lvl_ = cluster_lvl
+                            self.cluster_to_excel(query1, cluster_lvl_, self.index, True)
+                            self.index += 1
+                            self.blacklist.append(query1)
+                        elif cluster_lvl == 3:
+                            self.cluster_to_excel(query1, cluster_lvl, self.index, False)
+                            self.index += 1
+                            self.blacklist.append(query1)
+                    # if query1 == 'аниматоры для детей 10 лет минск' and query == 'аниматор на детский день рождения минск':
+                    #     print(len(set(query_urls) & set(query_urls1)), cluster_lvl)
+                    if len(set(query_urls) & set(query_urls1)) >= 7 and query1 not \
+                            in (clustered or self.blacklist) and cluster_lvl < 3:
+                        tmp_list.append(query1)
+                        clustered.append(query1)
+
+                if query not in self.blacklist:
+                    self.cluster_to_excel(query, cluster_lvl, self.index, False)
+                    self.index += 1
+                    self.blacklist.append(query)
+                if tmp_list:
+                    self.set_cluster_hard(clustered, cluster_lvl + 1)
         return
 
     # Получение frequency из work_file
@@ -121,7 +122,7 @@ class Clustering:
             os.mkdir("excel_files")
             self.workbook = create_excel(self.name_doc)
         self.sheet = self.workbook.create_sheet()
-        self.set_cluster_hard(self.list_query, 0, [])
+        self.set_cluster_hard(self.list_query, 0)
 
         self.workbook.save(filename=f"excel_files/{self.name_doc}.xlsx")
         print(f"{self.sheet.title} добавлен в {self.name_doc}.xlsx")
