@@ -118,13 +118,16 @@ class Clustering:
         self.get_dict_from_work()  # получаем список запросов в self.list_query
         try:
             self.workbook = create_excel(self.name_doc)
+            self.sheet = self.workbook.create_sheet()
+            self.set_cluster_hard(self.list_query, 0)
+            self.workbook.save(filename=f"excel_files/{self.name_doc}.xlsx")
         except FileNotFoundError:
             os.mkdir("excel_files")
             self.workbook = create_excel(self.name_doc)
-        self.sheet = self.workbook.create_sheet()
-        self.set_cluster_hard(self.list_query, 0)
+            self.sheet = self.workbook.create_sheet()
+            self.set_cluster_hard(self.list_query, 0)
+            self.workbook.save(filename=f"excel_files/{self.name_doc}.xlsx")
 
-        self.workbook.save(filename=f"excel_files/{self.name_doc}.xlsx")
         print(f"{self.sheet.title} добавлен в {self.name_doc}.xlsx")
 
 
