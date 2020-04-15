@@ -156,6 +156,9 @@ class Queries:
         frequency = {}
         maska = item["maska"]
         serp = get_serp(maska["with_minsk"])
+        if serp == -1:
+            print(f'Отменяем дальнейшую работу с запросом {maska["with_minsk"]}')
+            return
         stemming = item["stemming"]
         try:
             basic_freq = get_frequency([maska["with_minsk"]])[0]["Shows"]
@@ -245,16 +248,18 @@ class Queries:
             urls = self.get_links_from_txt()
             for url in urls:
                 keys += self.get_keys_from_gls(url)  # получение ключей gsc
-        # else:
-        #     usls = self.get_all_section_url()
-        #     for url in urls:
-        #         keys += self.get_keys_from_gls(url)
+        else:
+            self.generate_list_link()
+            urls = json_work("other_files/list_links.json", "r")
+            for url in urls:
+                keys += self.get_keys_from_gls(url)
+                keys = self.clean_list(keys, 5)    # чистим и оставляем выбранное кол-во неиспользовавшихся раннее ссылок
 
         print("Ключи до удаления:")
         print(keys)
         print(f'Ключей получено: {len(keys)}')
         time.sleep(2)
-        keys = self.clean_double(keys)  # удаление дублей
+        # keys = self.clean_double(keys)  # удаление дублей
 
         if len(keys) > 0:
             # self.checkin_main(self.main_file, keys)  # Удаление ключей присутствующих в main_file
@@ -334,6 +339,10 @@ class Queries:
                 list_links.append(item["source"])
 
         json_work("other_files/list_links.json", "w", list_links)
+
+    # def clean_list(self, keys, size):
+    #     for url in
+
 
 
 # if __name__ == "__main__":

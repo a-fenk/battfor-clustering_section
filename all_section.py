@@ -172,6 +172,10 @@ class AllSection:
 
             except TypeError:
                 self.get_xml_river(id_, text)
+            except AttributeError:
+                print(f"XMLRiver не смог получить данные по {text}")
+                return -1
+
 
         if status == "WAIT":
             time.sleep(2)
@@ -194,7 +198,8 @@ class AllSection:
         id_ = soup.find("req_id")
         id_ = tag_to_string(id_)[0]
         SERP = self.get_xml_river(id_, text)
-
+        if SERP == -1:
+            return -1
         return SERP
 
     def create_serp_from_arsenkin(self, text):
@@ -236,6 +241,8 @@ class AllSection:
         maska = masked(h1)
         stemming = stemmed(maska["without_minsk"])
         SERP = self.xml_river(maska["with_minsk"])
+        if SERP == -1:
+            return -1
         # TODO сделать по 100 фраз в массиве
         basic_freq = self.get_frequency([maska["with_minsk"]])[0]["Shows"]
         basic_freq += self.get_frequency([f'{maska["without_minsk"]} цена'])[0]["Shows"]
