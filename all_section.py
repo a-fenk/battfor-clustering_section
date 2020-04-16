@@ -89,7 +89,7 @@ class AllSection:
         except KeyError:
             print(f"Ошибка: {resp_json}")
             if resp_json["error_code"] == 71:
-                print("В запросе больше 7 символов, возвращаю 0")
+                print("В запросе больше 7 символов, возвращаю -1")
                 return -1
             return None
 
@@ -149,10 +149,6 @@ class AllSection:
         tmp["source"] = url
         tmp["h1"] = h1
         self.create_out_data(tmp)
-        # self.check_freq()
-        print(f'url {url} добавлен в json')
-        self.count += 1
-        print(f'Всего url добавлено за сессию: {self.count}')
 
     def get_xml_river(self, id_, text):
         SERP = {}
@@ -202,6 +198,7 @@ class AllSection:
         id_ = tag_to_string(id_)[0]
         SERP = self.get_xml_river(id_, text)
         if SERP == -1:
+            print("serp =", SERP)
             return -1
         return SERP
 
@@ -245,7 +242,7 @@ class AllSection:
         stemming = stemmed(maska["without_minsk"])
         SERP = self.xml_river(maska["with_minsk"])
         if SERP == -1:
-            return -1
+            return
         # TODO сделать по 100 фраз в массиве
         basic_freq = self.get_frequency([maska["with_minsk"]])[0]["Shows"]
         basic_freq += self.get_frequency([f'{maska["without_minsk"]} цена'])[0]["Shows"]
@@ -307,15 +304,15 @@ class AllSection:
         # data = list_site
         print(f'Template по {template} обработан')
         data_from_template = [self.generate_template(template)]
-        if data_from_template == -1:
-            return
-        data_in_json = json_work("other_files/all_section.json", "r")
+        if data_from_template:
+            data_in_json = json_work("other_files/all_section.json", "r")
+                # if self.check_in_allsection(data_from_template, data_in_json):
+            general_data = data_in_json + data_from_template
+            json_work("other_files/all_section.json", "w", general_data)
 
-        # if self.check_in_allsection(data_from_template, data_in_json):
-        general_data = data_in_json + data_from_template
-        json_work("other_files/all_section.json", "w", general_data)
-
-        print('Записан в файл')
+            print(f'url {template["source"]} добавлен в json')
+            self.count += 1
+            print(f'Всего url добавлено за сессию: {self.count}')
         return
 
     def delete_duplicates(self, ser_from, ser_rm):
