@@ -1,6 +1,6 @@
 ''' Константы '''
 
-
+# TODO перенести стоп слова в txt
 STOPWORDS = ["цены", "гродно"]
 EXCEPT_URLS = ["https://redsale.by", "https://redsale.by/partner", "https://redsale.by/about"]
 

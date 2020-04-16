@@ -2,6 +2,7 @@ import os
 import re
 import sys
 import time
+from concurrent.futures.thread import ThreadPoolExecutor
 from datetime import datetime
 
 from clustering import Clustering
@@ -244,10 +245,8 @@ class Queries:
         print(keys)
         print(f'Ключей получено: {len(keys)}')
         time.sleep(2)
-        # keys = self.clean_double(keys)  # удаление дублей
 
         if len(keys) > 0:
-            # self.checkin_main(self.main_file, keys)  # Удаление ключей присутствующих в main_file
             self.generate_pretmp(keys)  # генерация претемплейтов по ключам c уникальным stemming
             print("Ключи после удаления:")
             for item in self.work_file:
@@ -255,13 +254,11 @@ class Queries:
             print(f'Ключей после удаления дублей: {len(self.work_file)}')
             time.sleep(2)
             if len(self.work_file) > 0:
-                # l = Lock()
-                # p = Pool(initializer=init, initargs=(l,), processes=5)
-                # p.map(self.template_generated, self.work_file)  # генерация конечного темплейта
-                # p.close()
-                # p.join()
-                for item in self.work_file:
-                    self.template_generated(item)
+                # for item in self.work_file:
+                with ThreadPoolExecutor(5) as executor:
+                    for _ in executor.map(self.template_generated, self.work_file):
+                        pass
+                    # self.template_generated(item)
 
         work = json_work("other_files/work_file.json", "r")
         gen_data = sorted(work, key=lambda x: x["frequency"]["accurate"], reverse=True)

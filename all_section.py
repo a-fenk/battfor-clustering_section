@@ -6,10 +6,10 @@ from datetime import datetime, timedelta
 
 import pandas as pd
 
+from concurrent.futures import ThreadPoolExecutor
 import requests
 from bs4 import BeautifulSoup
 from lxml import etree
-from multiprocessing import *
 
 from all_constants import TOKEN_YM, SITE_MAP, API_XMLRIVER
 from helping_functions import tag_to_string, masked, stemmed, json_work, get_request_to_ya, \
@@ -150,6 +150,9 @@ class AllSection:
         tmp["h1"] = h1
         self.create_out_data(tmp)
         self.check_freq()
+        print(f'url {url} добавлен в json')
+        self.count += 1
+        print(f'Всего url добавлено за сессию: {self.count}')
 
     def get_xml_river(self, id_, text):
         SERP = {}
@@ -337,11 +340,12 @@ class AllSection:
                 print(f"url {item['source']} был удален из json")
                 self.all_section.pop(idx)  # удаление элементов, отсутствующих в sitemap
         json_work("other_files/all_section.json", "w", self.all_section)
-        for url in url_to_add:
-            self.get_h1_from_url(url)
-            print(f'url {url} добавлен в json')
-            self.count += 1
-            print(f'Всего url добавлено за сессию: {self.count}')
+        # for url in url_to_add:  # здесь должны включаться потоки
+        with ThreadPoolExecutor(5) as executor:
+            for _ in executor.map(self.get_h1_from_url, url_to_add):
+                pass
+        # self.get_h1_from_url(url)
+
     # обновление serp sitemap
     def update_serp(self):
         for item in self.all_section:
