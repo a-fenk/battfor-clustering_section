@@ -55,7 +55,7 @@ class AllSection:
             data = resp_json["data"]
             self.delete_wordstat_report(id_)
             out = data["Phrases"]
-            print(out)
+            # print(out)
             return out
         except (KeyError, TypeError):
             print(f"{resp_json}")
@@ -149,7 +149,7 @@ class AllSection:
         tmp["source"] = url
         tmp["h1"] = h1
         self.create_out_data(tmp)
-        self.check_freq()
+        # self.check_freq()
         print(f'url {url} добавлен в json')
         self.count += 1
         print(f'Всего url добавлено за сессию: {self.count}')
@@ -182,7 +182,7 @@ class AllSection:
 
         if status == "WAIT":
             time.sleep(2)
-            print(multiprocessing.current_process())
+            # print(multiprocessing.current_process())
             print(f"Ждём SERP по {text}")
             return self.get_xml_river(id_, text)
 
@@ -272,7 +272,8 @@ class AllSection:
         try:
             list_title_in_serp = serp["title"]
         except KeyError:
-            print(serp)
+            pass
+            # print(serp)
 
         # print(f'Все title из serp - {list_title_in_serp}')
         list_title_in_maska = stemming.split(' ')
@@ -308,15 +309,11 @@ class AllSection:
         data_from_template = [self.generate_template(template)]
         if data_from_template == -1:
             return
-        lock.acquire()
-        try:
-            data_in_json = json_work("other_files/all_section.json", "r")
+        data_in_json = json_work("other_files/all_section.json", "r")
 
-            if self.check_in_allsection(data_from_template, data_in_json):
-                general_data = data_in_json + data_from_template
-                json_work("other_files/all_section.json", "w", general_data)
-        finally:
-            lock.release()
+        # if self.check_in_allsection(data_from_template, data_in_json):
+        general_data = data_in_json + data_from_template
+        json_work("other_files/all_section.json", "w", general_data)
 
         print('Записан в файл')
         return
