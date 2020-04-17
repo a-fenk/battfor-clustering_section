@@ -1,3 +1,4 @@
+import json
 import multiprocessing
 import re
 import sys
@@ -180,7 +181,6 @@ class AllSection:
                 print(f"XMLRiver не смог получить данные по {text}")
                 return -1
 
-
         if status == "WAIT":
             time.sleep(2)
             # print(multiprocessing.current_process())
@@ -309,14 +309,17 @@ class AllSection:
         print(f'Template по {template} обработан')
         data_from_template = [self.generate_template(template)]
         if data_from_template is not None:
-            data_in_json = json_work("other_files/all_section.json", "r")
-                # if self.check_in_allsection(data_from_template, data_in_json):
-            general_data = data_in_json + data_from_template
-            json_work("other_files/all_section.json", "w", general_data)
+            try:
+                data_in_json = json_work("other_files/all_section.json", "r")
+                general_data = data_in_json + data_from_template
+                json_work("other_files/all_section.json", "w", general_data)
 
-            print(f'url {template["source"]} добавлен в json')
-            self.count += 1
-            print(f'Всего url добавлено за сессию: {self.count}')
+                print(f'url {template["source"]} добавлен в json')
+                self.count += 1
+                print(f'Всего url добавлено за сессию: {self.count}')
+            except json.decoder.JSONDecodeError:
+                print("json decode error")
+                self.create_out_data(template)
         else:
             print("data_from_template = None")
         return
@@ -344,6 +347,9 @@ class AllSection:
                 self.all_section.pop(idx)
             except KeyError:
                 pass
+
+            # except KeyError:
+            #     self.all_section.pop(idx)
         # json_work("other_files/all_section.json", "w", self.all_section)
         # for url in url_to_add:  # здесь должны включаться потоки
         with ThreadPoolExecutor(5) as executor:
