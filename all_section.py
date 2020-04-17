@@ -100,6 +100,8 @@ class AllSection:
                 url.append(item["source"])
             except TypeError:
                 pass
+            except KeyError:
+                pass
         return pd.Series(url)
 
     def get_frequency(self, phrase):
@@ -340,6 +342,8 @@ class AllSection:
                     self.all_section.pop(idx)  # удаление элементов, отсутствующих в sitemap
             except TypeError:
                 self.all_section.pop(idx)
+            except KeyError:
+                pass
         # json_work("other_files/all_section.json", "w", self.all_section)
         # for url in url_to_add:  # здесь должны включаться потоки
         with ThreadPoolExecutor(5) as executor:
