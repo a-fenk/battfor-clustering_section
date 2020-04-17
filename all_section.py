@@ -106,6 +106,7 @@ class AllSection:
         return pd.Series(url)
 
     def get_frequency(self, phrase):
+        print("Запрос:", phrase)
         id_ = self.create_wordstat_analytics(phrase)
         # TODO выловить ошибку для None
         if id_ == -1:
@@ -123,7 +124,7 @@ class AllSection:
 
         freq = self.get_wordstat_report(id_)
         self.trying_freq = 0
-
+        print(freq)
         return freq
 
     # Получение ссылок из карты сайта
@@ -352,7 +353,7 @@ class AllSection:
             #     self.all_section.pop(idx)
         # json_work("other_files/all_section.json", "w", self.all_section)
         # for url in url_to_add:  # здесь должны включаться потоки
-        with ThreadPoolExecutor(5) as executor:
+        with ThreadPoolExecutor(2) as executor:
             for _ in executor.map(self.get_h1_from_url, url_to_add):
                 pass
         # self.get_h1_from_url(url)
