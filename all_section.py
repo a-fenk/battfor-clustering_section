@@ -96,7 +96,10 @@ class AllSection:
     def get_sources(self):
         url = []
         for item in self.all_section:
-            url.append(item["source"])
+            try:
+                url.append(item["source"])
+            except TypeError:
+                pass
         return pd.Series(url)
 
     def get_frequency(self, phrase):
@@ -241,23 +244,22 @@ class AllSection:
         maska = masked(h1)
         stemming = stemmed(maska["without_minsk"])
         SERP = self.xml_river(maska["with_minsk"])
-        if SERP == -1:
-            return
-        # TODO сделать по 100 фраз в массиве
-        basic_freq = self.get_frequency([maska["with_minsk"]])[0]["Shows"]
-        basic_freq += self.get_frequency([f'{maska["without_minsk"]} цена'])[0]["Shows"]
-        accurate_freq = self.get_frequency([f'"{maska["with_minsk"]}"'])[0]["Shows"]
-        accurate_freq += self.get_frequency([f'"{maska["without_minsk"]} цена"'])[0]["Shows"]
+        if SERP != -1:
+            # TODO сделать по 100 фраз в массиве
+            basic_freq = self.get_frequency([maska["with_minsk"]])[0]["Shows"]
+            basic_freq += self.get_frequency([f'{maska["without_minsk"]} цена'])[0]["Shows"]
+            accurate_freq = self.get_frequency([f'"{maska["with_minsk"]}"'])[0]["Shows"]
+            accurate_freq += self.get_frequency([f'"{maska["without_minsk"]} цена"'])[0]["Shows"]
 
-        frequency["basic"] = basic_freq
-        frequency["accurate"] = accurate_freq
-        template_for_sections["h1"] = template["h1"]
-        template_for_sections["maska"] = maska
-        template_for_sections["stemming"] = stemming
-        template_for_sections["source"] = template["source"]
-        template_for_sections["SERP"] = SERP
-        template_for_sections["heading_entry"] = self.get_heading(SERP, stemming)
-        template_for_sections["frequency"] = frequency
+            frequency["basic"] = basic_freq
+            frequency["accurate"] = accurate_freq
+            template_for_sections["h1"] = template["h1"]
+            template_for_sections["maska"] = maska
+            template_for_sections["stemming"] = stemming
+            template_for_sections["source"] = template["source"]
+            template_for_sections["SERP"] = SERP
+            template_for_sections["heading_entry"] = self.get_heading(SERP, stemming)
+            template_for_sections["frequency"] = frequency
 
         return template_for_sections
 
@@ -304,7 +306,7 @@ class AllSection:
         # data = list_site
         print(f'Template по {template} обработан')
         data_from_template = [self.generate_template(template)]
-        if data_from_template:
+        if data_from_template is not None:
             data_in_json = json_work("other_files/all_section.json", "r")
                 # if self.check_in_allsection(data_from_template, data_in_json):
             general_data = data_in_json + data_from_template
@@ -313,6 +315,8 @@ class AllSection:
             print(f'url {template["source"]} добавлен в json')
             self.count += 1
             print(f'Всего url добавлено за сессию: {self.count}')
+        else:
+            print("data_from_template = None")
         return
 
     def delete_duplicates(self, ser_from, ser_rm):
@@ -330,10 +334,13 @@ class AllSection:
         url_to_delete = self.delete_duplicates(sources_json, self.list_url)  # Получаем серию URL которую нужно удалить
         url_to_add = self.delete_duplicates(self.list_url, sources_json)  # Получаем серию URL которую добавить
         for idx, item in enumerate(self.all_section):
-            if (url_to_delete.isin([item['source']])).any():
-                print(f"url {item['source']} был удален из json")
-                self.all_section.pop(idx)  # удаление элементов, отсутствующих в sitemap
-        json_work("other_files/all_section.json", "w", self.all_section)
+            try:
+                if (url_to_delete.isin([item['source']])).any():
+                    print(f"url {item['source']} был удален из json")
+                    self.all_section.pop(idx)  # удаление элементов, отсутствующих в sitemap
+            except TypeError:
+                self.all_section.pop(idx)
+        # json_work("other_files/all_section.json", "w", self.all_section)
         # for url in url_to_add:  # здесь должны включаться потоки
         with ThreadPoolExecutor(5) as executor:
             for _ in executor.map(self.get_h1_from_url, url_to_add):
