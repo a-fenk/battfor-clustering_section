@@ -11,6 +11,7 @@ from concurrent.futures import ThreadPoolExecutor
 import requests
 from bs4 import BeautifulSoup
 from lxml import etree
+import threading
 
 from all_constants import TOKEN_YM, SITE_MAP, API_XMLRIVER
 from helping_functions import tag_to_string, masked, stemmed, json_work, get_request_to_ya, \
@@ -18,10 +19,7 @@ from helping_functions import tag_to_string, masked, stemmed, json_work, get_req
 
 ''' Основная логика'''
 
-# def init(l):
-#     global lock
-
-lock = multiprocessing.Lock()
+lock = threading.Lock()
 
 
 class AllSection:
@@ -90,8 +88,9 @@ class AllSection:
         except KeyError:
             print(f"Ошибка: {resp_json}")
             if resp_json["error_code"] == 71:
-                print("В запросе больше 7 символов, возвращаю -1")
-                return -1
+                print("В запросе больше 7 символов")
+                self.trying_freq = 3
+            print("Возвращаю ничего")
             return None
 
     def get_sources(self):
@@ -106,13 +105,8 @@ class AllSection:
         return pd.Series(url)
 
     def get_frequency(self, phrase):
-        print("Запрос:", phrase)
         id_ = self.create_wordstat_analytics(phrase)
         # TODO выловить ошибку для None
-        if id_ == -1:
-            er = [0]["shown"]
-            er[0]["shown"] = 0
-            return er
         if id_ is None:
             if self.trying_freq < 3:
                 self.trying_freq += 1
@@ -124,7 +118,6 @@ class AllSection:
 
         freq = self.get_wordstat_report(id_)
         self.trying_freq = 0
-        print(freq)
         return freq
 
     # Получение ссылок из карты сайта
@@ -249,10 +242,22 @@ class AllSection:
         SERP = self.xml_river(maska["with_minsk"])
         if SERP != -1:
             # TODO сделать по 100 фраз в массиве
-            basic_freq = self.get_frequency([maska["with_minsk"]])[0]["Shows"]
-            basic_freq += self.get_frequency([f'{maska["without_minsk"]} цена'])[0]["Shows"]
-            accurate_freq = self.get_frequency([f'"{maska["with_minsk"]}"'])[0]["Shows"]
-            accurate_freq += self.get_frequency([f'"{maska["without_minsk"]} цена"'])[0]["Shows"]
+            try:
+                basic_freq = self.get_frequency([maska["with_minsk"]])[0]["Shows"]
+            except TypeError:
+                basic_freq = 0
+            try:
+                basic_freq += self.get_frequency([f'{maska["without_minsk"]} цена'])[0]["Shows"]
+            except TypeError:
+                pass
+            try:
+                accurate_freq = self.get_frequency([f'"{maska["with_minsk"]}"'])[0]["Shows"]
+            except TypeError:
+                accurate_freq = 0
+            try:
+                accurate_freq += self.get_frequency([f'"{maska["without_minsk"]} цена"'])[0]["Shows"]
+            except TypeError:
+                pass
 
             frequency["basic"] = basic_freq
             frequency["accurate"] = accurate_freq
@@ -310,10 +315,12 @@ class AllSection:
         print(f'Template по {template} обработан')
         data_from_template = [self.generate_template(template)]
         if data_from_template is not None:
+            lock.acquire()
             try:
                 data_in_json = json_work("other_files/all_section.json", "r")
                 general_data = data_in_json + data_from_template
                 json_work("other_files/all_section.json", "w", general_data)
+
 
                 print(f'url {template["source"]} добавлен в json')
                 self.count += 1
@@ -321,6 +328,7 @@ class AllSection:
             except json.decoder.JSONDecodeError:
                 print("json decode error")
                 self.create_out_data(template)
+            lock.release()
         else:
             print("data_from_template = None")
         return
@@ -353,7 +361,7 @@ class AllSection:
             #     self.all_section.pop(idx)
         # json_work("other_files/all_section.json", "w", self.all_section)
         # for url in url_to_add:  # здесь должны включаться потоки
-        with ThreadPoolExecutor(2) as executor:
+        with ThreadPoolExecutor(5) as executor:
             for _ in executor.map(self.get_h1_from_url, url_to_add):
                 pass
         # self.get_h1_from_url(url)
