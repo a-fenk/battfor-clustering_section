@@ -6,7 +6,7 @@ import string
 import requests
 from nltk.stem.snowball import SnowballStemmer
 
-from all_constants import STOPWORDS, API_WORDSTAT, TOKEN_YM, EXCEPT_URLS
+from all_constants import API_WORDSTAT, TOKEN_YM, EXCEPT_URLS
 
 from openpyxl import Workbook, load_workbook
 from openpyxl.workbook.workbook import Workbook
@@ -32,12 +32,17 @@ def stemmed(words):
 
 
 def change_mask(text):
+    stopwords = []
+
     text = text.lower()
     text = re.sub('[%s]' % re.escape(string.punctuation), '', text)  # Удаление пунктуации
     tmp = text.split(" ")
     stem_text = stemmed(text)
     word_list = stem_text.split(" ")
-    for word in STOPWORDS:
+    with open("other_files/stopwords.txt", "r") as f:
+        for i in f:
+            stopwords.append(i.strip().lower())
+    for word in stopwords:
         word = stemmed(word)
         for word_ in word_list:
             if word == word_:
