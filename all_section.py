@@ -314,13 +314,12 @@ class AllSection:
         # data = list_site
         print(f'Template по {template} обработан')
         data_from_template = [self.generate_template(template)]
-        if data_from_template is not None:
+        if data_from_template != {}:
             lock.acquire()
             try:
                 data_in_json = json_work("other_files/all_section.json", "r")
                 general_data = data_in_json + data_from_template
                 json_work("other_files/all_section.json", "w", general_data)
-
 
                 print(f'url {template["source"]} добавлен в json')
                 self.count += 1
@@ -357,33 +356,30 @@ class AllSection:
             except KeyError:
                 pass
 
-            # except KeyError:
-            #     self.all_section.pop(idx)
-        # json_work("other_files/all_section.json", "w", self.all_section)
-        # for url in url_to_add:  # здесь должны включаться потоки
         with ThreadPoolExecutor(5) as executor:
             for _ in executor.map(self.get_h1_from_url, url_to_add):
                 pass
         # self.get_h1_from_url(url)
 
     # обновление serp sitemap
-    def update_serp(self):
-        for item in self.all_section:
-            frequency = {}
-
-            basic_freq = self.get_frequency([item["maska"]["with_minsk"]])[0]["Shows"]
-            basic_freq += self.get_frequency([f'{item["maska"]["without_minsk"]} цена'])[0]["Shows"]
-            accurate_freq = self.get_frequency([f'"{item["maska"]["with_minsk"]} "'])[0]["Shows"]
-            accurate_freq += self.get_frequency([f'"{item["maska"]["without_minsk"]} цена"'])[0]["Shows"]
-
-            frequency["basic"] = basic_freq
-            frequency["accurate"] = accurate_freq
-            item["frequency"] = frequency
-
-        json_work("other_files/all_section.json", "w", self.all_section)
+    # def update_serp(self):
+    #     for item in self.all_section:
+    #         frequency = {}
+    #
+    #         basic_freq = self.get_frequency([item["maska"]["with_minsk"]])[0]["Shows"]
+    #         basic_freq += self.get_frequency([f'{item["maska"]["without_minsk"]} цена'])[0]["Shows"]
+    #         accurate_freq = self.get_frequency([f'"{item["maska"]["with_minsk"]} "'])[0]["Shows"]
+    #         accurate_freq += self.get_frequency([f'"{item["maska"]["without_minsk"]} цена"'])[0]["Shows"]
+    #
+    #         frequency["basic"] = basic_freq
+    #         frequency["accurate"] = accurate_freq
+    #         item["frequency"] = frequency
+    #
+    #     json_work("other_files/all_section.json", "w", self.all_section)
 
     # Порядок запуска функций
     def run(self, update=False):
+
         self.list_url = self.get_sitemap(self.sitemap)
         if update:  # Если в командной строке есть update то обновляем all_section
             self.check_sitemap()
