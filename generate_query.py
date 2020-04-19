@@ -5,12 +5,8 @@ import time
 from concurrent.futures.thread import ThreadPoolExecutor
 from datetime import datetime
 
-from clustering import Clustering
-from pprint import pprint
-
-from multiprocessing import *
 import requests
-import schedule
+
 from googleapiclient.discovery import build
 from googleapiclient.http import build_http
 from oauth2client import client, tools, file

@@ -3,7 +3,7 @@ import os
 from openpyxl.styles import PatternFill, Fill
 
 
-from helping_functions import json_work, create_excel
+from helping_functions import json_work, create_excel, set_filename
 
 # data = json_work("other_files/main.json", "r")
 
@@ -120,6 +120,7 @@ class Clustering:
         self.compare_with()
         self.get_dict_from_work()  # получаем список запросов в self.list_query
         try:
+            self.name_doc = set_filename(self.name_doc)
             self.workbook = create_excel(self.name_doc)
             self.sheet = self.workbook.create_sheet()
             self.set_cluster_hard(self.list_query, 0)
