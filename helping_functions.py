@@ -35,6 +35,7 @@ def change_mask(text):
     stopwords = []
 
     text = text.lower()
+    text = text.replace('-', ' ')  # заменяем '-' на пробел
     text = re.sub('[%s]' % re.escape(string.punctuation), '', text)  # Удаление пунктуации
     tmp = text.split(" ")
     stem_text = stemmed(text)

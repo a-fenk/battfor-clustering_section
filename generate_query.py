@@ -237,16 +237,16 @@ class Queries:
     def generate(self, keys, url):
         json_work("other_files/work_file.json", "w", [])
 
-        print("Ключи до удаления:")
-        print(keys)
+        # print("Ключи до удаления:")
+        # print(keys)
         print(f'Ключей получено: {len(keys)}')
         time.sleep(2)
 
         if len(keys) > 0:
             self.generate_pretmp(keys)  # генерация претемплейтов по ключам c уникальным stemming
-            print("Ключи после удаления:")
-            for item in self.work_file:
-                print(item["maska"]["with_minsk"])
+            # print("Ключи после удаления:")
+            # for item in self.work_file:
+            #     print(item["maska"]["with_minsk"])
             print(f'Ключей после удаления дублей: {len(self.work_file)}')
             time.sleep(2)
             if len(self.work_file) > 0:
@@ -275,7 +275,7 @@ class Queries:
             self.generate(keys, "None")
         elif manual_links:
             urls = self.get_links_from_txt()
-            print(urls)
+            # print(urls)
             for url in urls:
                 print(f"Получаю ключи по {url} ...")
                 keys = self.get_keys_from_gls(url)  # получение ключей gsc
@@ -288,12 +288,16 @@ class Queries:
             if not json_work("other_files/list_links.json", "r"):   # если список пустой, наполняем из all_section
                 print("list_link.json пуст, получаю URL из all_section.json ...")
                 self.generate_list_link()
-            urls = json_work("other_files/list_links.json", "r")
-            urls = self.get_urls_with_limit(urls, 5)
+            list_links = json_work("other_files/list_links.json", "r")
+            urls = self.get_urls_with_limit(list_links, 5)    # берем первые пять эл-ов
             for url in urls:
                 keys = self.get_keys_from_gls(url)  # получение ключей gsc
                 if keys:
                     self.generate(keys, url)
+                    list_links.remove(url)
+                    print(f"url {url} был обработан и удален из list_links.json")
+                    print(f"Всего элементов осталось в list_links.json: {len(list_links)}")
+                    json_work("other_files/list_links.json", "w", list_links)
                 else:
                     print("Список ключей пуст.")
 
@@ -356,17 +360,16 @@ class Queries:
         json_work("other_files/list_links.json", "w", list_links)
 
     def get_urls_with_limit(self, list_in, limit):
-        limit -= 1
         list_out = []
         print(f'размер list_links.json: {len(list_in)}')
-        while len(list_out) <= limit and list_in:
-            list_out.append(list_in[0])
-            list_in.pop()[0]
-        print(f'кол-во ссылок, оставшихся в list_links.json: {len(list_in)}')
-        print(f'размер списка на обработку: {len(list_out)}')
-        json_work("other_files/list_links.json", "w", list_in)
-        return list_out
+        print("На обработку:")
+        for url in list_in[0:limit]:
+            list_out.append(url)
+            # list_in.pop(0)
+            print(url)
 
+        print(f'размер списка на обработку: {len(list_out)}')
+        return list_out
 
 
 # if __name__ == "__main__":
