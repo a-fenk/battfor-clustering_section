@@ -51,7 +51,10 @@ def change_mask(text):
                 try:
                     tmp.pop(word_list.index(word_))
                 except IndexError:
-                    tmp.pop(word_list.index(word_) - 1)
+                    try:
+                        tmp.pop(word_list.index(word_) - 1)
+                    except IndexError:
+                        pass
                 # print("после обработки:", tmp)
     return " ".join(tmp)
 

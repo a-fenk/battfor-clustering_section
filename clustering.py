@@ -48,6 +48,7 @@ class Clustering:
         sheet[f"{chr(ord('B') + const)}{idx + index}"] = item["frequency"]["basic"]
         sheet[f"{chr(ord('C') + const)}{idx + index}"] = item["frequency"]["accurate"]
         sheet[f"{chr(ord('D') + const)}{idx + index}"] = item["heading_entry"]
+        sheet[f"{chr(ord('E') + const)}{idx + index}"] = item["H1"]
 
     def set_cluster_hard(self, list_in, cluster_lvl):
         if len(list_in) == 1 and list_in[0] not in self.blacklist:
@@ -86,8 +87,6 @@ class Clustering:
                             self.cluster_to_excel(query1, cluster_lvl, self.index, False)
                             self.index += 1
                             self.blacklist.append(query1)
-                    # if query1 == 'аниматоры для детей 10 лет минск' and query == 'аниматор на детский день рождения минск':
-                    #     print(len(set(query_urls) & set(query_urls1)), cluster_lvl)
                     if len(set(query_urls) & set(query_urls1)) >= 7 and query1 not \
                             in (clustered or self.blacklist) and cluster_lvl < 3:
                         tmp_list.append(query1)
@@ -110,10 +109,23 @@ class Clustering:
     # сравнивает urls с all_section и при 7+ общих присваивает h1
     def compare_with(self):
         all_section = json_work("other_files/all_section.json", "r")
+        tmp = []
         for item in self.work_file:
-            for item_ in all_section:
-                if len(set(item["SERP"]["url"]) & set(item_["SERP"]["url"])) >= 7:
-                    item["H1_"] = item_["h1"]
+            idx = 0
+            flag = False
+            while idx < len(all_section) and not flag:
+            # for item_ in all_section:
+                if len(set(item["SERP"]["url"]) & set(all_section[idx]["SERP"]["url"])) >= 7:
+                    print("success")
+                    print(all_section[idx]["h1"])
+                    item["H1"] = all_section[idx]["h1"]
+                    flag = True
+                else:
+                    item["H1"] = ""
+                idx += 1
+            tmp.append(item)
+        json_work("other_files/work_file.json", "w", tmp)
+
 
     # запуск скрипта
     def run(self):
