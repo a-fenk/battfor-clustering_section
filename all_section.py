@@ -11,7 +11,7 @@ from concurrent.futures import ThreadPoolExecutor
 import requests
 from bs4 import BeautifulSoup
 from lxml import etree
-import threading
+from threading import Lock
 
 from all_constants import TOKEN_YM, SITE_MAP, API_XMLRIVER
 from helping_functions import tag_to_string, masked, stemmed, json_work, get_request_to_ya, \
@@ -19,7 +19,7 @@ from helping_functions import tag_to_string, masked, stemmed, json_work, get_req
 
 ''' Основная логика'''
 
-lock = threading.Lock()
+lock = Lock()
 
 
 class AllSection:
@@ -383,14 +383,11 @@ class AllSection:
         self.list_url = self.get_sitemap(self.sitemap)
         if update:  # Если в командной строке есть update то обновляем all_section
             self.check_sitemap()
-            # self.update_serp() # Полное обновление информации
         else:
-            self.get_h1_from_url(self.list_url)
-            # l = Lock()
-            # p = Pool(initializer=init, initargs=(lock,), processes=5)
-            # p.map(self.get_h1_from_url, self.list_url)
-            # p.join()
-            # p.close()
+            json_work("other_files/all_section.json", "w", [])
+            with ThreadPoolExecutor(5) as executor:
+                for _ in executor.map(self.get_h1_from_url, self.list_url):
+                    pass
 
 
 if __name__ == "__main__":

@@ -10,6 +10,7 @@ import requests
 from googleapiclient.discovery import build
 from googleapiclient.http import build_http
 from oauth2client import client, tools, file
+from threading import Lock
 
 from all_constants import SCOPE_SEARCH, CLIENT_SECRETS, TOKEN_YM
 from all_section import AllSection
@@ -24,9 +25,7 @@ url_ = ["https://redsale.by/remont/poshiv-odezhdy/poshiv-bryuk",
         "https://redsale.by/remont/poshiv-odezhdy/poshiv-bryuk"]
 
 
-# def init(l):
-#     global lock
-#     lock = l
+lock = Lock()
 
 
 class Queries:
@@ -34,7 +33,6 @@ class Queries:
         self.all_section = json_work("other_files/all_section.json", "r")
         self.work_file = []
         self.main_file = json_work("other_files/main.json", "r")
-        self.to_excel_file = json_work("other_files/to_excel.json", "r")
         self.list_links = json_work("other_files/list_links.json", "r")
 
     # TODO найти метод для получения ключей
@@ -170,15 +168,13 @@ class Queries:
         item["SERP"] = serp
         item["heading_entry"] = get_heading(serp, stemming)
         item["frequency"] = frequency
-        # lock.acquire()
-        try:
-            work = json_work("other_files/work_file.json", "r")
-            work.append(item)
-            json_work("other_files/work_file.json", "w", work)
-            print(f'Запрос {maska["with_minsk"]} был добавлен в work_file.json')
-        finally:
-            pass
-            # lock.release()
+
+        lock.acquire()
+        work = json_work("other_files/work_file.json", "r")
+        work.append(item)
+        json_work("other_files/work_file.json", "w", work)
+        print(f'Запрос {maska["with_minsk"]} был добавлен в work_file.json')
+        lock.release()
 
     def checkin_main(self, main_file, keys):
         for item in main_file:
@@ -209,30 +205,9 @@ class Queries:
     def checkin_stemming(self, stemmings, item):
         for item_ in stemmings:
             if set(item["stemming"].split(' ')) == set(item_["stemming"].split(' ')):
-                #print(f'{item["stemming"]} = {item_["stemming"]}')
+                # print(f'{item["stemming"]} = {item_["stemming"]}')
                 return False
         return True
-
-    # def clean_double_2(self, list_from, list_rm):
-    #
-    #     for idx1, item1 in enumerate(list_from):
-    #         for idx2, item2 in enumerate(list_rm):
-    #             count_match = len(set(item1["stemming"].split()) & set(item2["stemming"].split()))
-    #             len_stemm = max(len(item1["stemming"].split()), len(item2["stemming"].split()))
-    #             # print(F"Кол {count_match} длинна {len_stemm} стемм1 {item1['stemming']} стемм2 {item2['stemming']}")
-    #             if count_match == len_stemm or item1["stemming"] == item2["stemming"]:
-    #                 list_rm.pop(idx2)
-    #
-    #     if not self.checkin_double(list_rm):
-    #         return self.clean_double_2(self.work_file, self.work_file)
-    #
-    # def checkin_double(self, list_):
-    #     list_1 = [i["stemming"] for i in list_]
-    #     for item in list_1:
-    #          if list_1.count(item) > 1:
-    #              return False
-    #
-    #     return True
 
     def generate(self, keys, url):
         json_work("other_files/work_file.json", "w", [])
@@ -262,6 +237,7 @@ class Queries:
         gen_data += json_work("other_files/main.json", "r")
         gen_data = sorted(gen_data, key=lambda x: x["frequency"]["accurate"], reverse=True)
         json_work("other_files/main.json", "w", gen_data)
+        print(f"url {url} обработан")
         clustering = Clustering(json_work("other_files/work_file.json", "r"), url)
         clustering.run()
         return
@@ -285,11 +261,11 @@ class Queries:
                     print("Список ключей пуст.")
 
         else:
-            if not json_work("other_files/list_links.json", "r"):   # если список пустой, наполняем из all_section
+            if not json_work("other_files/list_links.json", "r"):  # если список пустой, наполняем из all_section
                 print("list_link.json пуст, получаю URL из all_section.json ...")
                 self.generate_list_link()
             list_links = json_work("other_files/list_links.json", "r")
-            urls = self.get_urls_with_limit(list_links, 5)    # берем первые пять эл-ов
+            urls = self.get_urls_with_limit(list_links, 5)  # берем первые пять эл-ов
             for url in urls:
                 keys = self.get_keys_from_gls(url)  # получение ключей gsc
                 if keys:
@@ -302,10 +278,6 @@ class Queries:
                     print("Список ключей пуст.")
 
         print("Завершено")
-
-
-
-
 
         # ''' Кластеризуем work '''
         # if len(main) < 0:
