@@ -35,7 +35,6 @@ def change_mask(text):
     stopwords = []
 
     text = text.lower()
-    text = text.replace('-', ' ')  # заменяем '-' на пробел
     text = re.sub('[%s]' % re.escape(string.punctuation), '', text)  # Удаление пунктуации
     tmp = text.split(" ")
     stem_text = stemmed(text)
@@ -76,7 +75,8 @@ def check_geo(text):
 
 def masked(text):
     maska = {}
-    text = re.sub(r"\(\w+\)", "", text)
+    text = text.replace('-', ' ')  # заменяем '-' на пробел
+    text = re.sub(r"\((.*?)\)", "", text)   # удаляем скобки и их содержание
     text = change_mask(text).strip()
     with_minsk = text.replace('в минске', 'минск')
     if with_minsk.count("минск") < 1 and check_geo(with_minsk):

@@ -340,6 +340,21 @@ class AllSection:
         ser_from = ser_from.reset_index(drop=True)
         return ser_from
 
+    def support_delete(self):
+
+        f = json_work("other_files/all_section.json", "r")
+        list_ = []
+        count = 0
+        for item in f:
+            if not re.search('-', item["h1"]):
+                list_.append(item)
+            else:
+                print(item['h1'])
+                count += 1
+        print(count)
+        json_work("other_files/all_section.json", "w", list_)
+        self.all_section = json_work("other_files/all_section.json", "r")
+
     def check_sitemap(self):
         sources_json = self.get_sources()
         print(f"Всего URL в sitemap: {self.list_url.size}")
@@ -355,6 +370,7 @@ class AllSection:
                 self.all_section.pop(idx)
             except KeyError:
                 pass
+        json_work("other_files/all_section.json", "w", self.all_section)
 
         with ThreadPoolExecutor(5) as executor:
             for _ in executor.map(self.get_h1_from_url, url_to_add):
@@ -379,7 +395,7 @@ class AllSection:
 
     # Порядок запуска функций
     def run(self, update=False):
-
+        # self.support_delete()     # удаление элементов содержащих '-' в h1
         self.list_url = self.get_sitemap(self.sitemap)
         if update:  # Если в командной строке есть update то обновляем all_section
             self.check_sitemap()
