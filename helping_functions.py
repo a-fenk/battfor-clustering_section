@@ -46,8 +46,13 @@ def change_mask(text):
         word = stemmed(word)
         for word_ in word_list:
             if word == word_:
-                tmp.pop(word_list.index(word_))
-
+                # print("до обработки:", tmp)
+                # print(word, "==", word_)
+                try:
+                    tmp.pop(word_list.index(word_))
+                except IndexError:
+                    tmp.pop(word_list.index(word_) - 1)
+                # print("после обработки:", tmp)
     return " ".join(tmp)
 
 

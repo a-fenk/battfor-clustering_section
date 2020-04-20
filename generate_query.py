@@ -123,9 +123,9 @@ class Queries:
             tmp_queries["maska"] = masked(key)
             without_minsk = tmp_queries["maska"]["without_minsk"]
             tmp_queries["stemming"] = stemmed(without_minsk)
-            if self.checkin_stemming(list_tmp, tmp_queries):
-                if self.checkin_stemming(self.all_section, tmp_queries):
-                    if self.checkin_stemming(self.main_file, tmp_queries):
+            if self.checkin_stemming(list_tmp, tmp_queries):    # проверка на совпадение раннее
+                if self.checkin_stemming(self.all_section, tmp_queries):    # проверка на совпадение в all_section
+                    if self.checkin_stemming(self.main_file, tmp_queries):  # проверка на совпадение в main_file
                         list_tmp.append(tmp_queries)
         # print(list_tmp)
         self.work_file = list_tmp
@@ -215,7 +215,6 @@ class Queries:
         # print("Ключи до удаления:")
         # print(keys)
         print(f'Ключей получено: {len(keys)}')
-        time.sleep(2)
 
         if len(keys) > 0:
             self.generate_pretmp(keys)  # генерация претемплейтов по ключам c уникальным stemming
@@ -231,15 +230,17 @@ class Queries:
                         pass
                     # self.template_generated(item)
 
-        work = json_work("other_files/work_file.json", "r")
-        gen_data = sorted(work, key=lambda x: x["frequency"]["accurate"], reverse=True)
-        json_work("other_files/work_file.json", "w", gen_data)
-        gen_data += json_work("other_files/main.json", "r")
-        gen_data = sorted(gen_data, key=lambda x: x["frequency"]["accurate"], reverse=True)
-        json_work("other_files/main.json", "w", gen_data)
-        print(f"url {url} обработан")
-        clustering = Clustering(json_work("other_files/work_file.json", "r"), url)
-        clustering.run()
+                work = json_work("other_files/work_file.json", "r")
+                gen_data = sorted(work, key=lambda x: x["frequency"]["accurate"], reverse=True)
+                json_work("other_files/work_file.json", "w", gen_data)
+                gen_data += json_work("other_files/main.json", "r")
+                gen_data = sorted(gen_data, key=lambda x: x["frequency"]["accurate"], reverse=True)
+                json_work("other_files/main.json", "w", gen_data)
+                print(f"url {url} обработан")
+                clustering = Clustering(json_work("other_files/work_file.json", "r"), url)
+                clustering.run()
+            else:
+                print("Перехожу к следующему url")
         return
 
     # Запуск скрипта
