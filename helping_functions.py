@@ -133,8 +133,6 @@ def get_request_to_ya(data):
 
 
 def create_excel(name_doc):
-    num = 0
-
     try:
         workbook = load_workbook(filename=f"excel_files/{name_doc}.xlsx")
     except:
@@ -147,7 +145,7 @@ def create_excel(name_doc):
 def set_filename(name_doc):
     num = 0
     try:
-        name_doc = os.listdir("excel_files")[-1].split(".")[0]
+        # name_doc = os.listdir("excel_files")[-1].split(".")[0]
         workbook = load_workbook(filename=f"excel_files/{name_doc}.xlsx")
         if len(workbook.worksheets) > 10:
             del workbook["Sheet"]

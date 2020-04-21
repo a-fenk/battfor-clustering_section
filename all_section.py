@@ -31,6 +31,20 @@ class AllSection:
         self.trying_freq = 0
         self.count = 0
 
+    # удаление всех отчетов
+    def delete_all_reports(self):
+        data = {
+            "method": "GetForecastList",
+            "token": TOKEN_YM
+        }
+
+        resp_json = get_request_to_ya(data)
+
+        for item in resp_json["data"]:
+            print(f'Отчет №{item["ForecastID"]} был удален')
+            self.delete_wordstat_report(item["ForecastID"])
+
+
     # удаление отчета аналитики
     def delete_wordstat_report(self, id_):
         data = {
@@ -90,8 +104,12 @@ class AllSection:
             if resp_json["error_code"] == 71:
                 print("В запросе больше 7 символов")
                 self.trying_freq = 3
-            print("Возвращаю ничего")
-            return None
+            elif resp_json["error_code"] == 31:
+                id_ = self.create_wordstat_analytics(phrase)
+                return id_
+            else:
+                print("Возвращаю ничего")
+                return None
 
     def get_sources(self):
         url = []
@@ -393,8 +411,10 @@ class AllSection:
     #
     #     json_work("other_files/all_section.json", "w", self.all_section)
 
+
     # Порядок запуска функций
     def run(self, update=False):
+        # self.delete_all_reports() # удаление отчетов
         # self.support_delete()     # удаление элементов содержащих '-' в h1
         self.list_url = self.get_sitemap(self.sitemap)
         if update:  # Если в командной строке есть update то обновляем all_section

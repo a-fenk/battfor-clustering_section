@@ -89,6 +89,7 @@ class Queries:
                 for row in result["rows"]:
                     keys_list.append(row["keys"][0])
             except KeyError:
+                print("ошибкa!")
                 print(result)
 
             return keys_list
@@ -151,18 +152,40 @@ class Queries:
         # l = Lock()
         frequency = {}
         maska = item["maska"]
-        serp = get_serp(maska["with_minsk"])
-        if serp == -1:
-            print(f'Отменяем дальнейшую работу с запросом {maska["with_minsk"]}')
-            return
         stemming = item["stemming"]
         try:
             basic_freq = get_frequency([maska["with_minsk"]])[0]["Shows"]
             basic_freq += get_frequency([f'{maska["without_minsk"]} цена'])[0]["Shows"]
+            if basic_freq == 0:
+                frequency["basic"] = 0
+                frequency["accurate"] = 0
+                item["frequency"] = frequency
+                lock.acquire()
+                main = json_work("other_files/main.json", "r")
+                main.append(item)
+                json_work("other_files/main.json", "w", main)
+                print(f'Запрос {maska["with_minsk"]} был добавлен в main.json')
+                lock.release()
+                return
             accurate_freq = get_frequency([f'"{maska["with_minsk"]}"'])[0]["Shows"]
             accurate_freq += get_frequency([f'"{maska["without_minsk"]} цена"'])[0]["Shows"]
         except TypeError:
-            (basic_freq, accurate_freq) = 0, 0
+            frequency["basic"] = 0
+            frequency["accurate"] = 0
+            item["frequency"] = frequency
+            lock.acquire()
+            main = json_work("other_files/main.json", "r")
+            main.append(item)
+            json_work("other_files/main.json", "w", main)
+            print(f'Запрос {maska["with_minsk"]} был добавлен в main.json')
+            lock.release()
+            return
+
+        serp = get_serp(maska["with_minsk"])
+        if serp == -1:
+            print(f'Отменяем дальнейшую работу с запросом {maska["with_minsk"]}')
+            return
+
         frequency["basic"] = basic_freq
         frequency["accurate"] = accurate_freq
         item["SERP"] = serp
@@ -210,41 +233,36 @@ class Queries:
         return True
 
     def generate(self, keys, url):
-        json_work("other_files/work_file.json", "w", [])
+        json_work("other_files/work_file.json", "w", [])    # обнуляем work
 
-        # print("Ключи до удаления:")
-        # print(keys)
         print(f'Ключей получено: {len(keys)}')
 
         if len(keys) > 0:
             self.generate_pretmp(keys)  # генерация претемплейтов по ключам c уникальным stemming
-            # print("Ключи после удаления:")
-            # for item in self.work_file:
-            #     print(item["maska"]["with_minsk"])
             print(f'Ключей после удаления дублей: {len(self.work_file)}')
             time.sleep(2)
             if len(self.work_file) > 0:
-                # for item in self.work_file:
                 with ThreadPoolExecutor(5) as executor:
                     for _ in executor.map(self.template_generated, self.work_file):
                         pass
-                    # self.template_generated(item)
-
                 work = json_work("other_files/work_file.json", "r")
-                gen_data = sorted(work, key=lambda x: x["frequency"]["accurate"], reverse=True)
-                json_work("other_files/work_file.json", "w", gen_data)
-                gen_data += json_work("other_files/main.json", "r")
-                gen_data = sorted(gen_data, key=lambda x: x["frequency"]["accurate"], reverse=True)
-                json_work("other_files/main.json", "w", gen_data)
-                print(f"url {url} обработан")
-                clustering = Clustering(json_work("other_files/work_file.json", "r"), url)
-                clustering.run()
+                if len(work) > 0:
+                    gen_data = sorted(work, key=lambda x: x["frequency"]["basic"], reverse=True)
+                    json_work("other_files/work_file.json", "w", gen_data)
+                    gen_data += json_work("other_files/main.json", "r")
+                    gen_data = sorted(gen_data, key=lambda x: x["frequency"]["basic"], reverse=True)
+                    json_work("other_files/main.json", "w", gen_data)
+                    print(f"url {url} обработан")
+                    clustering = Clustering(json_work("other_files/work_file.json", "r"), url)
+                    clustering.run()
             else:
                 print("Перехожу к следующему url")
         return
 
     # Запуск скрипта
     def run(self, manual_keys=False, manual_links=False):
+        # all_section.delete_all_reports()
+
         keys = []
         # self.get_from_ym(url)
         if manual_keys:
@@ -267,7 +285,9 @@ class Queries:
                 self.generate_list_link()
             list_links = json_work("other_files/list_links.json", "r")
             urls = self.get_urls_with_limit(list_links, 5)  # берем первые пять эл-ов
+            print(urls)
             for url in urls:
+                print(f"Получаю ключи по {url} ...")
                 keys = self.get_keys_from_gls(url)  # получение ключей gsc
                 if keys:
                     self.generate(keys, url)

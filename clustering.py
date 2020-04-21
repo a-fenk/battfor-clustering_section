@@ -1,4 +1,5 @@
 import os
+from pprint import pprint
 
 from openpyxl.styles import PatternFill, Fill
 
@@ -114,18 +115,15 @@ class Clustering:
             idx = 0
             flag = False
             while idx < len(all_section) and not flag:
-            # for item_ in all_section:
                 if len(set(item["SERP"]["url"]) & set(all_section[idx]["SERP"]["url"])) >= 7:
-                    print("success")
-                    print(all_section[idx]["h1"])
                     item["H1"] = all_section[idx]["h1"]
                     flag = True
                 else:
                     item["H1"] = ""
                 idx += 1
             tmp.append(item)
+        pprint(tmp)
         json_work("other_files/work_file.json", "w", tmp)
-
 
     # запуск скрипта
     def run(self):
