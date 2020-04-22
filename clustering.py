@@ -122,7 +122,6 @@ class Clustering:
                     item["H1"] = ""
                 idx += 1
             tmp.append(item)
-        pprint(tmp)
         json_work("other_files/work_file.json", "w", tmp)
 
     # запуск скрипта

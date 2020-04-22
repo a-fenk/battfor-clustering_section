@@ -42,12 +42,11 @@ def change_mask(text):
     with open("other_files/stopwords.txt", "r") as f:
         for i in f:
             stopwords.append(i.strip().lower())
+
     for word in stopwords:
-        word = stemmed(word)
+        word_st = stemmed(word)
         for word_ in word_list:
-            if word == word_:
-                # print("до обработки:", tmp)
-                # print(word, "==", word_)
+            if word == word_ or word_st == word_:
                 try:
                     tmp.pop(word_list.index(word_))
                 except IndexError:
@@ -55,7 +54,6 @@ def change_mask(text):
                         tmp.pop(word_list.index(word_) - 1)
                     except IndexError:
                         pass
-                # print("после обработки:", tmp)
     return " ".join(tmp)
 
 
@@ -84,7 +82,7 @@ def check_geo(text):
 def masked(text):
     maska = {}
     text = text.replace('-', ' ')  # заменяем '-' на пробел
-    text = re.sub(r"\((.*?)\)", "", text)   # удаляем скобки и их содержание
+    text = re.sub(r"\((.*?)\)", "", text)  # удаляем скобки и их содержание
     text = change_mask(text).strip()
     with_minsk = text.replace('в минске', 'минск')
     if with_minsk.count("минск") < 1 and check_geo(with_minsk):
@@ -137,10 +135,11 @@ def create_excel(name_doc):
         workbook = load_workbook(filename=f"excel_files/{name_doc}.xlsx")
     except:
         workbook = Workbook(iso_dates=True)
-    if len(workbook.worksheets) > 10:
-        for sheetName in workbook.sheetnames:
-            del workbook[sheetName]
+    # if len(workbook.worksheets) > 10:
+    #     for sheetName in workbook.sheetnames:
+    #         del workbook[sheetName]
     return workbook
+
 
 def set_filename(name_doc):
     num = 0
@@ -156,4 +155,3 @@ def set_filename(name_doc):
         return name_doc
     except:
         return name_doc
-

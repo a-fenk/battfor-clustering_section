@@ -103,7 +103,7 @@ class AllSection:
             print(f"Ошибка: {resp_json}")
             if resp_json["error_code"] == 71:
                 print("В запросе больше 7 символов")
-                self.trying_freq = 3
+                self.trying_freq = 5
             elif resp_json["error_code"] == 31:
                 id_ = self.create_wordstat_analytics(phrase)
                 return id_
@@ -126,7 +126,7 @@ class AllSection:
         id_ = self.create_wordstat_analytics(phrase)
         # TODO выловить ошибку для None
         if id_ is None:
-            if self.trying_freq < 3:
+            if self.trying_freq < 5:
                 self.trying_freq += 1
                 return self.get_frequency(phrase)
             else:
@@ -215,7 +215,6 @@ class AllSection:
         id_ = tag_to_string(id_)[0]
         SERP = self.get_xml_river(id_, text)
         if SERP == -1:
-            print("serp =", SERP)
             return -1
         return SERP
 

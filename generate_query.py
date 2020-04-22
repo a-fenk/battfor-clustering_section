@@ -52,7 +52,7 @@ class Queries:
     # Получение ключевых фраз из GSC
     def get_keys_from_gls(self, url):
         request = {
-            "startDate": "2020-03-01",
+            "startDate": "2019-03-01",
             "endDate": "2020-03-15",
             "dimensions": ["query"],
 
@@ -164,6 +164,7 @@ class Queries:
                 main = json_work("other_files/main.json", "r")
                 main.append(item)
                 json_work("other_files/main.json", "w", main)
+                print("basic freq = 0")
                 print(f'Запрос {maska["with_minsk"]} был добавлен в main.json')
                 lock.release()
                 return
