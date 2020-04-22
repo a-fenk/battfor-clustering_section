@@ -39,9 +39,10 @@ class AllSection:
         }
 
         resp_json = get_request_to_ya(data)
-
+        size = len(resp_json["data"])
         for item in resp_json["data"]:
-            print(f'Отчет №{item["ForecastID"]} был удален')
+            print(f"Осталось удалить: {size}")
+            size -= 1
             self.delete_wordstat_report(item["ForecastID"])
 
 
@@ -51,7 +52,7 @@ class AllSection:
             "method": "DeleteForecastReport",
             "param": id_
         }
-
+        print(f"репорт №{id_} удален")
         get_request_to_ya(data)
 
     # получение отчета аналитики
