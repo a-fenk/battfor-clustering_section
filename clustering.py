@@ -42,6 +42,7 @@ class Clustering:
         idx = 3
         if color:
             sheet[f"{chr(ord('C') + cluster_lvl)}{idx + index}"].fill = PatternFill("solid", fgColor="9f9f9f")
+        sheet.merge_cells(f"{chr(ord('C') + cluster_lvl)}{idx + index}:F{idx + index}")
         sheet[f"{chr(ord('C') + cluster_lvl)}{idx + index}"] = item
         item = self.get_data(item)
         if cluster_lvl == 0:
@@ -50,7 +51,7 @@ class Clustering:
         sheet[f"{chr(ord('D') + const)}{idx + index}"] = item["frequency"]["basic"]
         sheet[f"{chr(ord('E') + const)}{idx + index}"] = item["frequency"]["accurate"]
         sheet[f"{chr(ord('F') + const)}{idx + index}"] = item["heading_entry"]
-        sheet[f"{chr(ord('A') + const)}{idx + index}"] = item["H1"]
+        sheet[f"A{idx + index}"] = item["H1"]
 
     def set_cluster_hard(self, list_in, cluster_lvl):
         if len(list_in) == 1 and list_in[0] not in self.blacklist:
