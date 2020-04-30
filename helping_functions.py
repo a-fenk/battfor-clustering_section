@@ -160,8 +160,11 @@ def set_filename(name_doc):
 def check_description(descriptions):
     count = 0
     for item in descriptions:
-        if "купить" in item or 'Купить' in item:
-            count += 1
-        if count == 3:
-            return "ffc0cb"
+        try:
+            if "купить" in item or 'Купить' in item:
+                count += 1
+            if count == 3:
+                return "ffc0cb"
+        except TypeError:
+            pass
     return "c1d4be"
