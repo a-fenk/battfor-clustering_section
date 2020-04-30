@@ -1,4 +1,3 @@
-import os
 import re
 import sys
 import time
@@ -52,8 +51,8 @@ class Queries:
     # Получение ключевых фраз из GSC
     def get_keys_from_gls(self, url):
         request = {
-            "startDate": "2019-03-01",
-            "endDate": "2020-03-15",
+            "startDate": "2018-01-01",
+            "endDate": datetime.today().strftime('%Y-%m-%d'),
             "dimensions": ["query"],
 
             "dimensionFilterGroups": [
@@ -69,7 +68,6 @@ class Queries:
             ],
             'rowLimit': 25000,
         }
-
         flow = client.flow_from_clientsecrets(
             CLIENT_SECRETS, scope=SCOPE_SEARCH, message=tools.message_if_missing(CLIENT_SECRETS)
         )
@@ -301,14 +299,6 @@ class Queries:
 
         print("Завершено")
 
-        # ''' Кластеризуем work '''
-        # if len(main) < 0:
-        #     return False
-        # else:
-        #     clasterization = Clasterization(main, url=url)
-        #     clasterization.run()
-        #     return True
-
     # работа по 10 url
     def get_claster_with_count(self, count):
         for link in self.list_links[:count]:
@@ -353,6 +343,7 @@ class Queries:
 
         json_work("other_files/list_links.json", "w", list_links)
 
+
     def get_urls_with_limit(self, list_in, limit):
         list_out = []
         print(f'размер list_links.json: {len(list_in)}')
@@ -365,13 +356,6 @@ class Queries:
         print(f'размер списка на обработку: {len(list_out)}')
         return list_out
 
-
-# if __name__ == "__main__":
-#     queries = Queries()
-#     # queries.run("some_url")
-#     # queries.generate_list_link()
-#     # queries.section_list()
-#     queries.run()
 
 if __name__ == "__main__":
     try:

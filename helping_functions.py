@@ -146,7 +146,7 @@ def set_filename(name_doc):
     try:
         # name_doc = os.listdir("excel_files")[-1].split(".")[0]
         workbook = load_workbook(filename=f"excel_files/{name_doc}.xlsx")
-        if len(workbook.worksheets) > 10:
+        if len(workbook.worksheets) > 25:
             # del workbook["Sheet"]
             while os.path.exists(f"excel_files/{name_doc}.xlsx"):
                 num += 1
@@ -155,3 +155,13 @@ def set_filename(name_doc):
         return name_doc
     except:
         return name_doc
+
+
+def check_description(descriptions):
+    count = 0
+    for item in descriptions:
+        if "купить" in item or 'Купить' in item:
+            count += 1
+        if count == 3:
+            return "ffc0cb"
+    return "c1d4be"

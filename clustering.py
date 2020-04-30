@@ -4,7 +4,7 @@ from pprint import pprint
 from openpyxl.styles import PatternFill, Fill
 
 
-from helping_functions import json_work, create_excel, set_filename
+from helping_functions import json_work, create_excel, set_filename, check_description
 
 # data = json_work("other_files/main.json", "r")
 
@@ -28,28 +28,29 @@ class Clustering:
     def cluster_to_excel(self, item, cluster_lvl, index, color):
         const = 3
         sheet = self.sheet
-        sheet.merge_cells(f"A1:A{chr(ord('A') + const)}1")
+        sheet.merge_cells(f"A1:{chr(ord('F') + const)}1")
         sheet["A1"] = self.url
-        sheet.merge_cells(f"A2:{chr(ord('A') + const)}2")
-        sheet["A2"] = "query"
-        sheet[f"{chr(ord('B') + const)}2"] = "frequency_basic"
-        sheet[f"{chr(ord('C') + const)}2"] = "freq_accurate"
-        sheet[f"{chr(ord('D') + const)}2"] = "heading_entry"
-        sheet[f"{chr(ord('E') + const)}2"] = "H1"
-        sheet.merge_cells(f"A1:{chr(ord('E') + const)}1")
+        sheet["A2"] = "H1"
+        sheet["B2"] = "Новые ключи"
+        sheet.merge_cells(f"C2:{chr(ord('C') + const)}2")
+        sheet["C2"] = "query"
+        sheet[f"{chr(ord('D') + const)}2"] = "frequency_basic"
+        sheet[f"{chr(ord('E') + const)}2"] = "freq_accurate"
+        sheet[f"{chr(ord('F') + const)}2"] = "heading_entry"
         header = sheet["A1"]
         header.style = "Note"
         idx = 3
-        if cluster_lvl == 0:
-            sheet[f"{chr(ord('A') + cluster_lvl)}{idx + index}"].fill = PatternFill("solid", fgColor="c1d4be")
         if color:
-            sheet[f"{chr(ord('A') + cluster_lvl)}{idx + index}"].fill = PatternFill("solid", fgColor="9f9f9f")
-        sheet[f"{chr(ord('A') + cluster_lvl)}{idx + index}"] = item
+            sheet[f"{chr(ord('C') + cluster_lvl)}{idx + index}"].fill = PatternFill("solid", fgColor="9f9f9f")
+        sheet[f"{chr(ord('C') + cluster_lvl)}{idx + index}"] = item
         item = self.get_data(item)
-        sheet[f"{chr(ord('B') + const)}{idx + index}"] = item["frequency"]["basic"]
-        sheet[f"{chr(ord('C') + const)}{idx + index}"] = item["frequency"]["accurate"]
-        sheet[f"{chr(ord('D') + const)}{idx + index}"] = item["heading_entry"]
-        sheet[f"{chr(ord('E') + const)}{idx + index}"] = item["H1"]
+        if cluster_lvl == 0:
+            fgcolor = check_description(item["SERP"]["description"])
+            sheet[f"{chr(ord('C') + cluster_lvl)}{idx + index}"].fill = PatternFill("solid", fgColor=fgcolor)
+        sheet[f"{chr(ord('D') + const)}{idx + index}"] = item["frequency"]["basic"]
+        sheet[f"{chr(ord('E') + const)}{idx + index}"] = item["frequency"]["accurate"]
+        sheet[f"{chr(ord('F') + const)}{idx + index}"] = item["heading_entry"]
+        sheet[f"{chr(ord('A') + const)}{idx + index}"] = item["H1"]
 
     def set_cluster_hard(self, list_in, cluster_lvl):
         if len(list_in) == 1 and list_in[0] not in self.blacklist:

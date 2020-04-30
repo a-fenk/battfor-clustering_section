@@ -125,7 +125,6 @@ class AllSection:
 
     def get_frequency(self, phrase):
         id_ = self.create_wordstat_analytics(phrase)
-        # TODO выловить ошибку для None
         if id_ is None:
             if self.trying_freq < 5:
                 self.trying_freq += 1
