@@ -1,11 +1,15 @@
 import json
+import os
 import re
 import string
 
 import requests
 from nltk.stem.snowball import SnowballStemmer
 
-from all_constants import STOPWORDS, API_WORDSTAT, TOKEN_YM, EXCEPT_URLS
+from all_constants import API_WORDSTAT, TOKEN_YM, EXCEPT_URLS
+
+from openpyxl import Workbook, load_workbook
+from openpyxl.workbook.workbook import Workbook
 
 ''' Вспомогательные функции '''
 
@@ -28,17 +32,28 @@ def stemmed(words):
 
 
 def change_mask(text):
+    stopwords = []
+
     text = text.lower()
     text = re.sub('[%s]' % re.escape(string.punctuation), '', text)  # Удаление пунктуации
     tmp = text.split(" ")
     stem_text = stemmed(text)
     word_list = stem_text.split(" ")
-    for word in STOPWORDS:
-        word = stemmed(word)
-        for word_ in word_list:
-            if word == word_:
-                tmp.pop(word_list.index(word_))
+    with open("other_files/stopwords.txt", "r") as f:
+        for i in f:
+            stopwords.append(i.strip().lower())
 
+    for word in stopwords:
+        word_st = stemmed(word)
+        for word_ in word_list:
+            if word == word_ or word_st == word_:
+                try:
+                    tmp.pop(word_list.index(word_))
+                except IndexError:
+                    try:
+                        tmp.pop(word_list.index(word_) - 1)
+                    except IndexError:
+                        pass
     return " ".join(tmp)
 
 
@@ -66,7 +81,8 @@ def check_geo(text):
 
 def masked(text):
     maska = {}
-    text = re.sub(r"\(\w+\)", "", text)
+    text = text.replace('-', ' ')  # заменяем '-' на пробел
+    text = re.sub(r"\((.*?)\)", "", text)  # удаляем скобки и их содержание
     text = change_mask(text).strip()
     with_minsk = text.replace('в минске', 'минск')
     if with_minsk.count("минск") < 1 and check_geo(with_minsk):
@@ -89,7 +105,6 @@ def split_list(list_in, delimiter="/"):
             if len(list_) > 0:
                 tmp.append(list_)
             list_ = []
-
     return tmp
 
 
@@ -113,3 +128,43 @@ def get_request_to_ya(data):
         return resp_json
     except requests.exceptions.ConnectionError:
         return get_request_to_ya(data)
+
+
+def create_excel(name_doc):
+    try:
+        workbook = load_workbook(filename=f"excel_files/{name_doc}.xlsx")
+    except:
+        workbook = Workbook(iso_dates=True)
+    # if len(workbook.worksheets) > 10:
+    #     for sheetName in workbook.sheetnames:
+    #         del workbook[sheetName]
+    return workbook
+
+
+def set_filename(name_doc):
+    num = 0
+    try:
+        # name_doc = os.listdir("excel_files")[-1].split(".")[0]
+        workbook = load_workbook(filename=f"excel_files/{name_doc}.xlsx")
+        if len(workbook.worksheets) > 25:
+            # del workbook["Sheet"]
+            while os.path.exists(f"excel_files/{name_doc}.xlsx"):
+                num += 1
+                name = name_doc.split("_")[0]
+                name_doc = f"{name}_{num}"
+        return name_doc
+    except:
+        return name_doc
+
+
+def check_description(descriptions):
+    count = 0
+    for item in descriptions:
+        try:
+            if "купить" in item or 'Купить' in item:
+                count += 1
+            if count == 3:
+                return "ffc0cb"
+        except TypeError:
+            pass
+    return "c1d4be"

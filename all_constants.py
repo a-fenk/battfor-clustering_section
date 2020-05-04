@@ -1,9 +1,6 @@
-''' Константы '''
+""" Константы """
 
-
-STOPWORDS = ["цены", "гродно"]
 EXCEPT_URLS = ["https://redsale.by", "https://redsale.by/partner", "https://redsale.by/about"]
-
 
 SITE_MAP = "https://redsale.by/sitemap.xml"
 API_XMLRIVER = "http://xmlriver.com/search/xml?user=1660&key=9d9ea875799adf551c8329d0a6dcf50ed168f9b8&country=2112"

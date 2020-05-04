@@ -1,19 +1,19 @@
-import os
 import re
+import sys
 import time
+from concurrent.futures.thread import ThreadPoolExecutor
 from datetime import datetime
-from pprint import pprint
 
-from multiprocessing import *
 import requests
-import schedule
+
 from googleapiclient.discovery import build
 from googleapiclient.http import build_http
 from oauth2client import client, tools, file
+from threading import Lock
 
 from all_constants import SCOPE_SEARCH, CLIENT_SECRETS, TOKEN_YM
 from all_section import AllSection
-from clasterization import Clasterization
+from clustering import Clustering
 from helping_functions import masked, stemmed, json_work
 
 all_section = AllSection()
@@ -24,9 +24,7 @@ url_ = ["https://redsale.by/remont/poshiv-odezhdy/poshiv-bryuk",
         "https://redsale.by/remont/poshiv-odezhdy/poshiv-bryuk"]
 
 
-def init(l):
-    global lock
-    lock = l
+lock = Lock()
 
 
 class Queries:
@@ -43,20 +41,18 @@ class Queries:
         url_ = url
         url = f"https://api-metrika.yandex.net/stat/v1/data/comparison?" \
               f"end-date=2020-03-31&" \
-              f"ids={id_metrika}&"\
+              f"ids={id_metrika}&" \
               f"metrics=ym:pv:pageviews&" \
               f"start-date=2020-03-01&" \
               f"dimension=pagePath=='{url_}'"
 
-
         response = requests.get(url=url, headers={"Authorization": f"OAuth {TOKEN_YM}"})
-        print(response.text)
 
     # Получение ключевых фраз из GSC
     def get_keys_from_gls(self, url):
         request = {
-            "startDate": "2020-03-01",
-            "endDate": "2019-03-31",
+            "startDate": "2018-01-01",
+            "endDate": datetime.today().strftime('%Y-%m-%d'),
             "dimensions": ["query"],
 
             "dimensionFilterGroups": [
@@ -72,7 +68,6 @@ class Queries:
             ],
             'rowLimit': 25000,
         }
-
         flow = client.flow_from_clientsecrets(
             CLIENT_SECRETS, scope=SCOPE_SEARCH, message=tools.message_if_missing(CLIENT_SECRETS)
         )
@@ -92,6 +87,7 @@ class Queries:
                 for row in result["rows"]:
                     keys_list.append(row["keys"][0])
             except KeyError:
+                print("ошибкa!")
                 print(result)
 
             return keys_list
@@ -126,8 +122,10 @@ class Queries:
             tmp_queries["maska"] = masked(key)
             without_minsk = tmp_queries["maska"]["without_minsk"]
             tmp_queries["stemming"] = stemmed(without_minsk)
-            list_tmp.append(tmp_queries)
-
+            if self.checkin_stemming(list_tmp, tmp_queries):    # проверка на совпадение раннее
+                if self.checkin_stemming(self.all_section, tmp_queries):    # проверка на совпадение в all_section
+                    if self.checkin_stemming(self.main_file, tmp_queries):  # проверка на совпадение в main_file
+                        list_tmp.append(tmp_queries)
         # print(list_tmp)
         self.work_file = list_tmp
 
@@ -148,99 +146,158 @@ class Queries:
 
     # Окончательная генерация темплейта
     def template_generated(self, item):
-        l = Lock()
+        print(item)
+        # l = Lock()
         frequency = {}
         maska = item["maska"]
-        serp = get_serp(maska["with_minsk"])
         stemming = item["stemming"]
+        try:
+            basic_freq = get_frequency([maska["with_minsk"]])[0]["Shows"]
+            basic_freq += get_frequency([f'{maska["without_minsk"]} цена'])[0]["Shows"]
+            if basic_freq == 0:
+                frequency["basic"] = 0
+                frequency["accurate"] = 0
+                item["frequency"] = frequency
+                lock.acquire()
+                main = json_work("other_files/main.json", "r")
+                main.append(item)
+                json_work("other_files/main.json", "w", main)
+                print("basic freq = 0")
+                print(f'Запрос {maska["with_minsk"]} был добавлен в main.json')
+                lock.release()
+                return
+            accurate_freq = get_frequency([f'"{maska["with_minsk"]}"'])[0]["Shows"]
+            accurate_freq += get_frequency([f'"{maska["without_minsk"]} цена"'])[0]["Shows"]
+        except TypeError:
+            frequency["basic"] = 0
+            frequency["accurate"] = 0
+            item["frequency"] = frequency
+            lock.acquire()
+            main = json_work("other_files/main.json", "r")
+            main.append(item)
+            json_work("other_files/main.json", "w", main)
+            print(f'Запрос {maska["with_minsk"]} был добавлен в main.json')
+            lock.release()
+            return
 
-        frequency["basic"] = get_frequency(maska["with_minsk"])
-        frequency["accurate"] = get_frequency(f'"{maska["with_minsk"]}"')
+        serp = get_serp(maska["with_minsk"])
+        if serp == -1:
+            print(f'Отменяем дальнейшую работу с запросом {maska["with_minsk"]}')
+            return
+
+        frequency["basic"] = basic_freq
+        frequency["accurate"] = accurate_freq
         item["SERP"] = serp
         item["heading_entry"] = get_heading(serp, stemming)
         item["frequency"] = frequency
+
         lock.acquire()
-        try:
-            work = json_work("other_files/work_file.json", "r")
-            work.append(item)
-            json_work("other_files/work_file.json", "w", work)
-        finally:
-            lock.release()
+        work = json_work("other_files/work_file.json", "r")
+        work.append(item)
+        json_work("other_files/work_file.json", "w", work)
+        print(f'Запрос {maska["with_minsk"]} был добавлен в work_file.json')
+        lock.release()
 
     def checkin_main(self, main_file, keys):
         for item in main_file:
             if item["query"] in keys:
+                # print(f'запрос {item["query"]} был удален из ключей')
                 keys.remove(item["query"])
 
     # получение ключей из текстового файла
-    def get_key_from_txt(self, keys):
+    def get_key_from_txt(self):
         list_keys = []
-        with open("other_files/keys_.txt") as f:
+        with open("other_files/keys.txt") as f:
             for item in f:
-                if item.strip().lower() not in keys:
+                if item.strip().lower() not in list_keys:
                     list_keys.append(item.strip().lower())
 
         return list_keys
 
-    def clean_double_2(self, list_from, list_rm):
+    # получение ссылок из текстового файла
+    def get_links_from_txt(self):
+        list_links = []
+        with open("other_files/links.txt") as f:
+            for item in f:
+                list_links.append(item.rstrip('\n'))
 
-        for idx1, item1 in enumerate(list_from):
-            for idx2, item2 in enumerate(list_rm):
-                count_match = len(set(item1["stemming"].split()) & set(item2["stemming"].split()))
-                len_stemm = max(len(item1["stemming"].split()), len(item2["stemming"].split()))
-                # print(F"Кол {count_match} длинна {len_stemm} стемм1 {item1['stemming']} стемм2 {item2['stemming']}")
-                if count_match == len_stemm or item1["stemming"] == item2["stemming"]:
-                    list_rm.pop(idx2)
+        return list_links
 
-        if not self.checkin_double(list_rm):
-            return self.clean_double_2(self.work_file, self.work_file)
-
-    def checkin_double(self, list_):
-        list_1 = [i["stemming"] for i in list_]
-        for item in list_1:
-            if list_1.count(item) > 1:
+    # проверка наличия stemming вне зависимости от последовательности слов
+    def checkin_stemming(self, stemmings, item):
+        for item_ in stemmings:
+            if set(item["stemming"].split(' ')) == set(item_["stemming"].split(' ')):
+                # print(f'{item["stemming"]} = {item_["stemming"]}')
                 return False
-
         return True
 
+    def generate(self, keys, url):
+        json_work("other_files/work_file.json", "w", [])    # обнуляем work
+
+        print(f'Ключей получено: {len(keys)}')
+
+        if len(keys) > 0:
+            self.generate_pretmp(keys)  # генерация претемплейтов по ключам c уникальным stemming
+            print(f'Ключей после удаления дублей: {len(self.work_file)}')
+            time.sleep(2)
+            if len(self.work_file) > 0:
+                with ThreadPoolExecutor(5) as executor:
+                    for _ in executor.map(self.template_generated, self.work_file):
+                        pass
+                work = json_work("other_files/work_file.json", "r")
+                if len(work) > 0:
+                    gen_data = sorted(work, key=lambda x: x["frequency"]["basic"], reverse=True)
+                    json_work("other_files/work_file.json", "w", gen_data)
+                    gen_data += json_work("other_files/main.json", "r")
+                    gen_data = sorted(gen_data, key=lambda x: x["frequency"]["basic"], reverse=True)
+                    json_work("other_files/main.json", "w", gen_data)
+                    print(f"url {url} обработан")
+                    clustering = Clustering(json_work("other_files/work_file.json", "r"), url)
+                    clustering.run()
+            else:
+                print("Перехожу к следующему url")
+        return
+
     # Запуск скрипта
-    def run(self, url):
-        # empty = []
-        # json_work("other_files/work_file.json", "w", empty)
-        # print(url)
-        self.get_from_ym(url)
-        # keys = self.get_keys_from_gls(url)  # получение ключей gsc
-        # # keys += self.get_key_from_txt(keys)  # получение ключей из файла
-        # keys = self.clean_double(keys)  # удаление дублей
-        #
-        # if len(keys) > 0:
-        #     self.checkin_main(self.main_file, keys)  # Удаление ключей присутствующих в main_file
-        #     self.generate_pretmp(keys)  # генерация претемплейтов по ключам
-        #     self.clean_double_2(self.work_file, self.work_file)
-        #     self.clean_double_2(self.main_file, self.work_file)  # поиск и удаление совпадений между main и work
-        #     self.clean_double_2(self.all_section,
-        #                         self.work_file)  # поиск и удаление совпадений между work и all_section
-        #
-        #     # json_work("other_files/work_file.json", "w", self.work_file)
-        #     if len(self.work_file) > 0:
-        #         l = Lock()
-        #         p = Pool(initializer=init, initargs=(l,), processes=5)
-        #         p.map(self.template_generated, self.work_file)  # генерация конечного темплейта
-        #         p.close()
-        #         p.join()
-        #
-        #         main = json_work("other_files/main.json", "r")
-        #         work = json_work("other_files/work_file.json", "r")
-        #         gen_data = main + work
-        #         json_work("other_files/main.json", "w", gen_data)
-        #
-        #         ''' Кластеризуем work '''
-        #         if len(work) < 0:
-        #             return False
-        #         else:
-        #             clasterization = Clasterization(work, url=url)
-        #             clasterization.run()
-        #             return True
+    def run(self, manual_keys=False, manual_links=False, sitemap=False):
+        # all_section.delete_all_reports()
+
+        keys = []
+        # self.get_from_ym(url)
+        if manual_keys:
+            keys += self.get_key_from_txt()  # получение ключей из файла
+            self.generate(keys, "None")
+
+        elif manual_links:
+            urls = self.get_links_from_txt()
+            for url in urls:
+                print(f"Получаю ключи по {url} ...")
+                keys = self.get_keys_from_gls(url)  # получение ключей gsc
+                if keys:
+                    self.generate(keys, url)
+                else:
+                    print("Список ключей пуст.")
+
+        elif sitemap:
+            if not json_work("other_files/list_links.json", "r"):  # если список пустой, наполняем из all_section
+                print("list_link.json пуст, получаю URL из all_section.json ...")
+                self.generate_list_link()
+            list_links = json_work("other_files/list_links.json", "r")
+            urls = self.get_urls_with_limit(list_links, 5)  # берем первые пять эл-ов
+            print(urls)
+            for url in urls:
+                print(f"Получаю ключи по {url} ...")
+                keys = self.get_keys_from_gls(url)  # получение ключей gsc
+                if keys:
+                    self.generate(keys, url)
+                    list_links.remove(url)
+                    print(f"url {url} был обработан и удален из list_links.json")
+                    print(f"Всего элементов осталось в list_links.json: {len(list_links)}")
+                    json_work("other_files/list_links.json", "w", list_links)
+                else:
+                    print("Список ключей пуст.")
+
+        print("Завершено")
 
     # работа по 10 url
     def get_claster_with_count(self, count):
@@ -256,14 +313,14 @@ class Queries:
             if not status:
                 count += 1
 
-    # запуск скрипта по списку урлов
-    def start_for_list_url(self, item):
-        url_second_level = re.search(r"https://redsale.by/[^/]+/[^/]+$", item["source"])
-        if url_second_level is not None:
-            self.run(item["source"])
+    # запуск скрипта автоматом
+    def get_all_section_url(self):
 
-    def section_list(self):
-        self.start_for_list_url(self.all_section)
+        url_second_level = re.search(r"https://redsale.by/[^/]+/[^/]+$", item["source"])
+        if url_second_level is None:
+            return None
+
+        return
 
     # запуск скрипта по времени
     def start(self):
@@ -276,7 +333,7 @@ class Queries:
         #     schedule.run_pending()
         #     time.sleep(1)
 
-    # генерация list_links
+    # генерация list_links из all section
     def generate_list_link(self):
         list_links = []
         for item in self.all_section:
@@ -287,8 +344,32 @@ class Queries:
         json_work("other_files/list_links.json", "w", list_links)
 
 
+    def get_urls_with_limit(self, list_in, limit):
+        list_out = []
+        print(f'размер list_links.json: {len(list_in)}')
+        print("На обработку:")
+        for url in list_in[0:limit]:
+            list_out.append(url)
+            # list_in.pop(0)
+            print(url)
+
+        print(f'размер списка на обработку: {len(list_out)}')
+        return list_out
+
+
 if __name__ == "__main__":
+    try:
+        mode = sys.argv[1]
+    except IndexError:
+        mode = ""
     queries = Queries()
-    # queries.run("some_url")
-    # queries.generate_list_link()
-    queries.run("https://redsale.by/remont/stuccoing/shtukaturka-mayakam")
+    if mode == "manual_keys":
+        queries.run(manual_keys=True)
+
+    elif mode == "manual_links":
+        queries.run(manual_links=True)
+
+    elif mode == "sitemap":
+        queries.run(sitemap=True)
+
+
