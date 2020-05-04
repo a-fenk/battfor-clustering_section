@@ -259,7 +259,7 @@ class Queries:
         return
 
     # Запуск скрипта
-    def run(self, manual_keys=False, manual_links=False):
+    def run(self, manual_keys=False, manual_links=False, sitemap=False):
         # all_section.delete_all_reports()
 
         keys = []
@@ -267,9 +267,9 @@ class Queries:
         if manual_keys:
             keys += self.get_key_from_txt()  # получение ключей из файла
             self.generate(keys, "None")
+
         elif manual_links:
             urls = self.get_links_from_txt()
-            # print(urls)
             for url in urls:
                 print(f"Получаю ключи по {url} ...")
                 keys = self.get_keys_from_gls(url)  # получение ключей gsc
@@ -278,7 +278,7 @@ class Queries:
                 else:
                     print("Список ключей пуст.")
 
-        else:
+        elif sitemap:
             if not json_work("other_files/list_links.json", "r"):  # если список пустой, наполняем из all_section
                 print("list_link.json пуст, получаю URL из all_section.json ...")
                 self.generate_list_link()
@@ -369,5 +369,7 @@ if __name__ == "__main__":
     elif mode == "manual_links":
         queries.run(manual_links=True)
 
-    else:
-        queries.run()
+    elif mode == "sitemap":
+        queries.run(sitemap=True)
+
+
