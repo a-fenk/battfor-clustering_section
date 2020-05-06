@@ -219,7 +219,8 @@ class Queries:
         list_links = []
         with open("other_files/links.txt") as f:
             for item in f:
-                list_links.append(item.rstrip('\n'))
+                if "://" in item:
+                    list_links.append(item.rstrip('\n'))
 
         return list_links
 
